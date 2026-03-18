@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>baseballlineup.ca — Gérez votre équipe</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --blue: #1a56db;
+    --blue-dark: #1042b5;
+    --blue-light: #eff6ff;
+    --blue-mid: #3b82f6;
+    --navy: #0f172a;
+    --gray: #64748b;
+    --gray-light: #f1f5f9;
+    --white: #ffffff;
+    --accent: #f59e0b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 20px;
+    color: var(--blue);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--navy); }
+
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+  .lang-toggle {
+    font-size: 13px; font-weight: 600;
+    color: var(--gray);
+    background: none; border: none; cursor: pointer;
+    padding: 6px 10px; border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .lang-toggle:hover { color: var(--blue); background: var(--blue-light); }
+
+  .btn-nav-login {
+    font-size: 14px; font-weight: 600;
+    color: var(--navy); background: none;
+    border: 1.5px solid #e2e8f0;
+    padding: 8px 18px; border-radius: 8px;
+    cursor: pointer; text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-nav-login:hover { border-color: var(--blue); color: var(--blue); }
+
+  .btn-nav-signup {
+    font-size: 14px; font-weight: 700;
+    color: white; background: var(--blue);
+    border: none; padding: 8px 20px; border-radius: 8px;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-nav-signup:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 40px 80px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(160deg, #f8faff 0%, #eef2ff 40%, #f0f9ff 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(26,86,219,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: white; border: 1.5px solid #e0e7ff;
+    color: var(--blue); font-size: 13px; font-weight: 600;
+    padding: 6px 14px; border-radius: 20px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+    box-shadow: 0 2px 8px rgba(26,86,219,0.08);
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(52px, 8vw, 88px);
+    line-height: 0.95; letter-spacing: -1px;
+    color: var(--navy);
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero-title .blue { color: var(--blue); }
+  .hero-title .accent { color: var(--accent); }
+
+  .hero-sub {
+    font-size: clamp(17px, 2.5vw, 21px); font-weight: 400;
+    color: var(--gray); max-width: 560px; line-height: 1.6;
+    margin-bottom: 40px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-cta {
+    display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+    margin-bottom: 72px;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 16px; font-weight: 700;
+    color: white; background: var(--blue);
+    border: none; padding: 14px 30px; border-radius: 10px;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(26,86,219,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,86,219,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 16px; font-weight: 600;
+    color: var(--navy); background: white;
+    border: 1.5px solid #e2e8f0; padding: 14px 30px; border-radius: 10px;
+    cursor: pointer; text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+
+  /* ── APP MOCKUP ── */
+  .hero-mockup {
+    width: 100%; max-width: 900px;
+    animation: fadeUp 0.8s 0.4s ease both;
+    position: relative; z-index: 1;
+  }
+
+  .mockup-browser {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 32px 80px rgba(15,23,42,0.15), 0 8px 24px rgba(15,23,42,0.08);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .browser-bar {
+    background: #f8fafc;
+    border-bottom: 1px solid #e8edf2;
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .browser-dots { display: flex; gap: 6px; }
+  .browser-dots span {
+    width: 11px; height: 11px; border-radius: 50%;
+  }
+  .browser-dots span:nth-child(1) { background: #ff5f56; }
+  .browser-dots span:nth-child(2) { background: #ffbd2e; }
+  .browser-dots span:nth-child(3) { background: #27c93f; }
+
+  .browser-url {
+    flex: 1; background: white; border: 1px solid #e2e8f0;
+    border-radius: 6px; padding: 5px 12px;
+    font-size: 12px; color: var(--gray); font-family: monospace;
+    max-width: 320px; margin: 0 auto;
+  }
+
+  .app-screen {
+    padding: 24px;
+    background: #f8fafc;
+    min-height: 380px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+  }
+
+  .app-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e8edf2;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .app-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--gray); margin-bottom: 12px;
+  }
+
+  .score-display {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--navy); border-radius: 8px; padding: 12px;
+    color: white; margin-bottom: 12px;
+  }
+  .score-team { font-size: 11px; font-weight: 600; opacity: 0.7; text-align: center; }
+  .score-num { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900; }
+  .score-sep { font-size: 18px; opacity: 0.3; }
+
+  .record-row { display: flex; gap: 6px; margin-bottom: 10px; }
+  .record-pill {
+    flex: 1; text-align: center; padding: 6px 4px; border-radius: 6px;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 16px;
+  }
+  .record-pill.win { background: #dcfce7; color: #15803d; }
+  .record-pill.loss { background: #fee2e2; color: #dc2626; }
+  .record-pill.tie { background: #f1f5f9; color: #64748b; }
+  .record-pill small { display: block; font-size: 9px; font-weight: 600; font-family: 'Barlow', sans-serif; opacity: 0.7; }
+
+  .inning-bar { display: flex; gap: 3px; margin-top: 8px; }
+  .inning-seg {
+    flex: 1; height: 6px; border-radius: 3px;
+    background: var(--blue-light);
+  }
+  .inning-seg.done { background: var(--blue); }
+  .inning-seg.current { background: var(--accent); }
+
+  /* Lineup card */
+  .lineup-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 0; border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+  }
+  .lineup-row:last-child { border-bottom: none; }
+  .pos-badge {
+    width: 28px; height: 22px; border-radius: 5px;
+    background: var(--navy); color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .player-num {
+    font-size: 11px; color: var(--gray); font-weight: 600;
+    min-width: 24px;
+  }
+  .player-name { font-weight: 600; font-size: 13px; flex: 1; }
+  .bat-order {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--blue-light); color: var(--blue);
+    font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Players card */
+  .player-stat-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 5px 0; border-bottom: 1px solid #f8fafc;
+  }
+  .player-stat-row:last-child { border-bottom: none; }
+  .avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 12px; color: white; flex-shrink: 0;
+  }
+  .star-row { display: flex; gap: 2px; }
+  .star { font-size: 10px; }
+  .star.on { color: var(--accent); }
+  .star.off { color: #e2e8f0; }
+
+  /* ── FEATURES ── */
+  .features {
+    padding: 100px 40px;
+    background: white;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--blue); margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(36px, 5vw, 52px);
+    line-height: 1; text-align: center;
+    color: var(--navy); margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px; color: var(--gray); text-align: center;
+    max-width: 480px; margin: 0 auto 60px; line-height: 1.6;
+  }
+
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; max-width: 1000px; margin: 0 auto;
+  }
+
+  .feature-card {
+    background: var(--gray-light);
+    border-radius: 16px; padding: 28px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(26,86,219,0.1);
+    border-color: #e0e7ff;
+    background: white;
+  }
+
+  .feature-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--blue-light); color: var(--blue);
+    font-size: 22px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 20px;
+    color: var(--navy); margin-bottom: 8px;
+  }
+
+  .feature-desc {
+    font-size: 15px; color: var(--gray); line-height: 1.6;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    padding: 100px 40px;
+    background: var(--navy);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '⚾';
+    position: absolute; font-size: 300px; opacity: 0.03;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .cta-section .section-label { color: var(--accent); }
+
+  .cta-section .section-title { color: white; }
+
+  .cta-section .section-sub { color: #94a3b8; }
+
+  .btn-primary-light {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 16px; font-weight: 700;
+    color: var(--navy); background: white;
+    border: none; padding: 16px 36px; border-radius: 10px;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  .btn-primary-light:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 40px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 18px; color: var(--blue);
+  }
+
+  .footer-copy {
+    font-size: 13px; color: var(--gray);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .app-screen { grid-template-columns: 1fr; }
+    .app-card:nth-child(2), .app-card:nth-child(3) { display: none; }
+    .features { padding: 60px 20px; }
+    .cta-section { padding: 60px 20px; }
+    footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">baseball<span>lineup</span>.ca</a>
+  <div class="nav-actions">
+    <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
+    <a href="https://baseballlineup.vercel.app" class="btn-nav-login" data-fr="Se connecter" data-en="Sign in">Se connecter</a>
+    <a href="/contact.html" class="btn-nav-signup" data-fr="Commencer gratuitement" data-en="Get started">Commencer gratuitement</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">⚾ <span data-fr="Fait pour les coaches de baseball au Québec" data-en="Built for baseball coaches in Québec">Fait pour les coaches de baseball au Québec</span></div>
+
+  <h1 class="hero-title">
+    <span data-fr="Gérez votre équipe.<br>Générez vos<br><span class='blue'>alignements.</span>" 
+          data-en="Manage your team.<br>Generate your<br><span class='blue'>lineups.</span>">
+      Gérez votre équipe.<br>Générez vos<br><span class="blue">alignements.</span>
+    </span>
+  </h1>
+
+  <p class="hero-sub" data-fr="L'outil simple et puissant pour les coaches de baseball. Roster, calendrier, alignements intelligents — tout en un." data-en="The simple, powerful tool for baseball coaches. Roster, schedule, smart lineups — all in one.">
+    L'outil simple et puissant pour les coaches de baseball. Roster, calendrier, alignements intelligents — tout en un.
+  </p>
+
+  <div class="hero-cta">
+    <a href="/contact.html" class="btn-primary" data-fr="🚀 Créer mon équipe" data-en="🚀 Create my team">🚀 Créer mon équipe</a>
+    <a href="https://baseballlineup.vercel.app" class="btn-secondary" data-fr="Se connecter" data-en="Sign in">Se connecter</a>
+  </div>
+
+  <!-- APP MOCKUP -->
+  <div class="hero-mockup">
+    <div class="mockup-browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="browser-url">baseballlineup.ca</div>
+      </div>
+      <div class="app-screen">
+
+        <!-- Card 1: Dashboard -->
+        <div class="app-card">
+          <div class="app-card-title" data-fr="Tableau de bord" data-en="Dashboard">Tableau de bord</div>
+          <div class="score-display">
+            <div>
+              <div class="score-team" data-fr="NOUS" data-en="US">NOUS</div>
+              <div class="score-num">7</div>
+            </div>
+            <div class="score-sep">—</div>
+            <div>
+              <div class="score-team" data-fr="EUX" data-en="THEM">EUX</div>
+              <div class="score-num">4</div>
+            </div>
+          </div>
+          <div class="record-row">
+            <div class="record-pill win">8 <small data-fr="V" data-en="W">V</small></div>
+            <div class="record-pill loss">3 <small data-fr="D" data-en="L">D</small></div>
+            <div class="record-pill tie">1 <small data-fr="N" data-en="T">N</small></div>
+          </div>
+          <div style="font-size:11px;color:var(--gray);margin-bottom:4px;" data-fr="Progression saison" data-en="Season progress">Progression saison</div>
+          <div class="inning-bar">
+            <div class="inning-seg done"></div>
+            <div class="inning-seg done"></div>
+            <div class="inning-seg done"></div>
+            <div class="inning-seg done"></div>
+            <div class="inning-seg done"></div>
+            <div class="inning-seg done"></div>
+            <div class="inning-seg done"></div>
+            <div class="inning-seg done"></div>
+            <div class="inning-seg current"></div>
+            <div class="inning-seg"></div>
+            <div class="inning-seg"></div>
+            <div class="inning-seg"></div>
+          </div>
+        </div>
+
+        <!-- Card 2: Lineup -->
+        <div class="app-card">
+          <div class="app-card-title" data-fr="Alignement généré" data-en="Generated lineup">Alignement généré</div>
+          <div class="lineup-row">
+            <div class="pos-badge">P</div>
+            <div class="player-num">#12</div>
+            <div class="player-name">Tremblay</div>
+            <div class="bat-order">1</div>
+          </div>
+          <div class="lineup-row">
+            <div class="pos-badge">C</div>
+            <div class="player-num">#5</div>
+            <div class="player-name">Gagnon</div>
+            <div class="bat-order">2</div>
+          </div>
+          <div class="lineup-row">
+            <div class="pos-badge">SS</div>
+            <div class="player-num">#7</div>
+            <div class="player-name">Bouchard</div>
+            <div class="bat-order">3</div>
+          </div>
+          <div class="lineup-row">
+            <div class="pos-badge">1B</div>
+            <div class="player-num">#23</div>
+            <div class="player-name">Côté</div>
+            <div class="bat-order">4</div>
+          </div>
+          <div class="lineup-row">
+            <div class="pos-badge">CF</div>
+            <div class="player-num">#9</div>
+            <div class="player-name">Roy</div>
+            <div class="bat-order">5</div>
+          </div>
+          <div class="lineup-row">
+            <div class="pos-badge">3B</div>
+            <div class="player-num">#18</div>
+            <div class="player-name">Fortin</div>
+            <div class="bat-order">6</div>
+          </div>
+        </div>
+
+        <!-- Card 3: Roster -->
+        <div class="app-card">
+          <div class="app-card-title" data-fr="Roster — 12 joueurs" data-en="Roster — 12 players">Roster — 12 joueurs</div>
+          <div class="player-stat-row">
+            <div class="avatar" style="background:#1a56db">MT</div>
+            <div style="flex:1;font-size:13px;font-weight:600">M. Tremblay</div>
+            <div class="star-row">
+              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span>
+            </div>
+          </div>
+          <div class="player-stat-row">
+            <div class="avatar" style="background:#15803d">LG</div>
+            <div style="flex:1;font-size:13px;font-weight:600">L. Gagnon</div>
+            <div class="star-row">
+              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span><span class="star off">★</span>
+            </div>
+          </div>
+          <div class="player-stat-row">
+            <div class="avatar" style="background:#7c3aed">AB</div>
+            <div style="flex:1;font-size:13px;font-weight:600">A. Bouchard</div>
+            <div class="star-row">
+              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+            </div>
+          </div>
+          <div class="player-stat-row">
+            <div class="avatar" style="background:#dc2626">SC</div>
+            <div style="flex:1;font-size:13px;font-weight:600">S. Côté</div>
+            <div class="star-row">
+              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span>
+            </div>
+          </div>
+          <div class="player-stat-row">
+            <div class="avatar" style="background:#0891b2">PR</div>
+            <div style="flex:1;font-size:13px;font-weight:600">P. Roy</div>
+            <div class="star-row">
+              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span><span class="star off">★</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-label" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</div>
+  <h2 class="section-title" data-fr="Tout ce dont un coach a besoin" data-en="Everything a coach needs">Tout ce dont un coach a besoin</h2>
+  <p class="section-sub" data-fr="Conçu pour les coaches de baseball de niveau mineur et récréatif au Québec." data-en="Designed for minor league and recreational baseball coaches in Québec.">
+    Conçu pour les coaches de baseball de niveau mineur et récréatif au Québec.
+  </p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title" data-fr="Alignements intelligents" data-en="Smart lineups">Alignements intelligents</div>
+      <p class="feature-desc" data-fr="Génération automatique basée sur les préférences, les statistiques et l'historique de chaque joueur." data-en="Automatic generation based on each player's preferences, stats, and history.">
+        Génération automatique basée sur les préférences, les statistiques et l'historique de chaque joueur.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👥</div>
+      <div class="feature-title" data-fr="Gestion du roster" data-en="Roster management">Gestion du roster</div>
+      <p class="feature-desc" data-fr="Profils joueurs complets avec positions préférées, cotes de performance et notes personnalisées." data-en="Complete player profiles with preferred positions, performance ratings, and custom notes.">
+        Profils joueurs complets avec positions préférées, cotes de performance et notes personnalisées.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <div class="feature-title" data-fr="Calendrier de saison" data-en="Season schedule">Calendrier de saison</div>
+      <p class="feature-desc" data-fr="Gérez vos matchs de saison, tournois et séries. Suivez les résultats et scores par manche." data-en="Manage your season games, tournaments, and playoffs. Track results and inning-by-inning scores.">
+        Gérez vos matchs de saison, tournois et séries. Suivez les résultats et scores par manche.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title" data-fr="Statistiques de l'équipe" data-en="Team statistics">Statistiques de l'équipe</div>
+      <p class="feature-desc" data-fr="Tableau de bord avec fiche, statistiques offensives et défensives, progression au fil de la saison." data-en="Dashboard with record, offensive and defensive stats, and season-long progression.">
+        Tableau de bord avec fiche, statistiques offensives et défensives, progression au fil de la saison.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <div class="feature-title" data-fr="Modes de jeu" data-en="Game modes">Modes de jeu</div>
+      <p class="feature-desc" data-fr="Saison régulière, tournoi ou séries — l'algorithme s'adapte à chaque contexte pour optimiser votre alignement." data-en="Regular season, tournament, or playoffs — the algorithm adapts to each context to optimize your lineup.">
+        Saison régulière, tournoi ou séries — l'algorithme s'adapte à chaque contexte.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <div class="feature-title" data-fr="Multi-coach sécurisé" data-en="Secure multi-coach">Multi-coach sécurisé</div>
+      <p class="feature-desc" data-fr="Invitez vos coaches assistants. Chaque équipe est isolée et protégée — vos données restent privées." data-en="Invite your assistant coaches. Each team is isolated and secured — your data stays private.">
+        Invitez vos coaches assistants. Chaque équipe est isolée et protégée.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label" data-fr="Prêt à commencer ?" data-en="Ready to start?">Prêt à commencer ?</div>
+  <h2 class="section-title" data-fr="Votre prochaine saison commence ici." data-en="Your next season starts here.">Votre prochaine saison commence ici.</h2>
+  <p class="section-sub" data-fr="Gratuit. Aucune carte de crédit requise. Configurez votre équipe en 5 minutes." data-en="Free. No credit card required. Set up your team in 5 minutes.">
+    Gratuit. Aucune carte de crédit requise. Configurez votre équipe en 5 minutes.
+  </p>
+  <a href="/contact.html" class="btn-primary-light" data-fr="⚾ Faire une demande" data-en="⚾ Request access">⚾ Faire une demande</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">baseballlineup.ca</div>
+  <div class="footer-copy" data-fr="© 2026 baseballlineup.ca — Fait au Québec 🍁" data-en="© 2026 baseballlineup.ca — Made in Québec 🍁">© 2026 baseballlineup.ca — Fait au Québec 🍁</div>
+</footer>
+
+<script>
+  var lang = 'fr';
+
+  function toggleLang() {
+    lang = lang === 'fr' ? 'en' : 'fr';
+    document.getElementById('lang-btn').textContent = lang === 'fr' ? 'EN' : 'FR';
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-fr]').forEach(function(el) {
+      var text = el.getAttribute('data-' + lang);
+      if (!text) return;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = text;
+      } else {
+        el.innerHTML = text;
+      }
+    });
+  }
+</script>
+</body>
+</html>

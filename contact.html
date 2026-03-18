@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Demande d'accès — baseballlineup.ca</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --blue: #1a56db;
+    --blue-dark: #1042b5;
+    --blue-light: #eff6ff;
+    --navy: #0f172a;
+    --gray: #64748b;
+    --white: #ffffff;
+    --accent: #f59e0b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: linear-gradient(160deg, #f8faff 0%, #eef2ff 50%, #f0f9ff 100%);
+    color: var(--navy);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 20px;
+    color: var(--blue); text-decoration: none;
+  }
+  .nav-logo span { color: var(--navy); }
+
+  .nav-back {
+    font-size: 14px; font-weight: 600; color: var(--gray);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--blue); }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 24px 60px rgba(15,23,42,0.1);
+    padding: 48px;
+    width: 100%; max-width: 480px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-icon {
+    font-size: 40px; margin-bottom: 20px; text-align: center;
+  }
+
+  .card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 32px;
+    color: var(--navy); text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .card-sub {
+    font-size: 15px; color: var(--gray);
+    text-align: center; line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .field { margin-bottom: 20px; }
+
+  label {
+    display: block;
+    font-size: 13px; font-weight: 600; color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  label span { color: #ef4444; }
+
+  input, select, textarea {
+    width: 100%;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 15px; font-family: 'Barlow', sans-serif;
+    color: var(--navy);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(26,86,219,0.1);
+  }
+
+  textarea { resize: none; height: 90px; }
+
+  .btn-submit {
+    width: 100%; padding: 14px;
+    background: var(--blue); color: white;
+    border: none; border-radius: 10px;
+    font-size: 16px; font-weight: 700; font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(26,86,219,0.25);
+    margin-top: 8px;
+  }
+  .btn-submit:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,86,219,0.3);
+  }
+  .btn-submit:disabled {
+    background: #94a3b8; cursor: not-allowed;
+    transform: none; box-shadow: none;
+  }
+
+  .note {
+    font-size: 12px; color: var(--gray);
+    text-align: center; margin-top: 16px; line-height: 1.5;
+  }
+
+  /* Success state */
+  .success {
+    text-align: center; display: none;
+  }
+  .success-icon { font-size: 56px; margin-bottom: 16px; }
+  .success-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 28px; color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .success-sub { font-size: 15px; color: var(--gray); line-height: 1.6; }
+
+  .login-link {
+    display: inline-block; margin-top: 24px;
+    font-size: 14px; font-weight: 600; color: var(--blue);
+    text-decoration: none;
+  }
+  .login-link:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 24px 40px; text-align: center;
+    font-size: 13px; color: var(--gray);
+    border-top: 1px solid #e2e8f0; background: #f8fafc;
+  }
+
+  @media (max-width: 540px) {
+    .card { padding: 32px 24px; }
+    nav { padding: 12px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">baseball<span>lineup</span>.ca</a>
+  <a href="/index.html" class="nav-back">← Retour</a>
+</nav>
+
+<main>
+  <div class="card">
+
+    <!-- FORM STATE -->
+    <div id="form-state">
+      <div class="card-icon">⚾</div>
+      <h1 class="card-title">Créer mon équipe</h1>
+      <p class="card-sub">Remplissez ce formulaire — vous recevrez une invitation par courriel sous 24h.</p>
+
+      <!-- REMPLACE xpwzabcd PAR TON FORM ID FORMSPREE -->
+      <form id="contact-form" action="https://formspree.io/f/mlgpajpk" method="POST">
+
+        <div class="field">
+          <label>Nom de l'équipe <span>*</span></label>
+          <input type="text" name="team_name" placeholder="ex: Les Tigers de Laval" required/>
+        </div>
+
+        <div class="field">
+          <label>Votre nom (coach en chef) <span>*</span></label>
+          <input type="text" name="coach_name" placeholder="ex: Martin Tessier" required/>
+        </div>
+
+        <div class="field">
+          <label>Courriel <span>*</span></label>
+          <input type="email" name="email" placeholder="coach@exemple.com" required/>
+        </div>
+
+        <div class="field">
+          <label>Catégorie d'âge</label>
+          <select name="category">
+            <option value="">— Sélectionner —</option>
+            <option>Initiation (5-7 ans)</option>
+            <option>Moustique (8-9 ans)</option>
+            <option>Pee-Wee (10-11 ans)</option>
+            <option>Bantam (12-13 ans)</option>
+            <option>Midget (14-15 ans)</option>
+            <option>Juvénile / Senior</option>
+            <option>Récréatif adulte</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Message (optionnel)</label>
+          <textarea name="message" placeholder="Questions, commentaires..."></textarea>
+        </div>
+
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none"/>
+
+        <button type="submit" class="btn-submit" id="submit-btn">
+          Envoyer ma demande →
+        </button>
+      </form>
+
+      <p class="note">Vous recevrez une invitation par courriel pour créer votre compte. Aucune carte de crédit requise.</p>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success" id="success-state">
+      <div class="success-icon">✅</div>
+      <div class="success-title">Demande envoyée !</div>
+      <p class="success-sub">Vous recevrez une invitation par courriel sous 24h.<br>Vérifiez aussi vos courriels indésirables.</p>
+      <a href="/index.html" class="login-link">← Retour à l'accueil</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 baseballlineup.ca — Fait au Québec 🍁
+</footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours...';
+
+    var data = new FormData(this);
+    try {
+      var res = await fetch(this.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('form-state').style.display = 'none';
+        document.getElementById('success-state').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Envoyer ma demande →';
+        alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+      }
+    } catch(err) {
+      btn.disabled = false;
+      btn.textContent = 'Envoyer ma demande →';
+      alert('Erreur réseau. Veuillez réessayer.');
+    }
+  });
+</script>
+</body>
+</html>
