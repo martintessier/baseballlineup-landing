@@ -406,8 +406,14 @@
     .btn-nav-signup { display: none; }
     .lang-toggle { padding: 6px 6px; }
     .hero { padding: 100px 20px 60px; }
-    .app-screen { grid-template-columns: 1fr; }
-    .app-card:nth-child(1) { display: none; }
+    .app-screen { grid-template-columns: 1fr; gap: 10px; }
+    /* Cacher M5 et M6 sur mobile — 4 manches suffisent */
+    .app-screen table th:nth-child(6),
+    .app-screen table th:nth-child(7),
+    .app-screen table td:nth-child(6),
+    .app-screen table td:nth-child(7) { display: none; }
+    /* Réduire padding des chips frappeurs */
+    .app-screen .app-card > div[style*="flex-wrap"] > div { padding: 3px 6px; }
     .features { padding: 60px 20px; }
     .cta-section { padding: 60px 20px; }
     footer { padding: 24px 20px; flex-direction: column; text-align: center; }
@@ -581,8 +587,7 @@
           </div>
 
           <!-- Tableau positions × manches (avec couleurs par bloc lanceur) -->
-          <div style="overflow-x:auto;">
-          <table style="width:100%;min-width:520px;border-collapse:collapse;font-size:11px">
+          <table style="width:100%;border-collapse:collapse;font-size:11px">
             <thead>
               <tr>
                 <th style="padding:5px 6px;text-align:left;font-size:10px;font-weight:600;color:#94a3b8;border-bottom:1px solid #e2e8f0;width:32px">Pos</th>
@@ -688,7 +693,6 @@
               </tr>
             </tbody>
           </table>
-          </div>
 
           <!-- Section IA (violet comme dans la vraie app) -->
           <div style="margin-top:12px;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:10px">
