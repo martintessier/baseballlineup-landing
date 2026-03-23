@@ -248,11 +248,25 @@
     max-width: 320px; margin: 0 auto;
   }
 
+  .app-header {
+    background: white;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 9px 16px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .app-header-title {
+    font-size: 13px; font-weight: 700; color: #0f172a;
+  }
+  .app-header-link {
+    position: absolute; right: 16px;
+    font-size: 11px; color: #3b82f6; font-weight: 500;
+  }
+
   .app-screen {
-    padding: 24px;
+    padding: 16px;
     background: #f8fafc;
-    min-height: 380px;
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 12px;
   }
 
   .app-card {
@@ -270,76 +284,6 @@
     color: var(--gray); margin-bottom: 12px;
   }
 
-  .score-display {
-    display: flex; align-items: center; justify-content: space-between;
-    background: var(--navy); border-radius: 8px; padding: 12px;
-    color: white; margin-bottom: 12px;
-  }
-  .score-team { font-size: 11px; font-weight: 600; opacity: 0.7; text-align: center; }
-  .score-num { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900; }
-  .score-sep { font-size: 18px; opacity: 0.3; }
-
-  .record-row { display: flex; gap: 6px; margin-bottom: 10px; }
-  .record-pill {
-    flex: 1; text-align: center; padding: 6px 4px; border-radius: 6px;
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 16px;
-  }
-  .record-pill.win { background: #dcfce7; color: #15803d; }
-  .record-pill.loss { background: #fee2e2; color: #dc2626; }
-  .record-pill.tie { background: #f1f5f9; color: #64748b; }
-  .record-pill small { display: block; font-size: 9px; font-weight: 600; font-family: 'Barlow', sans-serif; opacity: 0.7; }
-
-  .inning-bar { display: flex; gap: 3px; margin-top: 8px; }
-  .inning-seg {
-    flex: 1; height: 6px; border-radius: 3px;
-    background: var(--blue-light);
-  }
-  .inning-seg.done { background: var(--blue); }
-  .inning-seg.current { background: var(--accent); }
-
-  /* Lineup card */
-  .lineup-row {
-    display: flex; align-items: center; gap: 8px;
-    padding: 6px 0; border-bottom: 1px solid #f1f5f9;
-    font-size: 13px;
-  }
-  .lineup-row:last-child { border-bottom: none; }
-  .pos-badge {
-    width: 28px; height: 22px; border-radius: 5px;
-    background: var(--navy); color: white;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700; font-size: 11px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .player-num {
-    font-size: 11px; color: var(--gray); font-weight: 600;
-    min-width: 24px;
-  }
-  .player-name { font-weight: 600; font-size: 13px; flex: 1; }
-  .bat-order {
-    width: 20px; height: 20px; border-radius: 50%;
-    background: var(--blue-light); color: var(--blue);
-    font-size: 11px; font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  /* Players card */
-  .player-stat-row {
-    display: flex; align-items: center; gap: 8px;
-    padding: 5px 0; border-bottom: 1px solid #f8fafc;
-  }
-  .player-stat-row:last-child { border-bottom: none; }
-  .avatar {
-    width: 28px; height: 28px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800; font-size: 12px; color: white; flex-shrink: 0;
-  }
-  .star-row { display: flex; gap: 2px; }
-  .star { font-size: 10px; }
-  .star.on { color: var(--accent); }
-  .star.off { color: #e2e8f0; }
 
   /* ── FEATURES ── */
   .features {
@@ -462,8 +406,14 @@
     .btn-nav-signup { display: none; }
     .lang-toggle { padding: 6px 6px; }
     .hero { padding: 100px 20px 60px; }
-    .app-screen { grid-template-columns: 1fr; }
-    .app-card:nth-child(2), .app-card:nth-child(3) { display: none; }
+    .app-screen { grid-template-columns: 1fr; gap: 10px; }
+    /* Cacher M5 et M6 sur mobile — 4 manches suffisent */
+    .app-screen table th:nth-child(6),
+    .app-screen table th:nth-child(7),
+    .app-screen table td:nth-child(6),
+    .app-screen table td:nth-child(7) { display: none; }
+    /* Réduire padding des chips frappeurs */
+    .app-screen .app-card > div[style*="flex-wrap"] > div { padding: 3px 6px; }
     .features { padding: 60px 20px; }
     .cta-section { padding: 60px 20px; }
     footer { padding: 24px 20px; flex-direction: column; text-align: center; }
@@ -478,14 +428,12 @@
   <div class="nav-actions">
     <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
     <a href="https://baseballlineup.vercel.app" class="btn-nav-login" data-fr="Se connecter" data-en="Sign in">Se connecter</a>
-    <a href="/contact.html" class="btn-nav-signup" data-fr="Commencer gratuitement" data-en="Get started">Commencer gratuitement</a>
+    <a href="/contact.html" class="btn-nav-signup" data-fr="Faire une demande" data-en="Request access">Faire une demande</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">⚾ <span data-fr="Fait pour les coaches de baseball au Québec" data-en="Built for baseball coaches in Québec">Fait pour les coaches de baseball au Québec</span></div>
-
   <h1 class="hero-title">
     <span data-fr="Gérez votre équipe.<br>Générez vos<br><span class='blue'>alignements.</span>"
           data-en="Manage your team.<br>Generate your<br><span class='blue'>lineups.</span>">
@@ -493,12 +441,12 @@
     </span>
   </h1>
 
-  <p class="hero-sub" data-fr="L'outil simple et puissant pour les coaches de baseball. Roster, calendrier, alignements intelligents — tout en un." data-en="The simple, powerful tool for baseball coaches. Roster, schedule, smart lineups — all in one.">
-    L'outil simple et puissant pour les coaches de baseball. Roster, calendrier, alignements intelligents — tout en un.
+  <p class="hero-sub" data-fr="L'outil simple et puissant pour les coaches de baseball. Roster, calendrier, alignements intelligents avec assistance IA — tout en un." data-en="The simple, powerful tool for baseball coaches. Roster, schedule, smart lineups with AI assistance — all in one.">
+    L'outil simple et puissant pour les coaches de baseball. Roster, calendrier, alignements intelligents avec assistance IA — tout en un.
   </p>
 
   <div class="hero-cta">
-    <a href="/contact.html" class="btn-primary" data-fr="🚀 Créer mon équipe" data-en="🚀 Create my team">🚀 Créer mon équipe</a>
+    <a href="/contact.html" class="btn-primary" data-fr="🚀 Faire une demande" data-en="🚀 Request access">🚀 Faire une demande</a>
     <a href="https://baseballlineup.vercel.app" class="btn-secondary" data-fr="Se connecter" data-en="Sign in">Se connecter</a>
   </div>
 
@@ -511,123 +459,243 @@
         </div>
         <div class="browser-url">baseballlineup.ca</div>
       </div>
+
+
       <div class="app-screen">
 
-        <!-- Card 1: Dashboard -->
+        <!-- Card 1: Dashboard (fiche + progression + prochain match) -->
         <div class="app-card">
-          <div class="app-card-title" data-fr="Tableau de bord" data-en="Dashboard">Tableau de bord</div>
-          <div class="score-display">
-            <div>
-              <div class="score-team" data-fr="NOUS" data-en="US">NOUS</div>
-              <div class="score-num">7</div>
+          <!-- Nom équipe + saison -->
+          <div style="text-align:center;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #f1f5f9">
+            <div style="font-size:14px;font-weight:800;color:#0f172a">Les tigres</div>
+            <div style="font-size:10px;color:#94a3b8" data-fr="Saison 2026" data-en="Season 2026">Saison 2026</div>
+          </div>
+          <!-- Fiche saison -->
+          <div style="margin-bottom:8px">
+            <div style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.5px">8V &nbsp;3D</div>
+            <div style="font-size:10px;color:#64748b;margin-top:1px" data-fr="47 pts pour · 31 pts contre" data-en="47 pts for · 31 pts against">47 pts pour · 31 pts contre</div>
+          </div>
+          <!-- Barre de progression (8V vert, 3D rouge, 1 en cours bleu, reste gris) -->
+          <div style="display:flex;gap:2px;margin-bottom:12px">
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#22c55e"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#ef4444"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#ef4444"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#ef4444"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#3b82f6"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#e2e8f0"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:#e2e8f0"></div>
+          </div>
+          <!-- Momentum -->
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:5px" data-fr="Momentum" data-en="Momentum">Momentum</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:10px">
+            <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:6px;padding:5px;text-align:center">
+              <div style="font-size:11px;font-weight:800;color:#dc2626">D</div>
+              <div style="font-size:9px;color:#64748b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-fr="vs Eagles" data-en="vs Eagles">vs Eagles</div>
+              <div style="font-size:10px;font-weight:600;color:#0f172a">3-6</div>
             </div>
-            <div class="score-sep">—</div>
-            <div>
-              <div class="score-team" data-fr="EUX" data-en="THEM">EUX</div>
-              <div class="score-num">4</div>
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:5px;text-align:center">
+              <div style="font-size:11px;font-weight:800;color:#16a34a">V</div>
+              <div style="font-size:9px;color:#64748b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-fr="vs Cobras" data-en="vs Cobras">vs Cobras</div>
+              <div style="font-size:10px;font-weight:600;color:#0f172a">5-2</div>
+            </div>
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:5px;text-align:center">
+              <div style="font-size:11px;font-weight:800;color:#16a34a">V</div>
+              <div style="font-size:9px;color:#64748b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" data-fr="vs Tigres" data-en="vs Tigers">vs Tigres</div>
+              <div style="font-size:10px;font-weight:600;color:#0f172a">7-3</div>
             </div>
           </div>
-          <div class="record-row">
-            <div class="record-pill win">8 <small data-fr="V" data-en="W">V</small></div>
-            <div class="record-pill loss">3 <small data-fr="D" data-en="L">D</small></div>
-            <div class="record-pill tie">1 <small data-fr="N" data-en="T">N</small></div>
-          </div>
-          <div style="font-size:11px;color:var(--gray);margin-bottom:4px;" data-fr="Progression saison" data-en="Season progress">Progression saison</div>
-          <div class="inning-bar">
-            <div class="inning-seg done"></div>
-            <div class="inning-seg done"></div>
-            <div class="inning-seg done"></div>
-            <div class="inning-seg done"></div>
-            <div class="inning-seg done"></div>
-            <div class="inning-seg done"></div>
-            <div class="inning-seg done"></div>
-            <div class="inning-seg done"></div>
-            <div class="inning-seg current"></div>
-            <div class="inning-seg"></div>
-            <div class="inning-seg"></div>
-            <div class="inning-seg"></div>
+          <!-- Prochain match -->
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:3px" data-fr="Prochain match" data-en="Next game">Prochain match</div>
+            <div style="font-size:13px;font-weight:700;color:#0f172a" data-fr="vs Condors" data-en="vs Condors">vs Condors</div>
+            <div style="display:flex;align-items:center;gap:5px;margin-top:3px">
+              <span style="font-size:10px;color:#64748b">2025-06-12</span>
+              <span style="background:#dbeafe;color:#1d4ed8;font-size:9px;font-weight:600;padding:1px 5px;border-radius:3px" data-fr="Saison" data-en="Season">Saison</span>
+              <span style="font-size:10px;color:#94a3b8;margin-left:auto" data-fr="Match #12" data-en="Game #12">Match #12</span>
+            </div>
+            <button style="margin-top:8px;width:100%;background:#6b7280;color:white;border:none;border-radius:6px;padding:6px 0;font-size:10px;font-weight:600;cursor:default" data-fr="Préparer l'alignement →" data-en="Prepare lineup →">Préparer l'alignement →</button>
           </div>
         </div>
 
-        <!-- Card 2: Lineup -->
+        <!-- Card 2: Alignement (la star — fidèle au vrai LineupTable) -->
         <div class="app-card">
-          <div class="app-card-title" data-fr="Alignement généré" data-en="Generated lineup">Alignement généré</div>
-          <div class="lineup-row">
-            <div class="pos-badge">P</div>
-            <div class="player-num">#12</div>
-            <div class="player-name">Tremblay</div>
-            <div class="bat-order">1</div>
+          <!-- Header: titre + badge Saison + liens Modifier/Regenerer -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font-size:14px;font-weight:800;color:#0f172a" data-fr="Alignement" data-en="Lineup">Alignement</span>
+              <span style="background:#dbeafe;color:#1d4ed8;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px" data-fr="Saison" data-en="Season">Saison</span>
+            </div>
+            <div style="display:flex;gap:10px;font-size:11px">
+              <span style="color:#94a3b8;cursor:default" data-fr="Modifier" data-en="Edit">Modifier</span>
+              <span style="color:#1d4ed8;font-weight:500;cursor:default" data-fr="Regenerer" data-en="Regenerate">Regenerer</span>
+            </div>
           </div>
-          <div class="lineup-row">
-            <div class="pos-badge">C</div>
-            <div class="player-num">#5</div>
-            <div class="player-name">Gagnon</div>
-            <div class="bat-order">2</div>
-          </div>
-          <div class="lineup-row">
-            <div class="pos-badge">SS</div>
-            <div class="player-num">#7</div>
-            <div class="player-name">Bouchard</div>
-            <div class="bat-order">3</div>
-          </div>
-          <div class="lineup-row">
-            <div class="pos-badge">1B</div>
-            <div class="player-num">#23</div>
-            <div class="player-name">Côté</div>
-            <div class="bat-order">4</div>
-          </div>
-          <div class="lineup-row">
-            <div class="pos-badge">CF</div>
-            <div class="player-num">#9</div>
-            <div class="player-name">Roy</div>
-            <div class="bat-order">5</div>
-          </div>
-          <div class="lineup-row">
-            <div class="pos-badge">3B</div>
-            <div class="player-num">#18</div>
-            <div class="player-name">Fortin</div>
-            <div class="bat-order">6</div>
-          </div>
-        </div>
 
-        <!-- Card 3: Roster -->
-        <div class="app-card">
-          <div class="app-card-title" data-fr="Roster — 12 joueurs" data-en="Roster — 12 players">Roster — 12 joueurs</div>
-          <div class="player-stat-row">
-            <div class="avatar" style="background:#1a56db">MT</div>
-            <div style="flex:1;font-size:13px;font-weight:600">M. Tremblay</div>
-            <div class="star-row">
-              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span>
+          <!-- Frappeurs (batting order chips) -->
+          <div style="font-size:9px;font-weight:600;color:#64748b;margin-bottom:6px" data-fr="Frappeurs" data-en="Batters">Frappeurs</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#3 </span><span style="font-size:10px;font-weight:600;color:#0f172a">1. L. Simard</span>
+              <div style="font-size:9px;color:#94a3b8" data-fr="Leadoff" data-en="Leadoff">Leadoff</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#1 </span><span style="font-size:10px;font-weight:600;color:#0f172a">2. M. Bergeron</span>
+              <div style="font-size:9px;color:#94a3b8">2e</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#5 </span><span style="font-size:10px;font-weight:600;color:#0f172a">3. É. Côté</span>
+              <div style="font-size:9px;color:#94a3b8" data-fr="Discipline" data-en="Discipline">Discipline</div>
+            </div>
+            <div style="background:#fefce8;border:1px solid #fde047;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#2 </span><span style="font-size:10px;font-weight:600;color:#0f172a">4. T. Gagnon</span>
+              <div style="font-size:9px;color:#a16207" data-fr="Cleanup" data-en="Cleanup">Cleanup</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#7 </span><span style="font-size:10px;font-weight:600;color:#0f172a">5. F. Lavoie</span>
+              <div style="font-size:9px;color:#94a3b8">5e Cog.</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#6 </span><span style="font-size:10px;font-weight:600;color:#0f172a">6. R. Bouchard</span>
+              <div style="font-size:9px;color:#94a3b8">6e</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#4 </span><span style="font-size:10px;font-weight:600;color:#0f172a">7. N. Tremblay</span>
+              <div style="font-size:9px;color:#94a3b8">7e</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#8 </span><span style="font-size:10px;font-weight:600;color:#0f172a">8. A. Morin</span>
+              <div style="font-size:9px;color:#94a3b8">8e</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px">
+              <span style="font-size:10px;font-weight:700;color:#1d4ed8">#9 </span><span style="font-size:10px;font-weight:600;color:#0f172a">9. S. Roy</span>
+              <div style="font-size:9px;color:#94a3b8">9e</div>
             </div>
           </div>
-          <div class="player-stat-row">
-            <div class="avatar" style="background:#15803d">LG</div>
-            <div style="flex:1;font-size:13px;font-weight:600">L. Gagnon</div>
-            <div class="star-row">
-              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span><span class="star off">★</span>
-            </div>
+
+          <!-- Tableau positions × manches (avec couleurs par bloc lanceur) -->
+          <table style="width:100%;border-collapse:collapse;font-size:11px">
+            <thead>
+              <tr>
+                <th style="padding:5px 6px;text-align:left;font-size:10px;font-weight:600;color:#94a3b8;border-bottom:1px solid #e2e8f0;width:32px">Pos</th>
+                <th style="padding:5px 6px;text-align:center;font-weight:700;color:#1e293b;border-bottom:1px solid #e2e8f0" data-fr="M1" data-en="I1">M1</th>
+                <th style="padding:5px 6px;text-align:center;font-weight:700;color:#1e293b;border-bottom:1px solid #e2e8f0" data-fr="M2" data-en="I2">M2</th>
+                <th style="padding:5px 6px;text-align:center;font-weight:700;color:#92400e;border-bottom:1px solid #e2e8f0;background:#fffbeb" data-fr="M3" data-en="I3">M3</th>
+                <th style="padding:5px 6px;text-align:center;font-weight:700;color:#92400e;border-bottom:1px solid #e2e8f0;background:#fffbeb" data-fr="M4" data-en="I4">M4</th>
+                <th style="padding:5px 6px;text-align:center;font-weight:700;color:#dc2626;border-bottom:1px solid #e2e8f0;background:#fff1f2" data-fr="M5 *" data-en="I5 *">M5 *</th>
+                <th style="padding:5px 6px;text-align:center;font-weight:700;color:#dc2626;border-bottom:1px solid #e2e8f0;background:#fff1f2" data-fr="M6 *" data-en="I6 *">M6 *</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">P</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#7</b> <span style="color:#334155">F. Lavoie</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#7</b> <span style="color:#334155">F. Lavoie</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#4</b> <span style="color:#334155">N. Tremblay</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#4</b> <span style="color:#334155">N. Tremblay</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#2</b> <span style="color:#334155">T. Gagnon</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#2</b> <span style="color:#334155">T. Gagnon</span></td>
+              </tr>
+              <tr style="background:#fafafa">
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">C</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#1</b> <span style="color:#334155">M. Bergeron</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#10</b> <span style="color:#334155">J. Pelletier</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#2</b> <span style="color:#334155">T. Gagnon</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#7</b> <span style="color:#334155">F. Lavoie</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#5</b> <span style="color:#334155">É. Côté</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#3</b> <span style="color:#334155">L. Simard</span></td>
+              </tr>
+              <tr>
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">1B</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#2</b> <span style="color:#334155">T. Gagnon</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#8</b> <span style="color:#334155">A. Morin</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#3</b> <span style="color:#334155">L. Simard</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#5</b> <span style="color:#334155">É. Côté</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#1</b> <span style="color:#334155">M. Bergeron</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#9</b> <span style="color:#334155">S. Roy</span></td>
+              </tr>
+              <tr style="background:#fafafa">
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">2B</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#10</b> <span style="color:#334155">J. Pelletier</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#3</b> <span style="color:#334155">L. Simard</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#7</b> <span style="color:#334155">F. Lavoie</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#9</b> <span style="color:#334155">S. Roy</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#4</b> <span style="color:#334155">N. Tremblay</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#6</b> <span style="color:#334155">R. Bouchard</span></td>
+              </tr>
+              <tr>
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">3B</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#8</b> <span style="color:#334155">A. Morin</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#2</b> <span style="color:#334155">T. Gagnon</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#9</b> <span style="color:#334155">S. Roy</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#3</b> <span style="color:#334155">L. Simard</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#10</b> <span style="color:#334155">J. Pelletier</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#8</b> <span style="color:#334155">A. Morin</span></td>
+              </tr>
+              <tr style="background:#fafafa">
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">SS</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#9</b> <span style="color:#334155">S. Roy</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#6</b> <span style="color:#334155">R. Bouchard</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#1</b> <span style="color:#334155">M. Bergeron</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#10</b> <span style="color:#334155">J. Pelletier</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#7</b> <span style="color:#334155">F. Lavoie</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#4</b> <span style="color:#334155">N. Tremblay</span></td>
+              </tr>
+              <tr>
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">LF</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#5</b> <span style="color:#334155">É. Côté</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#4</b> <span style="color:#334155">N. Tremblay</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#8</b> <span style="color:#334155">A. Morin</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#2</b> <span style="color:#334155">T. Gagnon</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#9</b> <span style="color:#334155">S. Roy</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#10</b> <span style="color:#334155">J. Pelletier</span></td>
+              </tr>
+              <tr style="background:#fafafa">
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">CF</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#3</b> <span style="color:#334155">L. Simard</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#5</b> <span style="color:#334155">É. Côté</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#6</b> <span style="color:#334155">R. Bouchard</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#8</b> <span style="color:#334155">A. Morin</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#6</b> <span style="color:#334155">R. Bouchard</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#1</b> <span style="color:#334155">M. Bergeron</span></td>
+              </tr>
+              <tr>
+                <td style="padding:3px 6px;font-weight:700;color:#64748b;font-size:10px">RF</td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#6</b> <span style="color:#334155">R. Bouchard</span></td>
+                <td style="padding:3px 6px;text-align:center"><b style="color:#1d4ed8">#1</b> <span style="color:#334155">M. Bergeron</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#5</b> <span style="color:#334155">É. Côté</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fffde7"><b style="color:#1d4ed8">#6</b> <span style="color:#334155">R. Bouchard</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#8</b> <span style="color:#334155">A. Morin</span></td>
+                <td style="padding:3px 6px;text-align:center;background:#fff5f5"><b style="color:#1d4ed8">#7</b> <span style="color:#334155">F. Lavoie</span></td>
+              </tr>
+              <!-- Banc -->
+              <tr style="border-top:1px solid #e2e8f0">
+                <td style="padding:3px 6px;font-size:10px;font-weight:600;color:#94a3b8" data-fr="Banc" data-en="Bench">Banc</td>
+                <td style="padding:3px 6px;text-align:center;font-size:10px;color:#94a3b8">N. Tremblay</td>
+                <td style="padding:3px 6px;text-align:center;font-size:10px;color:#94a3b8">S. Roy</td>
+                <td style="padding:3px 6px;text-align:center;font-size:10px;color:#94a3b8;background:#fffde7">J. Pelletier</td>
+                <td style="padding:3px 6px;text-align:center;font-size:10px;color:#94a3b8;background:#fffde7">—</td>
+                <td style="padding:3px 6px;text-align:center;font-size:10px;color:#94a3b8;background:#fff5f5">L. Simard</td>
+                <td style="padding:3px 6px;text-align:center;font-size:10px;color:#94a3b8;background:#fff5f5">—</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Section IA (violet comme dans la vraie app) -->
+          <div style="margin-top:12px;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:10px">
+            <div style="font-size:11px;font-weight:700;color:#7c3aed;margin-bottom:6px" data-fr="✨ Optimiser avec l'IA" data-en="✨ Optimize with AI">✨ Optimiser avec l'IA</div>
+            <div style="font-size:10px;color:#94a3b8;background:white;border:1px solid #e9d5ff;border-radius:6px;padding:6px 8px;margin-bottom:8px" data-fr="Notes pour l'IA — ex: Évite Marc au champ intérieur…" data-en="Notes for AI — ex: Keep Marc out of infield…">Notes pour l'IA — ex: Évite Marc au champ intérieur…</div>
+            <button style="width:100%;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:white;border:none;border-radius:6px;padding:8px;font-size:11px;font-weight:700;cursor:default" data-fr="✨ Générer le lineup IA" data-en="✨ Generate AI lineup">✨ Générer le lineup IA</button>
           </div>
-          <div class="player-stat-row">
-            <div class="avatar" style="background:#7c3aed">AB</div>
-            <div style="flex:1;font-size:13px;font-weight:600">A. Bouchard</div>
-            <div class="star-row">
-              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
-            </div>
-          </div>
-          <div class="player-stat-row">
-            <div class="avatar" style="background:#dc2626">SC</div>
-            <div style="flex:1;font-size:13px;font-weight:600">S. Côté</div>
-            <div class="star-row">
-              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span>
-            </div>
-          </div>
-          <div class="player-stat-row">
-            <div class="avatar" style="background:#0891b2">PR</div>
-            <div style="flex:1;font-size:13px;font-weight:600">P. Roy</div>
-            <div class="star-row">
-              <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star off">★</span><span class="star off">★</span>
-            </div>
-          </div>
+
+          <!-- Note lanceurs (comme dans la vraie app) -->
+          <div style="margin-top:8px;font-size:9px;color:#94a3b8" data-fr="M1-2: Lanceur moyen · M3-4: Bon lanceur · M5-6: Ace (ouverte)" data-en="I1-2: Average pitcher · I3-4: Good pitcher · I5-6: Ace (open)">M1-2: Lanceur moyen &nbsp;·&nbsp; M3-4: Bon lanceur &nbsp;·&nbsp; M5-6: Ace (ouverte)</div>
         </div>
 
       </div>
@@ -653,8 +721,8 @@
     <div class="feature-card">
       <div class="feature-icon">👥</div>
       <div class="feature-title" data-fr="Gestion du roster" data-en="Roster management">Gestion du roster</div>
-      <p class="feature-desc" data-fr="Profils joueurs complets avec positions préférées, cotes de performance et notes personnalisées." data-en="Complete player profiles with preferred positions, performance ratings, and custom notes.">
-        Profils joueurs complets avec positions préférées, cotes de performance et notes personnalisées.
+      <p class="feature-desc" data-fr="Profils joueurs complets avec positions préférées, cotes de performance et notes personnalisées. Évaluation post-match de chaque joueur (attitude, frappeur, défense)." data-en="Complete player profiles with preferred positions, performance ratings, and custom notes. Post-game evaluation for each player (attitude, hitting, defense).">
+        Profils joueurs complets avec positions préférées, cotes de performance et notes personnalisées. Évaluation post-match de chaque joueur (attitude, frappeur, défense).
       </p>
     </div>
     <div class="feature-card">
@@ -666,16 +734,16 @@
     </div>
     <div class="feature-card">
       <div class="feature-icon">📊</div>
-      <div class="feature-title" data-fr="Statistiques de l'équipe" data-en="Team statistics">Statistiques de l'équipe</div>
-      <p class="feature-desc" data-fr="Tableau de bord avec fiche, statistiques offensives et défensives, progression au fil de la saison." data-en="Dashboard with record, offensive and defensive stats, and season-long progression.">
-        Tableau de bord avec fiche, statistiques offensives et défensives, progression au fil de la saison.
+      <div class="feature-title" data-fr="Rapport de saison PDF" data-en="Season report PDF">Rapport de saison PDF</div>
+      <p class="feature-desc" data-fr="Rapport de saison complet : stats agrégées, graphique radar par joueur, progression de l'équipe — exportable en PDF." data-en="Complete season report: aggregated stats, per-player radar chart, team progression — exportable as PDF.">
+        Rapport de saison complet : stats agrégées, graphique radar par joueur, progression de l'équipe — exportable en PDF.
       </p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🏆</div>
-      <div class="feature-title" data-fr="Modes de jeu" data-en="Game modes">Modes de jeu</div>
-      <p class="feature-desc" data-fr="Saison régulière, tournoi ou séries — l'algorithme s'adapte à chaque contexte pour optimiser votre alignement." data-en="Regular season, tournament, or playoffs — the algorithm adapts to each context to optimize your lineup.">
-        Saison régulière, tournoi ou séries — l'algorithme s'adapte à chaque contexte.
+      <div class="feature-icon">🤖</div>
+      <div class="feature-title" data-fr="Assistance IA ✨" data-en="AI assistance ✨">Assistance IA ✨</div>
+      <p class="feature-desc" data-fr="Optimisez vos alignements grâce à l'intelligence artificielle. Obtenez des suggestions personnalisées selon vos joueurs et le contexte du match." data-en="Optimize your lineups with artificial intelligence. Get personalized suggestions based on your players and game context.">
+        Optimisez vos alignements grâce à l'intelligence artificielle. Suggestions personnalisées selon vos joueurs et le contexte du match.
       </p>
     </div>
     <div class="feature-card">
@@ -683,6 +751,13 @@
       <div class="feature-title" data-fr="Multi-coach sécurisé" data-en="Secure multi-coach">Multi-coach sécurisé</div>
       <p class="feature-desc" data-fr="Invitez vos coaches assistants. Chaque équipe est isolée et protégée — vos données restent privées." data-en="Invite your assistant coaches. Each team is isolated and secured — your data stays private.">
         Invitez vos coaches assistants. Chaque équipe est isolée et protégée.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔗</div>
+      <div class="feature-title" data-fr="Partage de lineup" data-en="Lineup sharing">Partage de lineup</div>
+      <p class="feature-desc" data-fr="Partagez l'alignement du match par lien public. Joueurs et parents y accèdent instantanément — sans créer de compte." data-en="Share the game lineup via public link. Players and parents access it instantly — no account needed.">
+        Partagez l'alignement du match par lien public. Joueurs et parents y accèdent instantanément — sans créer de compte.
       </p>
     </div>
   </div>
