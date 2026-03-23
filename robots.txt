@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /contact.html
 
 Sitemap: https://www.baseballlineup.ca/sitemap.xml
