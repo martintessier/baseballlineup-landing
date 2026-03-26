@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.baseballlineup.ca/sitemap.xml
+Sitemap: https://baseballlineup.ca/sitemap.xml
+
+Host: baseballlineup.ca
