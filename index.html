@@ -1340,6 +1340,11 @@
         el.innerHTML = text;
       }
     });
+
+    var privacyLink = document.querySelector('a[href*="politique-confidentialite"], a[href*="privacy-policy"]');
+    if (privacyLink) {
+      privacyLink.href = lang === 'fr' ? '/politique-confidentialite.html' : '/privacy-policy.html';
+    }
   }
 </script>
 </body>
