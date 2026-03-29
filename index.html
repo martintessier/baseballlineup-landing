@@ -74,6 +74,16 @@
     overflow-x: hidden;
   }
 
+  .tour-slide {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .tour-slide > div:first-child {
+    flex: 1;
+  }
+
+
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -763,6 +773,462 @@
   </div>
 </section>
 
+<!-- TOUR APP -->
+<section id="tour" style="padding:100px 40px;background:var(--gray-light);">
+  <div class="section-label" data-fr="Voir l'app en action" data-en="See the app in action">Voir l'app en action</div>
+  <h2 class="section-title" data-fr="Tout ce qu'il vous faut, en quelques clics" data-en="Everything you need, in a few clicks">Tout ce qu'il vous faut, en quelques clics</h2>
+  <p class="section-sub" data-fr="Naviguez entre les fonctionnalités principales de l'app." data-en="Browse the main features of the app.">Naviguez entre les fonctionnalités principales de l'app.</p>
+
+  <div style="max-width:820px;margin:0 auto;">
+
+    <!-- Dots navigation -->
+    <div id="tour-dots" style="display:flex;justify-content:center;gap:8px;margin-bottom:28px;"></div>
+
+    <!-- Slides wrapper -->
+    <div style="position:relative;">
+      <div id="tour-slides" style="overflow:hidden;border-radius:20px;box-shadow:0 24px 64px rgba(15,23,42,0.13),0 4px 16px rgba(15,23,42,0.07);">
+
+        <!-- SLIDE 1 : Inviter staff -->
+        <div class="tour-slide" style="background:white;">
+          <div style="background:linear-gradient(135deg,#2563eb,#1e40af);padding:20px 24px 28px;">
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div>
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#bfdbfe;margin-bottom:6px;">Propriétaire</div>
+                <div style="background:white;border-radius:12px;border:2px solid #c4b5fd;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.1);">
+                  <div style="font-size:11px;font-weight:700;color:#0f172a;">Patrick Bouchard</div>
+                  <div style="font-size:10px;color:#94a3b8;">p.bouchard@email.ca</div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:white;margin-bottom:6px;">Coach en chef</div>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <div style="background:white;border-radius:10px;border:1px dashed #4ade80;padding:7px 12px;text-align:center;"><span style="font-size:10px;color:#16a34a;font-weight:500;">Propriétaire est le coach en chef</span></div>
+                  <div style="background:white;border-radius:10px;border:1px dashed #93c5fd;padding:7px 12px;text-align:center;"><span style="font-size:10px;color:#3b82f6;font-weight:500;">+ Inviter un coach en chef</span></div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:white;margin-bottom:6px;">Adjoints</div>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <div style="background:#1d4ed8;border-radius:10px;padding:7px 12px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.2);"><span style="font-size:10px;color:white;font-weight:700;">+ Inviter un adjoint</span></div>
+                  <div style="background:white;border-radius:10px;border:1px solid #e2e8f0;padding:7px 12px;text-align:center;"><span style="font-size:10px;color:#64748b;font-weight:500;">+ Ajouter sans compte</span></div>
+                </div>
+              </div>
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:8px;">Fiche de l'équipe</div>
+                <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#3b82f6;">Propriétaire du club</span><span style="font-size:10px;font-weight:600;color:#1e293b;">Patrick Bouchard</span></div>
+                <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#3b82f6;">Coach en chef</span><span style="font-size:10px;font-weight:600;color:#1e293b;">Patrick Bouchard</span></div>
+                <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#3b82f6;">Saison</span><span style="font-size:10px;font-weight:600;color:#1e293b;">2026</span></div>
+                <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#3b82f6;">Catégorie</span><span style="font-size:10px;font-weight:600;color:#1e293b;">11UB</span></div>
+                <div style="background:#1e293b;border-radius:8px;padding:6px 12px;text-align:center;margin-top:8px;"><span style="font-size:10px;color:white;font-weight:600;">Corps d'entraineurs (1)</span></div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Invitez votre staff !</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Ajoutez vos coachs adjoints — ils ont accès complet à l'équipe. Plus on est de coachs, mieux l'équipe est gérée.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 : Roster -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#374151,#111827);padding:20px 24px 28px;">
+            <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;">
+              <div style="background:#111827;color:white;padding:8px 12px;"><span style="font-size:10px;font-weight:700;letter-spacing:1.5px;">ROSTER</span></div>
+              <div style="display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid #f1f5f9;">
+                <span style="background:#1e293b;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;width:32px;text-align:center;">#7</span>
+                <span style="font-size:11px;font-weight:600;color:#1e293b;flex:1;">Mathis R.</span>
+                <div style="display:flex;gap:4px;">
+                  <span style="font-size:9px;background:#dbeafe;color:#1d4ed8;padding:2px 5px;border-radius:3px;font-weight:500;">SS</span>
+                  <span style="font-size:9px;background:#dbeafe;color:#1d4ed8;padding:2px 5px;border-radius:3px;font-weight:500;">2B</span>
+                  <span style="font-size:9px;background:#ffedd5;color:#c2410c;padding:2px 5px;border-radius:3px;font-weight:500;">dev:CF</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid #f1f5f9;">
+                <span style="background:#1e293b;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;width:32px;text-align:center;">#12</span>
+                <span style="font-size:11px;font-weight:600;color:#1e293b;flex:1;">Rosalie B.</span>
+                <div style="display:flex;gap:4px;">
+                  <span style="font-size:9px;background:#dbeafe;color:#1d4ed8;padding:2px 5px;border-radius:3px;font-weight:500;">C</span>
+                  <span style="font-size:9px;background:#dbeafe;color:#1d4ed8;padding:2px 5px;border-radius:3px;font-weight:500;">1B</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:9px 12px;">
+                <span style="background:#1e293b;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;width:32px;text-align:center;">#4</span>
+                <span style="font-size:11px;font-weight:600;color:#1e293b;flex:1;">Théo L.</span>
+                <div style="display:flex;gap:4px;">
+                  <span style="font-size:9px;background:#dbeafe;color:#1d4ed8;padding:2px 5px;border-radius:3px;font-weight:500;">P</span>
+                  <span style="font-size:9px;background:#dbeafe;color:#1d4ed8;padding:2px 5px;border-radius:3px;font-weight:500;">SS</span>
+                  <span style="font-size:9px;background:#ffedd5;color:#c2410c;padding:2px 5px;border-radius:3px;font-weight:500;">dev:3B</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Gérez votre roster</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Ajoutez vos joueurs avec leurs positions préférées et objectifs de développement. L'algo s'en sert pour équilibrer la rotation et respecter les objectifs de chaque joueur.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 : Lineup automatique -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#4f46e5,#3730a3);padding:20px 24px 28px;">
+            <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;">
+              <table style="width:100%;border-collapse:collapse;font-size:10px;">
+                <thead>
+                  <tr style="background:#111827;color:white;">
+                    <th style="padding:6px 8px;text-align:left;font-weight:600;font-size:9px;">#</th>
+                    <th style="padding:6px 8px;text-align:left;font-weight:600;">Nom</th>
+                    <th style="padding:4px 5px;text-align:center;font-weight:600;">M1</th>
+                    <th style="padding:4px 5px;text-align:center;font-weight:600;">M2</th>
+                    <th style="padding:4px 5px;text-align:center;font-weight:600;">M3</th>
+                    <th style="padding:4px 5px;text-align:center;font-weight:600;">M4</th>
+                    <th style="padding:4px 5px;text-align:center;font-weight:600;">M5</th>
+                    <th style="padding:4px 5px;text-align:center;font-weight:600;">M6</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background:white;">
+                    <td style="padding:6px 8px;color:#94a3b8;font-weight:700;text-align:center;">1</td>
+                    <td style="padding:6px 8px;font-weight:600;color:#1e293b;">Théo</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">P</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">P</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">SS</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">2B</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">SS</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#d1d5db;">—</td>
+                  </tr>
+                  <tr style="background:#f8fafc;">
+                    <td style="padding:6px 8px;color:#94a3b8;font-weight:700;text-align:center;">2</td>
+                    <td style="padding:6px 8px;font-weight:600;color:#1e293b;">Mathis</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">SS</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">SS</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">2B</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">P</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">2B</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">SS</td>
+                  </tr>
+                  <tr style="background:white;">
+                    <td style="padding:6px 8px;color:#94a3b8;font-weight:700;text-align:center;">3</td>
+                    <td style="padding:6px 8px;font-weight:600;color:#1e293b;">Rosalie</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">C</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">1B</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">C</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">C</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">1B</td>
+                    <td style="padding:4px 5px;text-align:center;font-weight:700;color:#2563eb;">C</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Lineup automatique ⚡</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Cochez les joueurs présents et générez en un clic. L'algo respecte automatiquement les <strong>règles de Baseball Québec</strong> — rotation équitable, limites de manches lanceur, ordre au bâton continu.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 4 : Optimiseur IA -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#4338ca,#1e3a8a);padding:20px 24px 28px;">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;">
+                <table style="width:100%;border-collapse:collapse;font-size:9px;">
+                  <thead>
+                    <tr style="background:#1e293b;color:white;">
+                      <th style="padding:5px 8px;text-align:left;font-weight:700;">Pos</th>
+                      <th style="padding:4px 5px;text-align:center;font-weight:700;">M1</th>
+                      <th style="padding:4px 5px;text-align:center;font-weight:700;">M2</th>
+                      <th style="padding:4px 5px;text-align:center;font-weight:700;">M3</th>
+                      <th style="padding:4px 5px;text-align:center;font-weight:700;">M4</th>
+                      <th style="padding:4px 5px;text-align:center;font-weight:700;color:#fca5a5;">M5*</th>
+                      <th style="padding:4px 5px;text-align:center;font-weight:700;color:#fca5a5;">M6*</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="background:white;">
+                      <td style="padding:4px 8px;font-weight:700;color:#64748b;border-bottom:1px solid #f1f5f9;">P</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Noah</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Noah</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Félix</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Félix</td>
+                      <td style="padding:4px 5px;text-align:center;color:#ef4444;font-weight:500;border-bottom:1px solid #f1f5f9;">Mathis</td>
+                      <td style="padding:4px 5px;text-align:center;color:#ef4444;font-weight:500;border-bottom:1px solid #f1f5f9;">Mathis</td>
+                    </tr>
+                    <tr style="background:#f8fafc;">
+                      <td style="padding:4px 8px;font-weight:700;color:#64748b;border-bottom:1px solid #f1f5f9;">C</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Mathis</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Alexis</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">M.R.</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Théo</td>
+                      <td style="padding:4px 5px;text-align:center;color:#ef4444;font-weight:500;border-bottom:1px solid #f1f5f9;">Émile</td>
+                      <td style="padding:4px 5px;text-align:center;color:#ef4444;font-weight:500;border-bottom:1px solid #f1f5f9;">Léa</td>
+                    </tr>
+                    <tr style="background:white;">
+                      <td style="padding:4px 8px;font-weight:700;color:#64748b;border-bottom:1px solid #f1f5f9;">SS</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Théo</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Félix</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Juliette</td>
+                      <td style="padding:4px 5px;text-align:center;color:#2563eb;font-weight:500;border-bottom:1px solid #f1f5f9;">Mathis</td>
+                      <td style="padding:4px 5px;text-align:center;color:#ef4444;font-weight:500;border-bottom:1px solid #f1f5f9;">Rosalie</td>
+                      <td style="padding:4px 5px;text-align:center;color:#ef4444;font-weight:500;border-bottom:1px solid #f1f5f9;">Émile</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                <div style="font-size:11px;font-weight:600;color:#7c3aed;margin-bottom:8px;">✨ Optimiser avec l'IA</div>
+                <div style="background:#f1f5f9;border-radius:8px;padding:7px 10px;margin-bottom:8px;"><div style="font-size:10px;color:#94a3b8;">Notes pour l'IA — ex: Théo est fatigué, évite-le au monticule...</div></div>
+                <div style="background:#7c3aed;border-radius:8px;padding:7px;text-align:center;"><span style="font-size:10px;color:white;font-weight:700;">✨ Générer le lineup IA</span></div>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <div style="flex:1;background:#16a34a;border-radius:8px;padding:7px;text-align:center;"><span style="font-size:10px;color:white;font-weight:700;">Sauvegarder</span></div>
+                <div style="flex:1;background:#2563eb;border-radius:8px;padding:7px;text-align:center;"><span style="font-size:10px;color:white;font-weight:700;">Imprimer</span></div>
+                <div style="flex:1;background:#3730a3;border-radius:8px;padding:7px;text-align:center;"><span style="font-size:10px;color:white;font-weight:700;">PDF</span></div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Optimiseur IA ✨</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Tweak votre lineup généré avec l'IA — ajoutez des notes contextuelles et laissez l'intelligence artificielle affiner l'alignement.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 5 : Feuille de match -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#475569,#1e293b);padding:20px 24px 28px;">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;">
+                <div style="text-align:center;padding:10px 16px;border-bottom:1px solid #e2e8f0;background:#f8fafc;">
+                  <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:-0.5px;"><span style="color:#1a56db;">baseball</span><span style="color:#0f172a;">lineup.ca</span></div>
+                  <div style="font-size:11px;font-weight:700;color:#1e293b;margin-top:2px;">vs Sharks de Montréal</div>
+                  <div style="font-size:10px;color:#94a3b8;">2026-08-09 · Saison régulière</div>
+                </div>
+                <div style="padding:10px 12px;">
+                  <div style="font-size:10px;font-weight:700;color:#1e293b;margin-bottom:4px;">Ordre des frappeurs</div>
+                  <ol style="padding-left:14px;margin-bottom:10px;">
+                    <li style="font-size:10px;color:#374151;padding:1px 0;"><strong>#4</strong> Théo L.</li>
+                    <li style="font-size:10px;color:#374151;padding:1px 0;"><strong>#7</strong> Mathis R.</li>
+                    <li style="font-size:10px;color:#374151;padding:1px 0;"><strong>#12</strong> Rosalie B.</li>
+                    <li style="font-size:10px;color:#374151;padding:1px 0;"><strong>#9</strong> Samuel T.</li>
+                  </ol>
+                  <div style="font-size:10px;font-weight:700;color:#1e293b;margin-bottom:4px;">Positions par manche</div>
+                  <table style="width:100%;border-collapse:collapse;font-size:9px;">
+                    <thead><tr>
+                      <th style="padding:3px 4px;text-align:left;background:#f1f5f9;border:1px solid #e2e8f0;font-weight:700;">Pos</th>
+                      <th style="padding:3px 4px;text-align:center;background:#f1f5f9;border:1px solid #e2e8f0;font-weight:700;">M1</th>
+                      <th style="padding:3px 4px;text-align:center;background:#f1f5f9;border:1px solid #e2e8f0;font-weight:700;">M2</th>
+                      <th style="padding:3px 4px;text-align:center;background:#f1f5f9;border:1px solid #e2e8f0;font-weight:700;">M3</th>
+                      <th style="padding:3px 4px;text-align:center;background:#f1f5f9;border:1px solid #e2e8f0;font-weight:700;">M4</th>
+                      <th style="padding:3px 4px;text-align:center;background:#f1f5f9;border:1px solid #e2e8f0;font-weight:700;">M5</th>
+                      <th style="padding:3px 4px;text-align:center;background:#f1f5f9;border:1px solid #e2e8f0;font-weight:700;">M6</th>
+                    </tr></thead>
+                    <tbody>
+                      <tr><td style="padding:3px 4px;border:1px solid #e2e8f0;font-weight:700;background:#f8fafc;">P</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Théo</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Théo</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Mathis</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;color:#d1d5db;">—</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;color:#d1d5db;">—</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;color:#d1d5db;">—</td></tr>
+                      <tr><td style="padding:3px 4px;border:1px solid #e2e8f0;font-weight:700;background:#f8fafc;">C</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Rosalie</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;color:#d1d5db;">—</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Rosalie</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Rosalie</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;color:#d1d5db;">—</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Rosalie</td></tr>
+                      <tr><td style="padding:3px 4px;border:1px solid #e2e8f0;font-weight:700;background:#f8fafc;">SS</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Mathis</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Mathis</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;color:#d1d5db;">—</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Théo</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Mathis</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Mathis</td></tr>
+                      <tr><td style="padding:3px 4px;border:1px solid #e2e8f0;font-weight:700;background:#f8fafc;">1B</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Samuel</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Samuel</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Samuel</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Mathis</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Samuel</td><td style="padding:3px 4px;border:1px solid #e2e8f0;text-align:center;">Samuel</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <div style="flex:1;background:#2563eb;border-radius:12px;padding:9px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,0.2);"><div style="font-size:11px;color:white;font-weight:700;">🖨️ Imprimer</div></div>
+                <div style="flex:1;background:white;border-radius:12px;border:1px solid #e2e8f0;padding:9px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);"><div style="font-size:11px;color:#64748b;font-weight:700;">📄 PDF</div></div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Feuille de match officielle 🖨️</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Imprimez ou exportez en PDF l'alignement officiel pour le marqueur — ordre des frappeurs + positions par manche.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 6 : Évaluations -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#d97706,#ea580c);padding:20px 24px 28px;">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                  <span style="background:#1e293b;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;">#7</span>
+                  <span style="font-size:11px;font-weight:600;color:#1e293b;">Mathis</span>
+                  <span style="font-size:9px;background:#ffedd5;color:#c2410c;padding:1px 6px;border-radius:10px;font-weight:600;">DEV: 1B</span>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Perf.</div><div style="font-size:12px;color:#fbbf24;">★★★★<span style="color:#e2e8f0;">★</span></div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Frappe</div><div style="font-size:12px;color:#fbbf24;">★★★★★</div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Défense</div><div style="font-size:12px;color:#fbbf24;">★★★★<span style="color:#e2e8f0;">★</span></div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#ea580c;font-weight:600;margin-bottom:3px;">Dev: 1B</div><div style="font-size:12px;color:#fbbf24;">★★★<span style="color:#e2e8f0;">★★</span></div></div>
+                </div>
+              </div>
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                  <span style="background:#1e293b;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;">#12</span>
+                  <span style="font-size:11px;font-weight:600;color:#1e293b;">Rosalie</span>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Perf.</div><div style="font-size:12px;color:#fbbf24;">★★★<span style="color:#e2e8f0;">★★</span></div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Frappe</div><div style="font-size:12px;color:#fbbf24;">★★★<span style="color:#e2e8f0;">★★</span></div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Défense</div><div style="font-size:12px;color:#fbbf24;">★★★★★</div></div>
+                </div>
+              </div>
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                  <span style="background:#1e293b;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;">#4</span>
+                  <span style="font-size:11px;font-weight:600;color:#1e293b;">Théo</span>
+                  <span style="font-size:9px;background:#fee2e2;color:#b91c1c;padding:1px 6px;border-radius:10px;font-weight:600;">Lanceur</span>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Perf.</div><div style="font-size:12px;color:#fbbf24;">★★★★★</div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Frappe</div><div style="font-size:12px;color:#fbbf24;">★★★★<span style="color:#e2e8f0;">★</span></div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#94a3b8;margin-bottom:3px;">Défense</div><div style="font-size:12px;color:#fbbf24;">★★★★<span style="color:#e2e8f0;">★</span></div></div>
+                  <div style="text-align:center;"><div style="font-size:9px;color:#dc2626;font-weight:600;margin-bottom:3px;">Lanceur</div><div style="font-size:12px;color:#fbbf24;">★★★★<span style="color:#e2e8f0;">★</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Évaluations post-match ⭐</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Notez vos joueurs après chaque match. Ces données améliorent automatiquement les prochains lineups.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 7 : Alertes -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#059669,#0f766e);padding:20px 24px 28px;">
+            <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#94a3b8;margin-bottom:10px;">Alertes coach</div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#eff6ff;border-radius:10px;border:1px solid #bfdbfe;">
+                  <span style="font-size:16px;">🎯</span>
+                  <span style="font-size:11px;font-weight:500;color:#1e40af;flex:1;">Mathis a atteint son objectif : SS</span>
+                  <span style="font-size:11px;color:#2563eb;font-weight:600;">→</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#f0fdf4;border-radius:10px;border:1px solid #d1fae5;">
+                  <span style="background:#1e293b;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;">#4</span>
+                  <span style="font-size:11px;font-weight:500;color:#1e293b;flex:1;">Théo</span>
+                  <span style="font-size:11px;color:#16a34a;font-weight:500;">En forme 🔥</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#fff7ed;border-radius:10px;border:1px solid #fed7aa;">
+                  <span style="background:#f97316;color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;">#12</span>
+                  <span style="font-size:11px;font-weight:500;color:#1e293b;flex:1;">Rosalie</span>
+                  <span style="font-size:11px;color:#ea580c;font-weight:500;">Absent 2+ matchs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Alertes coach 🎯</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Objectifs atteints, joueurs en forme, absences prolongées — tout s'affiche dans votre tableau de bord.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 8 : Partager -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#0284c7,#0e7490);padding:20px 24px 28px;">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#94a3b8;margin-bottom:8px;">Lineup partagé</div>
+                <div style="background:#f8fafc;border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                  <span style="font-size:10px;color:#64748b;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">baseballlineup.ca/?lineup=af6f81...</span>
+                  <span style="font-size:10px;background:#2563eb;color:white;padding:2px 8px;border-radius:4px;font-weight:600;white-space:nowrap;">Copier</span>
+                </div>
+                <div style="font-size:10px;color:#94a3b8;text-align:center;">Accessible sans compte — prénom seulement</div>
+              </div>
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;">
+                <div style="background:#111827;color:white;padding:8px 12px;font-size:10px;font-weight:700;letter-spacing:1px;">Prochains matchs</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-bottom:1px solid #f1f5f9;">
+                  <div><div style="font-size:11px;font-weight:600;color:#1e293b;">vs Lions de Québec</div><div style="font-size:10px;color:#94a3b8;">2026-08-09</div></div>
+                  <span style="font-size:9px;font-weight:500;padding:2px 6px;border-radius:10px;background:#dbeafe;color:#1d4ed8;">Saison</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;">
+                  <div><div style="font-size:11px;font-weight:600;color:#1e293b;">vs Cobras — Série G1</div><div style="font-size:10px;color:#94a3b8;">2026-08-16</div></div>
+                  <span style="font-size:9px;font-weight:500;padding:2px 6px;border-radius:10px;background:#fee2e2;color:#b91c1c;">Série</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Partagez le lineup 🔗</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Un lien pour les parents en 1 clic. Prénom seulement affiché — aucun compte requis pour consulter.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 9 : Rapport de saison -->
+        <div class="tour-slide" style="background:white;display:none;">
+          <div style="background:linear-gradient(135deg,#7c3aed,#6b21a8);padding:20px 24px 28px;">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:#1d4ed8;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+                <div style="font-size:10px;color:#93c5fd;margin-bottom:3px;">ProShop · 2026</div>
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <span style="background:white;color:#1d4ed8;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;">#10</span>
+                  <span style="color:white;font-weight:700;font-size:14px;">Juliette Pelletier</span>
+                </div>
+                <div style="font-size:10px;color:#93c5fd;margin-top:2px;">Rapport de Saison</div>
+              </div>
+              <div style="background:#dbeafe;border-radius:10px;padding:8px 12px;"><div style="font-size:10px;color:#1d4ed8;font-weight:500;">8V · 1D · 10N · 28 pts pour · 8 pts contre</div></div>
+              <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#2563eb;margin-bottom:6px;">Participation</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+                  <div style="flex:1;background:#e2e8f0;border-radius:10px;height:6px;"><div style="background:#2563eb;height:6px;border-radius:10px;width:79%;"></div></div>
+                  <span style="font-size:10px;font-weight:700;color:#1e293b;">19/24 <span style="color:#94a3b8;font-weight:400;">(79%)</span></span>
+                </div>
+                <div style="display:flex;gap:6px;">
+                  <span style="font-size:9px;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:10px;font-weight:500;">Saison · 13 matchs</span>
+                  <span style="font-size:9px;background:#fef3c7;color:#92400e;padding:2px 7px;border-radius:10px;font-weight:500;">Tournoi · 6 matchs</span>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06);width:48%;display:flex;align-items:center;justify-content:center;">
+                  <div>
+                    <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#2563eb;margin-bottom:4px;">Profil</div>
+                    <svg viewBox="0 0 100 100" width="80" height="80">
+                      <polygon points="50,12 86,38 72,81 28,81 14,38" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+                      <polygon points="50,22 76,43 65,70 35,70 24,43" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1.5"/>
+                      <circle cx="50" cy="22" r="2" fill="#3b82f6"/>
+                      <circle cx="76" cy="43" r="2" fill="#3b82f6"/>
+                      <circle cx="65" cy="70" r="2" fill="#3b82f6"/>
+                      <circle cx="35" cy="70" r="2" fill="#3b82f6"/>
+                      <circle cx="24" cy="43" r="2" fill="#3b82f6"/>
+                      <text x="50" y="6" text-anchor="middle" font-size="7" fill="#6b7280">Attitude</text>
+                      <text x="96" y="38" text-anchor="middle" font-size="7" fill="#6b7280">Puiss.</text>
+                      <text x="78" y="90" text-anchor="middle" font-size="7" fill="#6b7280">Vitesse</text>
+                      <text x="22" y="90" text-anchor="middle" font-size="7" fill="#6b7280">Frappe</text>
+                      <text x="4" y="38" text-anchor="middle" font-size="7" fill="#6b7280">Déf.</text>
+                    </svg>
+                  </div>
+                </div>
+                <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:8px;flex:1;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                  <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#2563eb;margin-bottom:6px;">Postes joués</div>
+                  <div style="display:flex;flex-direction:column;gap:4px;">
+                    <div><div style="display:flex;justify-content:space-between;margin-bottom:1px;"><span style="font-size:8px;color:#64748b;">Champ centre</span><span style="font-size:8px;color:#2563eb;font-weight:500;">17%</span></div><div style="background:#e2e8f0;border-radius:10px;height:4px;"><div style="background:#3b82f6;height:4px;border-radius:10px;width:17%;"></div></div></div>
+                    <div><div style="display:flex;justify-content:space-between;margin-bottom:1px;"><span style="font-size:8px;color:#64748b;">Champ droit</span><span style="font-size:8px;color:#2563eb;font-weight:500;">14%</span></div><div style="background:#e2e8f0;border-radius:10px;height:4px;"><div style="background:#3b82f6;height:4px;border-radius:10px;width:14%;"></div></div></div>
+                    <div><div style="display:flex;justify-content:space-between;margin-bottom:1px;"><span style="font-size:8px;color:#64748b;">Arrêt-court</span><span style="font-size:8px;color:#2563eb;font-weight:500;">12%</span></div><div style="background:#e2e8f0;border-radius:10px;height:4px;"><div style="background:#3b82f6;height:4px;border-radius:10px;width:12%;"></div></div></div>
+                    <div><div style="display:flex;justify-content:space-between;margin-bottom:1px;"><span style="font-size:8px;color:#64748b;">2e but</span><span style="font-size:8px;color:#2563eb;font-weight:500;">11%</span></div><div style="background:#e2e8f0;border-radius:10px;height:4px;"><div style="background:#3b82f6;height:4px;border-radius:10px;width:11%;"></div></div></div>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#2563eb;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,0.2);"><div style="font-size:11px;color:white;font-weight:700;">📄 Exporter en PDF</div></div>
+            </div>
+          </div>
+          <div style="background:white;padding:16px 20px;">
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:6px;">Rapport de saison 📊</h3>
+            <p style="font-size:13px;color:#64748b;line-height:1.6;">Stats complètes par joueur, objectifs de développement et résultats — exportez le tout en PDF.</p>
+          </div>
+        </div>
+
+
+      </div>
+
+           <!-- Arrows -->
+      <button id="tour-prev" onclick="tourNav(-1)" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);width:40px;height:40px;background:white;border:1px solid #e2e8f0;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">‹</button>
+      <button id="tour-next" onclick="tourNav(1)" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);width:40px;height:40px;background:white;border:1px solid #e2e8f0;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">›</button>
+    </div>
+
+    <!-- Slide labels -->
+    <div id="tour-labels" style="display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap;"></div>
+
+  </div>
+</section>
+
 <!-- POUR QUI -->
 <section style="padding: 60px 40px; background: var(--gray-light); text-align: center;">
   <p style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--blue); margin-bottom:12px;">Pour qui ?</p>
@@ -779,8 +1245,8 @@
 <section class="cta-section">
   <div class="section-label" data-fr="Prêt à commencer ?" data-en="Ready to start?">Prêt à commencer ?</div>
   <h2 class="section-title" data-fr="Votre prochaine saison commence ici." data-en="Your next season starts here.">Votre prochaine saison commence ici.</h2>
-  <p class="section-sub" data-fr="Gratuit. Aucune carte de crédit requise.<br>Configurez votre équipe en 5 minutes." data-en="Free. No credit card required.<br>Set up your team in 5 minutes.">
-    Gratuit. Aucune carte de crédit requise.<br>Configurez votre équipe en 5 minutes.
+  <p class="section-sub" data-fr="Essayez dès maintenant." data-en="Try it now.">
+    Essayez dès maintenant.
   </p>
   <a href="/contact.html" class="btn-primary-light" data-fr="⚾ Faire une demande" data-en="⚾ Request access">⚾ Faire une demande</a>
 </section>
@@ -789,9 +1255,73 @@
 <footer>
   <div class="footer-logo">baseballlineup.ca</div>
   <div class="footer-copy" data-fr="© 2026 baseballlineup.ca — Gestion d'équipe de baseball au Québec " data-en="© 2026 baseballlineup.ca — Baseball team management in Québec ">© 2026 baseballlineup.ca — Gestion d'équipe de baseball au Québec </div>
+  <a href="/politique-confidentialite" class="footer-copy" style="color:var(--gray);text-decoration:none;" data-fr="Politique de confidentialité" data-en="Privacy Policy">Politique de confidentialité</a>
 </footer>
 
 <script>
+  /* ── TOUR CAROUSEL ── */
+  var tourIdx = 0;
+  var TOUR_LABELS_FR = ['Inviter staff','Roster','Lineup auto','Optimiseur IA','Feuille de match','Évaluations','Alertes coach','Partager','Rapport de saison'];
+  var TOUR_LABELS_EN = ['Invite staff','Roster','Auto lineup','AI optimizer','Match sheet','Ratings','Coach alerts','Share','Season report'];
+
+  function initTour() {
+    // Fix height = tallest individual slide so arrows never move
+    var slides = document.querySelectorAll('.tour-slide');
+    var container = document.getElementById('tour-slides');
+    var maxH = 0;
+    slides.forEach(function(s) {
+      s.style.display = 'block';
+      if (s.offsetHeight > maxH) maxH = s.offsetHeight;
+      s.style.display = 'none';
+    });
+    container.style.height = maxH + 'px';
+    slides[0].style.display = 'block';
+
+    var dotsEl = document.getElementById('tour-dots');
+    var labelsEl = document.getElementById('tour-labels');
+    TOUR_LABELS_FR.forEach(function(lbl, i) {
+      var dot = document.createElement('div');
+      dot.id = 'tour-dot-' + i;
+      dot.style.cssText = 'width:8px;height:8px;border-radius:50%;background:' + (i===0?'#1a56db':'#cbd5e1') + ';cursor:pointer;transition:background 0.2s;flex-shrink:0;';
+      dot.onclick = (function(idx){ return function(){ tourGo(idx); }; })(i);
+      dotsEl.appendChild(dot);
+
+      var btn = document.createElement('button');
+      btn.id = 'tour-lbl-' + i;
+      btn.setAttribute('data-fr', TOUR_LABELS_FR[i]);
+      btn.setAttribute('data-en', TOUR_LABELS_EN[i]);
+      btn.textContent = lbl;
+      btn.style.cssText = 'padding:4px 12px;border-radius:20px;border:1px solid ' + (i===0?'#1a56db':'#e2e8f0') + ';background:' + (i===0?'#eff6ff':'white') + ';color:' + (i===0?'#1a56db':'#64748b') + ';font-size:11px;font-weight:600;cursor:pointer;font-family:Barlow,sans-serif;transition:all 0.2s;';
+      btn.onclick = (function(idx){ return function(){ tourGo(idx); }; })(i);
+      labelsEl.appendChild(btn);
+    });
+  }
+
+  function tourGo(idx) {
+    var slides = document.querySelectorAll('.tour-slide');
+    slides[tourIdx].style.display = 'none';
+    tourIdx = idx;
+    slides[tourIdx].style.display = 'block';
+    TOUR_LABELS_FR.forEach(function(_, i) {
+      var dot = document.getElementById('tour-dot-' + i);
+      var btn = document.getElementById('tour-lbl-' + i);
+      if (dot) dot.style.background = i === tourIdx ? '#1a56db' : '#cbd5e1';
+      if (btn) {
+        btn.style.border = '1px solid ' + (i === tourIdx ? '#1a56db' : '#e2e8f0');
+        btn.style.background = i === tourIdx ? '#eff6ff' : 'white';
+        btn.style.color = i === tourIdx ? '#1a56db' : '#64748b';
+      }
+    });
+  }
+
+  function tourNav(dir) {
+    var slides = document.querySelectorAll('.tour-slide');
+    tourGo((tourIdx + dir + slides.length) % slides.length);
+  }
+
+  initTour();
+
+  /* ── LANG ── */
   var lang = 'fr';
 
   function toggleLang() {
