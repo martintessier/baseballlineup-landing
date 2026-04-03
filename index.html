@@ -1223,8 +1223,7 @@
       <button id="tour-next" onclick="tourNav(1)" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);width:40px;height:40px;background:white;border:1px solid #e2e8f0;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">›</button>
     </div>
 
-    <!-- Slide labels -->
-    <div id="tour-labels" style="display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap;"></div>
+    <!-- Slide labels removed -->
 
   </div>
 </section>
@@ -1280,22 +1279,12 @@
     slides[0].style.display = 'block';
 
     var dotsEl = document.getElementById('tour-dots');
-    var labelsEl = document.getElementById('tour-labels');
     TOUR_LABELS_FR.forEach(function(lbl, i) {
       var dot = document.createElement('div');
       dot.id = 'tour-dot-' + i;
-      dot.style.cssText = 'width:8px;height:8px;border-radius:50%;background:' + (i===0?'#1a56db':'#cbd5e1') + ';cursor:pointer;transition:background 0.2s;flex-shrink:0;';
+      dot.style.cssText = 'width:10px;height:10px;border-radius:50%;border:1.5px solid #0f172a;background:' + (i===0?'#0f172a':'#ffffff') + ';cursor:pointer;transition:background 0.2s;flex-shrink:0;';
       dot.onclick = (function(idx){ return function(){ tourGo(idx); }; })(i);
       dotsEl.appendChild(dot);
-
-      var btn = document.createElement('button');
-      btn.id = 'tour-lbl-' + i;
-      btn.setAttribute('data-fr', TOUR_LABELS_FR[i]);
-      btn.setAttribute('data-en', TOUR_LABELS_EN[i]);
-      btn.textContent = lbl;
-      btn.style.cssText = 'padding:4px 12px;border-radius:20px;border:1px solid ' + (i===0?'#1a56db':'#e2e8f0') + ';background:' + (i===0?'#eff6ff':'white') + ';color:' + (i===0?'#1a56db':'#64748b') + ';font-size:11px;font-weight:600;cursor:pointer;font-family:Barlow,sans-serif;transition:all 0.2s;';
-      btn.onclick = (function(idx){ return function(){ tourGo(idx); }; })(i);
-      labelsEl.appendChild(btn);
     });
   }
 
@@ -1306,13 +1295,7 @@
     slides[tourIdx].style.display = 'block';
     TOUR_LABELS_FR.forEach(function(_, i) {
       var dot = document.getElementById('tour-dot-' + i);
-      var btn = document.getElementById('tour-lbl-' + i);
-      if (dot) dot.style.background = i === tourIdx ? '#1a56db' : '#cbd5e1';
-      if (btn) {
-        btn.style.border = '1px solid ' + (i === tourIdx ? '#1a56db' : '#e2e8f0');
-        btn.style.background = i === tourIdx ? '#eff6ff' : 'white';
-        btn.style.color = i === tourIdx ? '#1a56db' : '#64748b';
-      }
+      if (dot) dot.style.background = i === tourIdx ? '#0f172a' : '#ffffff';
     });
   }
 
