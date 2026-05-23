@@ -293,9 +293,9 @@
     btn.textContent = 'Sending…';
     errEl.classList.add('hidden');
 
-    fetch('https://formspree.io/f/mwvraagd', {
+    fetch('/api/feedback', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ type: 'privacy', name: name, email: email, message: msg })
     }).then(function(r) {
       if (r.ok) {

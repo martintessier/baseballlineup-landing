@@ -204,7 +204,7 @@
       <h1 class="card-title">Créer mon équipe</h1>
       <p class="card-sub">Remplissez ce formulaire — vous recevrez une invitation par courriel sous 24h.</p>
 
-      <form id="contact-form" action="https://formspree.io/f/mlgpajpk" method="POST">
+      <form id="contact-form" method="POST">
 
         <div class="field">
           <label>Nom de l'équipe <span>*</span></label>
@@ -274,12 +274,19 @@
     btn.disabled = true;
     btn.textContent = 'Envoi en cours...';
 
-    var data = new FormData(this);
+    var fd = new FormData(this);
+    var payload = {
+      team_name: fd.get('team_name'),
+      coach_name: fd.get('coach_name'),
+      email: fd.get('email'),
+      category: fd.get('category'),
+      message: fd.get('message')
+    };
     try {
-      var res = await fetch(this.action, {
+      var res = await fetch('/api/contact', {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
       if (res.ok) {
         document.getElementById('form-state').style.display = 'none';
