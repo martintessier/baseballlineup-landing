@@ -25,15 +25,22 @@ const BARRE_PARENTS =
 	'</div>';
 // Le lineup du match de la vitrine (aussi dans la feuille du marqueur et l'ecran Preparer) :
 // joueur -> positions M1..M6. 9 positions + 1 banc par manche (verifie ci-dessous).
+// Sortie du VRAI moteur de l'app (genererAlignement, 11UB, saison, lanceurs 2-2-2 Mathis/Arnaud/Jacob, Thomas reserviste),
+// regeneree le 17 oct. 2026 (Martin : la grille faite a la main n'etait pas equitable). Ne pas retoucher a la main.
 const JOUEURS = [
-	['Jacob', 8, ['3B', '3B', 'RF', 'RF', 'P', 'P']], ['Samuel', 5, ['SS', 'SS', 'CF', 'SS', 'C', 'C']],
-	['Émile', 21, ['C', 'C', 'SS', 'banc', '1B', '1B']], ['Arnaud', 34, ['RF', 'RF', 'P', 'P', '3B', '3B']],
-	['Nathan', 16, ['1B', '1B', 'LF', 'LF', 'banc', 'CF']], ['Édouard', 7, ['LF', 'banc', '1B', '1B', '2B', '2B']],
-	['Léo', 11, ['CF', 'CF', '2B', '2B', 'LF', 'RF']], ['Noah', 29, ['2B', '2B', 'banc', 'CF', 'CF', 'LF']],
-	['Mathis', 1, ['P', 'P', '3B', '3B', 'RF', 'banc']], ['Thomas', 35, ['banc', 'LF', 'C', 'C', 'SS', 'SS']]
+	['Jacob', 8, ['1B', '2B', 'CF', 'banc', 'P', 'P']],
+	['Samuel', 5, ['banc', 'RF', 'SS', '2B', 'SS', 'CF']],
+	['Émile', 21, ['3B', 'CF', 'banc', '1B', 'C', 'LF']],
+	['Arnaud', 34, ['CF', 'banc', 'P', 'P', 'RF', 'C']],
+	['Nathan', 16, ['LF', 'SS', 'RF', 'C', '1B', '3B']],
+	['Édouard', 7, ['2B', 'LF', '1B', '3B', 'LF', 'banc']],
+	['Léo', 11, ['SS', 'C', '3B', 'RF', 'CF', 'SS']],
+	['Noah', 29, ['RF', '1B', '2B', 'LF', 'banc', '2B']],
+	['Mathis', 1, ['P', 'P', 'C', 'SS', '3B', 'RF']],
+	['Thomas', 35, ['C', '3B', 'LF', 'CF', '2B', '1B']]
 ];
-// Positions en developpement (surlignees comme dans l'app) : [prenom, index de manche].
-const DEV = [['Thomas', 2], ['Édouard', 4]];
+// Positions en developpement (surlignees comme dans l'app) : Edouard vise 2B, Thomas vise C.
+const DEV = [['Édouard', 0], ['Thomas', 0]];
 const POSITIONS = ['P', 'C', '1B', '2B', '3B', 'SS', 'LF', 'CF', 'RF'];
 for (let m = 0; m < 6; m++) {
 	const v = JOUEURS.map((j) => j[2][m]).sort().join();
