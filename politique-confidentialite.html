@@ -1,319 +1,211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Politique de confidentialité — baseballlineup.ca</title>
-<meta name="robots" content="noindex"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité et conditions d'utilisation — Baseball Lineup</title>
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2e5647">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232e5647'/%3E%3Crect x='11' y='11' width='10' height='10' rx='1.5' fill='%23fff' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --blue: #1a56db; --blue-dark: #1042b5; --blue-light: #eff6ff;
-    --navy: #0f172a; --gray: #64748b;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Barlow', sans-serif; background: #f1f5f9; color: #0f172a; min-height: 100vh; }
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  .nav-logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800; font-size: 20px; color: var(--blue);
-    letter-spacing: -0.5px; text-decoration: none;
-  }
-  .nav-logo span { color: var(--navy); }
-  .nav-actions { display: flex; align-items: center; gap: 12px; }
-  .lang-toggle {
-    font-size: 13px; font-weight: 600; color: var(--gray);
-    background: none; border: none; cursor: pointer;
-    padding: 6px 10px; border-radius: 6px;
-    transition: color 0.2s, background 0.2s;
-  }
-  .lang-toggle:hover { color: var(--blue); background: var(--blue-light); }
-  .btn-nav-login {
-    font-size: 14px; font-weight: 600;
-    color: var(--navy); background: none;
-    border: 1.5px solid #e2e8f0;
-    padding: 8px 18px; border-radius: 8px;
-    cursor: pointer; text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-nav-login:hover { border-color: var(--blue); color: var(--blue); }
-  .btn-nav-signup {
-    font-size: 14px; font-weight: 700;
-    color: white; background: var(--blue);
-    border: none; padding: 8px 20px; border-radius: 8px;
-    cursor: pointer; text-decoration: none;
-    transition: background 0.2s;
-  }
-  .btn-nav-signup:hover { background: var(--blue-dark); }
-
-  .container { max-width: 680px; margin: 0 auto; padding: 100px 20px 60px; }
-
-  .card {
-    background: white; border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    padding: 32px; margin-bottom: 16px;
-  }
-
-  h1 { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
-  .meta { font-size: 12px; color: #94a3b8; margin-bottom: 0; }
-
-  hr { border: none; border-top: 1px solid #f1f5f9; margin: 20px 0; }
-
-  h2 { font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
-
-  p { font-size: 14px; color: #475569; line-height: 1.7; margin-bottom: 8px; }
-  p:last-child { margin-bottom: 0; }
-
-  ul { font-size: 14px; color: #475569; line-height: 1.7; padding-left: 20px; margin-bottom: 8px; }
-  li { margin-bottom: 4px; }
-
-  a { color: #2563eb; }
-
-  .footer-note {
-    text-align: center; font-size: 12px; color: #94a3b8;
-    font-style: italic; margin-top: 20px;
-  }
-
-  /* Contact form */
-  .contact-card { background: white; border-radius: 16px; border: 1px solid #e2e8f0; padding: 28px; }
-  .contact-card h2 { font-size: 16px; margin-bottom: 4px; }
-  .contact-card p { margin-bottom: 16px; }
-  .form-group { margin-bottom: 12px; }
-  input, textarea {
-    width: 100%; border: 1px solid #e2e8f0; border-radius: 10px;
-    padding: 10px 14px; font-size: 14px; font-family: 'Barlow', sans-serif;
-    outline: none; transition: border-color 0.15s;
-  }
-  input:focus, textarea:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
-  textarea { resize: none; }
-  .btn-submit {
-    width: 100%; padding: 12px; border-radius: 10px; border: none;
-    background: #2563eb; color: white; font-size: 14px;
-    font-weight: 700; font-family: 'Barlow', sans-serif;
-    cursor: pointer; transition: background 0.15s;
-  }
-  .btn-submit:hover { background: #1d4ed8; }
-  .btn-submit:disabled { background: #cbd5e1; cursor: not-allowed; }
-  .msg-success { text-align: center; padding: 20px 0; }
-  .msg-success strong { display: block; font-size: 15px; margin-bottom: 4px; }
-  .msg-error { font-size: 12px; color: #dc2626; margin-bottom: 8px; }
-  .hidden { display: none; }
-
-  .back-link { display: block; text-align: center; margin-top: 20px; font-size: 14px; color: #2563eb; text-decoration: none; }
-  .back-link:hover { text-decoration: underline; }
+/* Meme style que le site vitrine v2 et la page contact. */
+:root { --fond: #f2f2ee; --blanc: #fff; --encre: #14171a; --doux: #5c655f; --pale: #939b95; --trait: #d5d9d3; --terrain: #2e5647;
+	--titre: 'Space Grotesk', system-ui, sans-serif; --texte: 'Hanken Grotesk', system-ui, sans-serif; --mono: 'Space Mono', ui-monospace, monospace; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fond); color: var(--encre); font-family: var(--texte); -webkit-font-smoothing: antialiased; }
+a { color: var(--terrain); }
+.contenu { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+.entete { background: rgba(242, 242, 238, .92); border-bottom: 1px solid var(--trait); }
+.entete .contenu { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+.marque { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--encre); font: 700 16px var(--titre); }
+.logo { width: 30px; height: 30px; border-radius: 8px; background: var(--terrain); display: grid; place-items: center; }
+.logo i { width: 11px; height: 11px; background: #fff; border-radius: 2px; transform: rotate(45deg); }
+.droite { display: flex; align-items: center; gap: 10px; }
+.langue { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; border: 1px solid var(--trait); border-radius: 8px; text-decoration: none; font: 600 12px var(--mono); color: var(--doux); }
+.retour { text-decoration: none; font: 600 14px var(--titre); }
+main { padding: 56px 0 80px; }
+article { max-width: 760px; margin: 0 auto; background: var(--blanc); border: 1px solid var(--trait); border-radius: 22px; padding: 44px 48px; }
+.surtitre { font: 600 11px var(--titre); letter-spacing: .16em; text-transform: uppercase; color: var(--terrain); margin: 0 0 12px; }
+h1 { margin: 0; font: 700 32px/1.15 var(--titre); letter-spacing: -.02em; }
+.maj { margin: 10px 0 0; font: 400 12px var(--mono); color: var(--pale); }
+section { border-top: 1px solid #ebede8; margin-top: 28px; padding-top: 24px; }
+h2 { margin: 0 0 12px; font: 700 19px var(--titre); }
+p, li { font-size: 15.5px; line-height: 1.6; color: #3b433e; }
+p { margin: 0 0 10px; }
+ul { margin: 0 0 12px; padding-left: 22px; }
+li { margin: 4px 0; }
+.etiquette { font-weight: 600; color: var(--encre); margin: 14px 0 4px; }
+.pied-article { margin-top: 32px; text-align: center; font-size: 13px; font-style: italic; color: var(--pale); }
+.pied { border-top: 1px solid var(--trait); background: var(--blanc); padding: 28px 0; }
+.pied .contenu { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--doux); }
+.pied a { text-decoration: none; color: var(--doux); }
+@media (max-width: 860px) {
+	.contenu { padding: 0 20px; }
+	.entete .contenu { height: 60px; }
+	main { padding: 24px 0 48px; }
+	article { padding: 26px 20px; border-radius: 18px; }
+	h1 { font-size: 26px; }
+	p, li { font-size: 15px; }
+}
 </style>
 </head>
 <body>
+<header class="entete">
+	<div class="contenu">
+		<a class="marque" href="/"><span class="logo"><i></i></span>Baseball Lineup</a>
+		<div class="droite">
+			<a class="langue" href="/privacy-policy.html" aria-label="English version">EN</a>
+			<a class="retour" href="/">← Retour au site</a>
+		</div>
+	</div>
+</header>
+<main>
+	<div class="contenu">
+		<article>
+			<p class="surtitre">Confidentialité</p>
+			<h1>Politique de confidentialité et conditions d'utilisation</h1>
+			<p class="maj">baseballlineup.ca — Dernière mise à jour : octobre 2026 · Version 2.0</p>
 
-<nav>
-  <a href="/" class="nav-logo"><span style="color:#1a56db;">baseball</span><span>lineup.ca</span></a>
-  <div class="nav-actions">
-    <a href="/privacy-policy.html" class="lang-toggle">EN</a>
-    <a href="https://baseballlineup.vercel.app" class="btn-nav-login">Se connecter</a>
-    <a href="https://baseballlineup.vercel.app" class="btn-nav-signup">Faire une demande</a>
-  </div>
-</nav>
+			<section>
+				<h2>1. Qui sommes-nous</h2>
+				<p>baseballlineup.ca est une application web de gestion d'équipes de baseball mineur, développée et exploitée au Québec, Canada. Elle comprend l'application des coachs et la <strong>page de l'équipe</strong> destinée aux familles (horaire, présences, chat, fichiers), ouverte par le lien que le coach leur transmet.</p>
+				<p><strong>Responsable de la protection des renseignements personnels</strong> : le fondateur et exploitant de baseballlineup.ca. Pour toute question ou demande, écrivez-lui par le <a href="/contact.html?sujet=confidentialite">formulaire de contact</a> (sujet « Mes données »).</p>
+			</section>
 
-<div class="container">
+			<section>
+				<h2>2. Données collectées</h2>
+				<p class="etiquette">À propos des coachs (comptes) :</p>
+				<ul><li>Nom et adresse courriel</li><li>Nom de l'équipe, catégorie et saison</li></ul>
+				<p class="etiquette">À propos des joueurs (saisis par le coach) :</p>
+				<ul>
+					<li>Prénom et nom, numéro de chandail</li>
+					<li>Positions jouées et préférées, présences, manches jouées et lancées</li>
+					<li>Évaluations de match du coach (notes internes, jamais montrées aux familles)</li>
+					<li>Si l'équipe utilise le suivi de match : résultats au bâton</li>
+				</ul>
+				<p class="etiquette">À propos des adultes qui utilisent la page de l'équipe (parents, coachs) :</p>
+				<ul>
+					<li>Le <strong>prénom</strong> seulement (aucun courriel ni téléphone n'est demandé aux parents) et les enfants suivis</li>
+					<li>Les consentements donnés (politique, photos) et leur date</li>
+					<li>Pour chaque appareil : un identifiant aléatoire (conservé chiffré par hachage), le type de navigateur, la date de la dernière visite et, si activé, l'abonnement aux notifications</li>
+					<li>Les réponses de présence aux matchs et pratiques (et qui a répondu)</li>
+					<li>Les messages, réactions et photos publiés dans le chat ; les fichiers publiés par les coachs</li>
+				</ul>
+				<p>Nous ne collectons <strong>aucune</strong> information de paiement directement.</p>
+			</section>
 
-  <div class="card">
+			<section>
+				<h2>3. Joueurs mineurs et familles</h2>
+				<p>Les joueurs sont généralement des personnes mineures. À ce titre :</p>
+				<ul>
+					<li>Les données d'une équipe ne sont accessibles qu'à ses coachs et, pour la page de l'équipe, aux personnes qui ont son lien et son mot de passe ; un coach peut retirer une personne et changer le lien</li>
+					<li>Sur la page de l'équipe, les autres familles ne voient que le <strong>prénom et l'initiale</strong> des joueurs</li>
+					<li>Les statistiques d'un enfant ne sont montrées <strong>qu'à sa famille</strong> (et aux coachs), seulement si le coach l'a activé, et jamais les évaluations du coach</li>
+					<li>Une photo ne peut être publiée par un parent que s'il a accepté le partage de photos ; les photos ne sont jamais publiques (liens temporaires seulement) et leurs métadonnées de localisation sont retirées sur le téléphone avant l'envoi</li>
+					<li>Les messages privés relient une famille à <strong>l'ensemble</strong> du personnel de l'équipe, jamais un adulte seul à seul avec un enfant</li>
+					<li>Aucune fiche médicale remplie ne doit être téléversée : elle se remet en main propre au coach. Les informations de santé (blessure, allergie) s'écrivent en privé aux coachs, pas dans le chat de l'équipe</li>
+					<li>Les données ne sont <strong>jamais vendues ni partagées</strong> à des fins commerciales ou publicitaires</li>
+					<li>Le coach est responsable d'obtenir le consentement des parents ou tuteurs pour inscrire les joueurs dans l'application</li>
+				</ul>
+			</section>
 
-    <h1>Politique de confidentialité et conditions d'utilisation</h1>
-    <p class="meta">baseballlineup.ca — Dernière mise à jour : mai 2026 · Version 1.0</p>
+			<section>
+				<h2>4. Utilisation des données</h2>
+				<p>Les données servent exclusivement à :</p>
+				<ul>
+					<li>Générer les lineups, tenir l'horaire, les présences et les statistiques de l'équipe</li>
+					<li>Permettre la communication entre les familles et le personnel de l'équipe (chat, fichiers, notifications)</li>
+					<li>Assurer le bon fonctionnement et la sécurité de l'application</li>
+				</ul>
+				<p>Aucune publicité, aucune revente, aucun profilage.</p>
+			</section>
 
-    <hr/>
+			<section>
+				<h2>5. Hébergement et communication hors du Québec</h2>
+				<p>Les données sont hébergées <strong>hors du Québec, aux États-Unis</strong>, chez les prestataires suivants, qui les traitent pour notre compte seulement :</p>
+				<ul>
+					<li><strong>Supabase</strong> — base de données et comptes des coachs (Virginie, États-Unis)</li>
+					<li><strong>Vercel</strong> — hébergement de l'application et de ce site (États-Unis)</li>
+					<li><strong>Cloudflare R2</strong> — photos et fichiers (Est de l'Amérique du Nord), dans un espace privé</li>
+					<li><strong>Resend</strong> — envoi des courriels, comme les codes de vérification et les messages de ce site (États-Unis)</li>
+					<li><strong>Anthropic</strong> — assistance par intelligence artificielle, seulement si l'équipe l'utilise : les renseignements nécessaires à la demande (par exemple prénoms, positions et évaluations) sont transmis pour produire la réponse (États-Unis)</li>
+					<li>Les services de notification d'Apple, Google ou Mozilla, selon le téléphone, acheminent les notifications ; leur contenu est chiffré de bout en bout</li>
+				</ul>
+				<p class="etiquette">Mesures de protection :</p>
+				<ul>
+					<li>Communications chiffrées (HTTPS) ; accès aux données limité à chaque équipe</li>
+					<li>Identifiants d'appareil et codes de vérification conservés uniquement sous forme hachée</li>
+					<li>Photos et fichiers dans un espace privé, accessibles seulement par des liens temporaires</li>
+				</ul>
+			</section>
 
-    <section>
-      <h2>1. Qui sommes-nous</h2>
-      <p>baseballlineup.ca est une application web de gestion de lineup pour équipes de baseball récréatif, développée et exploitée au Québec, Canada.</p>
-      <p>Pour toute question relative à cette politique, vous pouvez nous contacter via le <a href="#contact">formulaire de contact</a>.</p>
-    </section>
+			<section>
+				<h2>6. Vos droits (Loi 25 — Québec)</h2>
+				<p>Conformément à la <em>Loi sur la protection des renseignements personnels dans le secteur privé</em>, vous pouvez :</p>
+				<ul>
+					<li><strong>Accéder</strong> aux renseignements vous concernant et les <strong>corriger</strong></li>
+					<li><strong>Retirer votre consentement</strong> et <strong>faire supprimer</strong> vos données</li>
+				</ul>
+				<p>Sur la page de l'équipe, vous le faites vous-même, dans <strong>Plus → Mon profil</strong> :</p>
+				<ul>
+					<li>Changer votre prénom, vos enfants suivis ou votre consentement photos</li>
+					<li><strong>Quitter l'équipe et supprimer mes données</strong> : votre fiche, vos enfants suivis, vos appareils, votre fil privé et vos photos sont supprimés immédiatement ; vos messages dans le chat de l'équipe restent, sans votre nom (« Ancien membre »)</li>
+					<li>Supprimer vos propres messages à tout moment</li>
+				</ul>
+				<p>Pour toute autre demande (coachs, données d'un joueur), utilisez le <a href="/contact.html?sujet=confidentialite">formulaire de contact</a>.</p>
+			</section>
 
-    <hr/>
+			<section>
+				<h2>7. Conservation des données</h2>
+				<ul>
+					<li><strong>Chat, photos et fichiers</strong> : effacés automatiquement <strong>30 jours après la fin de la saison</strong> (le dernier match ou la dernière pratique à l'horaire, ou la date de fin de saison choisie par le coach)</li>
+					<li>Une photo ou un fichier retiré, ou un envoi abandonné : effacé du stockage dans les 24 heures</li>
+					<li><strong>Appareils inactifs depuis un an</strong> : supprimés ; une personne qui n'a plus aucun appareil depuis un an est retirée de la page de l'équipe</li>
+					<li>Codes de vérification : valides 15 minutes, effacés après une journée</li>
+					<li>Compte de coach : conservé tant qu'il est actif ; à sa suppression, les données associées sont supprimées dans un délai de 30 jours</li>
+				</ul>
+			</section>
 
-    <section>
-      <h2>2. Données collectées</h2>
-      <p>Dans le cadre de l'utilisation de l'application, nous collectons les informations suivantes :</p>
-      <p><strong>À propos du coach (responsable du compte) :</strong></p>
-      <ul>
-        <li>Adresse courriel</li>
-        <li>Nom de l'équipe et catégorie</li>
-      </ul>
-      <p><strong>À propos des joueurs :</strong></p>
-      <ul>
-        <li>Prénom et nom des joueurs</li>
-        <li>Numéro de chandail</li>
-        <li>Positions de jeu et préférences tactiques</li>
-        <li>Évaluations de performance par match (notes internes à l'équipe)</li>
-      </ul>
-      <p>Nous ne collectons <strong>aucune</strong> information de paiement directement — les transactions sont traitées par un prestataire tiers sécurisé.</p>
-    </section>
+			<section>
+				<h2>8. Témoins (cookies) et stockage sur l'appareil</h2>
+				<p>Seuls des témoins nécessaires au fonctionnement sont utilisés, aucun témoin publicitaire ou de traçage :</p>
+				<ul>
+					<li>La session de connexion des coachs</li>
+					<li>Sur la page de l'équipe, un témoin qui reconnaît votre appareil (valide jusqu'à 400 jours, illisible par la page elle-même) ; « Ce n'est pas moi » dans Mon profil l'efface</li>
+					<li>Le stockage local du navigateur garde, au besoin, une réponse en attente de réseau et vos préférences d'affichage (dont la langue de ce site)</li>
+				</ul>
+			</section>
 
-    <hr/>
+			<section>
+				<h2>9. Conditions d'utilisation</h2>
+				<p>En utilisant baseballlineup.ca, vous acceptez que :</p>
+				<ul>
+					<li>L'application est fournie « telle quelle », sans garantie de disponibilité continue</li>
+					<li>Vous êtes responsable de l'exactitude des informations saisies et de ce que vous publiez</li>
+					<li>Le chat sert à la vie de l'équipe : respect, aucun propos blessant, aucune photo d'un enfant sans l'accord de sa famille ; les coachs peuvent retirer un message ou une personne</li>
+					<li>Toute utilisation abusive ou contraire à l'éthique sportive peut entraîner la suspension de l'accès</li>
+					<li>Nous nous réservons le droit de modifier ces conditions avec un préavis de 30 jours</li>
+				</ul>
+			</section>
 
-    <section>
-      <h2>3. Données de joueurs mineurs</h2>
-      <p>Les joueurs enregistrés dans l'application sont susceptibles d'être des personnes mineures. À ce titre :</p>
-      <ul>
-        <li>Seul le coach responsable du compte a accès aux données de son équipe</li>
-        <li>Les données des joueurs ne sont <strong>jamais partagées</strong> avec des tiers à des fins commerciales</li>
-        <li>Les données ne sont <strong>pas accessibles publiquement</strong></li>
-        <li>Le coach est responsable d'obtenir le consentement approprié des parents ou tuteurs légaux pour l'enregistrement des informations des joueurs mineurs dans l'application</li>
-      </ul>
-    </section>
+			<section>
+				<h2>10. Modifications de cette politique</h2>
+				<p>Toute modification importante est annoncée aux coachs par courriel et sur la page de l'équipe. La date de la dernière mise à jour est indiquée en haut de ce document.</p>
+			</section>
 
-    <hr/>
-
-    <section>
-      <h2>4. Utilisation des données</h2>
-      <p>Les données collectées sont utilisées exclusivement pour :</p>
-      <ul>
-        <li>Permettre la génération de lineups de match</li>
-        <li>Afficher l'historique et les statistiques de l'équipe</li>
-        <li>Assurer le bon fonctionnement de l'application</li>
-      </ul>
-      <p>Nous n'utilisons <strong>pas</strong> vos données à des fins publicitaires et nous ne les vendons <strong>pas</strong> à des tiers.</p>
-    </section>
-
-    <hr/>
-
-    <section>
-      <h2>5. Hébergement et communication hors du Québec</h2>
-      <p>Les données sont hébergées <strong>hors du Québec, aux États-Unis</strong>, chez les prestataires suivants, qui les traitent pour notre compte seulement :</p>
-      <ul>
-        <li><strong>Supabase</strong> (base de données et comptes des coachs) — Virginie, États-Unis</li>
-        <li><strong>Vercel</strong> (hébergement de l'application et de ce site) — États-Unis</li>
-        <li><strong>Cloudflare R2</strong> (photos et fichiers, dans un espace privé) — Est de l'Amérique du Nord</li>
-        <li><strong>Resend</strong> (envoi des courriels) — États-Unis</li>
-      </ul>
-      <p>Les communications sont chiffrées (HTTPS) et l'accès aux données est limité à chaque équipe. La liste complète des prestataires et des mesures de protection se trouve dans la <a href="https://baseballlineup-v2.vercel.app/politique-confidentialite">politique de confidentialité de l'application</a>.</p>
-    </section>
-
-    <hr/>
-
-    <section>
-      <h2>6. Vos droits (Loi 25 — Québec)</h2>
-      <p>Conformément à la <em>Loi sur la protection des renseignements personnels dans le secteur privé</em> (Loi 25, Québec), vous avez le droit de :</p>
-      <ul>
-        <li><strong>Accéder</strong> aux renseignements personnels vous concernant</li>
-        <li><strong>Corriger</strong> toute information inexacte</li>
-        <li><strong>Supprimer</strong> votre compte et toutes les données associées</li>
-        <li><strong>Retirer votre consentement</strong> à tout moment</li>
-      </ul>
-      <p>Pour exercer ces droits, contactez-nous via le <a href="#contact">formulaire de contact</a>.</p>
-    </section>
-
-    <hr/>
-
-    <section>
-      <h2>7. Conservation des données</h2>
-      <p>Les données sont conservées aussi longtemps que votre compte est actif. En cas de suppression du compte, toutes les données associées sont supprimées dans un délai de 30 jours.</p>
-    </section>
-
-    <hr/>
-
-    <section>
-      <h2>8. Cookies et données de navigation</h2>
-      <p>L'application utilise uniquement les cookies nécessaires à l'authentification et au bon fonctionnement du service. Aucun cookie publicitaire ou de traçage tiers n'est utilisé.</p>
-    </section>
-
-    <hr/>
-
-    <section>
-      <h2>9. Conditions d'utilisation</h2>
-      <p>En utilisant baseballlineup.ca, vous acceptez que :</p>
-      <ul>
-        <li>L'application est fournie "telle quelle", sans garantie de disponibilité continue</li>
-        <li>Vous êtes responsable de l'exactitude des informations saisies</li>
-        <li>Toute utilisation abusive ou contraire à l'éthique sportive peut entraîner la suspension du compte</li>
-        <li>Nous nous réservons le droit de modifier ces conditions avec un préavis de 30 jours</li>
-      </ul>
-    </section>
-
-    <hr/>
-
-    <section>
-      <h2>10. Modifications de cette politique</h2>
-      <p>Toute modification importante sera communiquée par courriel. La date de la dernière mise à jour est indiquée en haut de ce document.</p>
-    </section>
-
-    <hr/>
-
-    <p class="footer-note">baseballlineup.ca — Fait au Québec 🏳️ pour le baseball récréatif</p>
-
-  </div>
-
-  <!-- Formulaire de contact -->
-  <div class="contact-card" id="contact">
-    <h2>Nous contacter</h2>
-    <p>Pour exercer vos droits (accès, correction, suppression) ou toute question relative à la confidentialité.</p>
-
-    <div id="form-area">
-      <div class="form-group">
-        <input type="text" id="contact-name" placeholder="Votre nom *"/>
-      </div>
-      <div class="form-group">
-        <input type="email" id="contact-email" placeholder="Votre courriel *"/>
-      </div>
-      <div class="form-group">
-        <textarea id="contact-msg" rows="3" placeholder="Votre message *"></textarea>
-      </div>
-      <p class="msg-error hidden" id="contact-error">Erreur lors de l'envoi. Veuillez réessayer.</p>
-      <button class="btn-submit" id="contact-btn" onclick="submitContact()">Envoyer</button>
-    </div>
-
-    <div class="msg-success hidden" id="form-success">
-      <strong>Message envoyé !</strong>
-      <span style="font-size:14px;color:#64748b;">Nous vous répondrons dans les meilleurs délais.</span>
-    </div>
-  </div>
-
-  <a href="/" class="back-link">← Retour à l'accueil</a>
-
-</div>
-
+			<p class="pied-article">baseballlineup.ca — Fait au Québec pour le baseball mineur</p>
+		</article>
+	</div>
+</main>
+<footer class="pied">
+	<div class="contenu"><span>© 2026 Baseball Lineup</span><a href="/contact.html">Nous écrire</a></div>
+</footer>
 <script>
-  function submitContact() {
-    var name = document.getElementById('contact-name').value.trim();
-    var email = document.getElementById('contact-email').value.trim();
-    var msg = document.getElementById('contact-msg').value.trim();
-    var btn = document.getElementById('contact-btn');
-    var errEl = document.getElementById('contact-error');
-
-    if (!name || !email || !msg) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Envoi…';
-    errEl.classList.add('hidden');
-
-    fetch('/api/feedback', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'confidentialite', name: name, email: email, message: msg })
-    }).then(function(r) {
-      if (r.ok) {
-        document.getElementById('form-area').classList.add('hidden');
-        document.getElementById('form-success').classList.remove('hidden');
-      } else {
-        errEl.classList.remove('hidden');
-        btn.disabled = false;
-        btn.textContent = 'Envoyer';
-      }
-    }).catch(function() {
-      errEl.classList.remove('hidden');
-      btn.disabled = false;
-      btn.textContent = 'Envoyer';
-    });
-  }
+// Retenir la langue choisie (meme cle que le site) quand on change de version.
+document.querySelector('.langue').addEventListener('click', function () { try { localStorage.setItem('blu-langue', 'en'); } catch (e) {} });
 </script>
 </body>
 </html>

@@ -102,6 +102,7 @@ textarea { min-height: 140px; resize: vertical; }
 							<option value="question" data-en="A question">Une question</option>
 							<option value="suggestion" data-en="A suggestion">Une suggestion</option>
 							<option value="bogue" data-en="A problem in the app">Un problème dans l'application</option>
+							<option value="confidentialite" data-en="My data (privacy)">Mes données (confidentialité)</option>
 							<option value="autre" data-en="Something else">Autre chose</option>
 						</select>
 					</label>
@@ -162,6 +163,10 @@ textarea { min-height: 140px; resize: vertical; }
 		appliquer(l);
 		try { localStorage.setItem('blu-langue', l); } catch (e) {}
 	});
+
+	// ?sujet=confidentialite (lien des politiques) : le sujet est choisi d'avance.
+	var sujet = new URLSearchParams(location.search).get('sujet');
+	if (sujet && document.querySelector('select[name=type] option[value="' + sujet + '"]')) document.querySelector('select[name=type]').value = sujet;
 
 	// Envoi par /api/feedback (Resend).
 	var form = document.getElementById('formulaire');
