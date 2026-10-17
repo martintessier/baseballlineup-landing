@@ -33,7 +33,7 @@ const JOUEURS = [
 	['Mathis', 1, ['P', 'P', '3B', '3B', 'RF', 'banc']], ['Thomas', 35, ['banc', 'LF', 'C', 'C', 'SS', 'SS']]
 ];
 // Positions en developpement (surlignees comme dans l'app) : [prenom, index de manche].
-const DEV = [['Thomas', 2], ['Noah', 3], ['Léo', 2]];
+const DEV = [['Thomas', 2], ['Édouard', 4]];
 const POSITIONS = ['P', 'C', '1B', '2B', '3B', 'SS', 'LF', 'CF', 'RF'];
 for (let m = 0; m < 6; m++) {
 	const v = JOUEURS.map((j) => j[2][m]).sort().join();
