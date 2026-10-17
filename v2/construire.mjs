@@ -28,7 +28,7 @@ for (let i = 0; i < 8; i++) {
 	if (!page.includes(`{{ECRAN_${i}}}`)) continue; // ecran retire de la page (ex. 2 = selection des pages PDF)
 	let ecran = fs.readFileSync(path.join(ICI, 'ecrans', `ecran-${i}.html`), 'utf8');
 	// Coherence avec le lineup affiche : Leo B. frappe 8e, CF puis 2B (revue du 17 oct. 2026).
-	ecran = ecran.split('Léo frappe 6e · SS et RF').join('Léo frappe 8e · 4 positions');
+	ecran = ecran.split('Léo frappe 6e · SS et RF').join('Léo frappe 7e · 4 positions');
 	// Barre du bas de la Page Info Parents : les 5 icones de la vraie app (presences/[jeton]), pas seulement des mots.
 	ecran = ecran.replace(/<div style="margin-top: auto; display: flex; justify-content: space-around;[^"]*">(?:<span[^>]*>(?:Accueil|Horaire|Chat|Plus)<\/span>)+<\/div>/, BARRE_PARENTS);
 	page = page.split(`{{ECRAN_${i}}}`).join(`<div aria-hidden="true">${ecran}</div>`);
