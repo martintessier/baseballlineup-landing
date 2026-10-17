@@ -67,9 +67,52 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 
 /* Hero */
 .hero { position: relative; overflow: hidden; padding: 88px 0 104px; }
-.hero .contenu { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: center; position: relative; }
+.hero .contenu { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; position: relative; }
 .hero .deco { position: absolute; width: 760px; height: 760px; right: -120px; top: 50%; transform: translateY(-50%); pointer-events: none; }
 .hero .telephone { display: flex; justify-content: center; position: relative; }
+
+.hero h1 { font-size: clamp(50px, 4.3vw, 62px); max-width: none; }
+/* Accueil : l'alignement en 2 ecrans (vue « Positions × manches » de l'app) */
+.deux-ecrans { position: relative; padding: 0 0 70px; }
+.ecran-ordi { background: var(--blanc); border: 1px solid var(--trait); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -34px rgba(20, 35, 28, .4); }
+.barre-fenetre { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; background: #ecebe6; border-bottom: 1px solid var(--trait); }
+.barre-fenetre i { width: 9px; height: 9px; border-radius: 50%; background: #d3d2cc; }
+.barre-fenetre span { margin-left: 10px; font: 400 10px var(--mono); color: var(--pale); }
+.ecran-ordi-corps { padding: 20px 22px 18px; }
+.pxm-sur { margin: 0; font: 400 9.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--doux); }
+.pxm-titre { margin: 3px 0 0; font: 700 18px var(--titre); }
+.pxm-section { margin: 14px 0 6px; font: 500 10.5px var(--titre); letter-spacing: .1em; text-transform: uppercase; color: var(--pale); }
+.pxm { border-collapse: collapse; font-family: var(--titre); }
+.pxm th, .pxm td { text-align: center; border-bottom: 1px solid #ebede8; }
+.pxm thead th { font-weight: 600; font-family: var(--mono); color: var(--pale); border-bottom: 1.5px solid var(--trait); }
+.pxm thead th:first-child, .pxm tbody th { text-align: left; }
+.pxm tbody th { font-weight: 700; color: var(--encre); }
+.pxm td { color: #3b433e; white-space: nowrap; }
+.pxm td b { font-weight: 500; color: var(--doux); }
+.pxm td.dev { background: #f3efe8; color: #8a6420; box-shadow: inset 0 0 0 2px var(--blanc); }
+.pxm td.dev b { color: #8a6420; }
+.pxm tr.banc th { color: var(--pale); font-weight: 600; }
+.pxm tr.banc td { border-bottom: 0; border-top: 1.5px solid var(--trait); }
+.pxm tr.banc span { color: var(--pale); text-decoration: underline dotted; text-underline-offset: 3px; }
+.pxm.ordi { width: 100%; table-layout: fixed; }
+.pxm.ordi th, .pxm.ordi td { padding: 6px 1px; font-size: 10.5px; letter-spacing: -.01em; }
+.pxm.ordi thead th:first-child, .pxm.ordi tbody th { width: 30px; }
+.pxm-legende { display: flex; align-items: center; gap: 7px; margin: 12px 0 0; font: 500 11.5px var(--texte); color: #8a6420; }
+.pxm-legende i { width: 13px; height: 13px; border-radius: 4px; background: #f3efe8; }
+/* Le telephone : meme vue, M1 a M4 visibles, la suite coupee a droite comme dans l'app (on fait defiler). */
+.ecran-tel { position: absolute; right: -26px; bottom: 0; width: 214px; background: #101312; border-radius: 34px; padding: 7px; box-shadow: 0 30px 60px -20px rgba(20, 35, 28, .5); }
+.ecran-tel-verre { background: var(--fond); border-radius: 28px; overflow: hidden; height: 400px; padding: 0 0 0 12px; }
+.ecran-tel-heure { display: flex; justify-content: space-between; align-items: flex-end; height: 30px; padding: 0 18px 5px 8px; font: 600 11px var(--titre); }
+.ecran-tel-heure b { width: 17px; height: 8px; border: 1.3px solid var(--encre); border-radius: 2px; }
+.ecran-tel .pxm-titre { font-size: 14px; }
+.ecran-tel .pxm-section { margin-top: 10px; font-size: 8.5px; }
+.defile { overflow: hidden; }
+.pxm.tel { width: 290px; table-layout: fixed; }
+.pxm.tel th, .pxm.tel td { padding: 4px 1px; font-size: 8.5px; line-height: 1.2; }
+.pxm.tel thead th:first-child, .pxm.tel tbody th { width: 22px; }
+.pxm.tel td b { display: block; font-size: 8.5px; color: var(--encre); font-weight: 600; }
+.pxm.tel td span { color: var(--doux); }
+.pxm.tel tr.banc span { display: block; }
 
 /* Probleme */
 .trois { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 46px; }
@@ -187,6 +230,14 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	.hero { padding: 44px 0 64px; }
 	.hero .contenu, .parents .contenu, .faq .contenu { grid-template-columns: 1fr; gap: 44px; }
 	.hero .deco { display: none; }
+	/* Telephone : seulement l'ecran du telephone, centre. */
+	.deux-ecrans { padding: 0; display: flex; justify-content: center; }
+	.ecran-ordi { display: none; }
+	.ecran-tel { position: static; width: 290px; }
+	.ecran-tel-verre { height: 520px; }
+	.pxm.tel { width: 400px; }
+	.pxm.tel th, .pxm.tel td { font-size: 10px; padding: 5px 1px; }
+	.pxm.tel td b { font-size: 10px; }
 	.boutons { flex-direction: column; align-items: flex-start; margin-top: 28px; }
 	.trois, .confiance, .temoins { grid-template-columns: 1fr; gap: 14px; }
 	.confiance { gap: 36px; }
@@ -239,7 +290,28 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 				<a class="btn" href="#fonctionnalites">Voir les fonctionnalités</a>
 			</div>
 		</div>
-		<div class="telephone">{{ECRAN_0}}</div>
+		<!-- La vue « Positions × manches » de l'ecran Alignement de l'app, sur ordinateur et sur telephone. -->
+		<div class="deux-ecrans" role="img" aria-label="Exemple d'alignement : positions par manche et joueurs au banc, sur ordinateur et sur téléphone">
+			<div class="ecran-ordi">
+				<div class="barre-fenetre"><i></i><i></i><i></i><span>baseballlineup</span></div>
+				<div class="ecran-ordi-corps">
+					<p class="pxm-sur">Alignement · sam 14 juin</p>
+					<p class="pxm-titre">vs Faucons 11UB2</p>
+					<p class="pxm-section">Positions × manches</p>
+					{{TABLEAU_ORDI}}
+					<p class="pxm-legende"><i></i>Position en développement</p>
+				</div>
+			</div>
+			<div class="ecran-tel">
+				<div class="ecran-tel-verre">
+					<div class="ecran-tel-heure"><span>9:41</span><b></b></div>
+					<p class="pxm-sur">Alignement · sam 14 juin</p>
+					<p class="pxm-titre">vs Faucons 11UB2</p>
+					<p class="pxm-section">Positions × manches</p>
+					<div class="defile">{{TABLEAU_TEL}}</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
