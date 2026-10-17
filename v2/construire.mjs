@@ -61,4 +61,6 @@ for (let i = 0; i < 9; i++) {
 page = page.split('{{TABLEAU_ORDI}}').join(tableau('ordi')).split('{{TABLEAU_TEL}}').join(tableau('tel'));
 if (/\{\{[A-Z_0-9]+\}\}/.test(page)) throw new Error('marqueur non remplace : ' + page.match(/\{\{[A-Z_0-9]+\}\}/)[0]);
 fs.writeFileSync(path.join(ICI, 'index.html'), page);
+// Garde-fou : les temoignages de maquette ne doivent pas partir a la bascule.
+if (page.includes('TEMOIGNAGES_FICTIFS')) console.warn('⚠ Témoignages FICTIFS dans la page : à remplacer par de vrais témoignages avant la bascule.');
 console.log(`v2/index.html : ${Math.round(page.length / 1024)} Ko (app : ${APP})`);
