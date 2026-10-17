@@ -101,14 +101,17 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 .pxm-legende i { width: 13px; height: 13px; border-radius: 4px; background: #efe4d0; }
 /* Le telephone : meme vue, M1 a M4 visibles, la suite coupee a droite comme dans l'app (on fait defiler). */
 .ecran-tel { position: absolute; right: -26px; bottom: 0; width: 214px; background: #101312; border-radius: 34px; padding: 7px; box-shadow: 0 30px 60px -20px rgba(20, 35, 28, .5); }
-.ecran-tel-verre { background: var(--fond); border-radius: 28px; overflow: hidden; padding: 0 0 16px 12px; }
+.ecran-tel-verre { background: var(--fond); border-radius: 28px; overflow: hidden; padding: 0 10px 14px 12px; }
 .ecran-tel .pxm-legende { font-size: 8.5px; margin-top: 8px; }
 .ecran-tel .pxm-legende i { width: 10px; height: 10px; border-radius: 3px; }
 .ecran-tel-heure { display: flex; justify-content: space-between; align-items: flex-end; height: 30px; padding: 0 18px 5px 8px; font: 600 11px var(--titre); }
 .ecran-tel-heure b { width: 17px; height: 8px; border: 1.3px solid var(--encre); border-radius: 2px; }
 .ecran-tel .pxm-titre { font-size: 14px; }
 .ecran-tel .pxm-section { margin-top: 10px; font-size: 8.5px; }
-.defile { overflow: hidden; background: var(--blanc); border: 1px solid #e3e5df; border-right: 0; border-radius: 12px 0 0 12px; padding: 2px 0 2px 6px; }
+/* Comme l'app : une carte blanche, le tableau defile a l'interieur (coupe a droite). */
+.carte-tel { margin: 10px 0 0; background: var(--blanc); border: 1px solid #e3e5df; border-radius: 14px; padding: 10px 0 10px 8px; overflow: hidden; }
+.carte-tel .pxm-section { margin: 0 0 4px; }
+.defile { overflow: hidden; }
 .pxm.tel { width: 290px; table-layout: fixed; }
 .pxm.tel th, .pxm.tel td { padding: 4px 1px; font-size: 8.5px; line-height: 1.2; }
 .pxm.tel thead th:first-child, .pxm.tel tbody th { width: 22px; }
@@ -310,9 +313,11 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 					<div class="ecran-tel-heure"><span>9:41</span><b></b></div>
 					<p class="pxm-sur">Alignement · sam 14 juin</p>
 					<p class="pxm-titre">vs Faucons 11UB2</p>
-					<p class="pxm-section">Positions × manches</p>
-					<div class="defile">{{TABLEAU_TEL}}</div>
-					<p class="pxm-legende"><i></i>Position en développement</p>
+					<div class="carte-tel">
+						<p class="pxm-section">Positions × manches</p>
+						<div class="defile">{{TABLEAU_TEL}}</div>
+						<p class="pxm-legende"><i></i>Position en développement</p>
+					</div>
 				</div>
 			</div>
 		</div>
