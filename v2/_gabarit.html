@@ -45,6 +45,11 @@ section { padding: 112px 0; }
 .connexion { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1px solid var(--trait); border-radius: 12px; text-decoration: none; font: 600 14.5px var(--titre); background: var(--blanc); }
 .connexion:hover { border-color: var(--terrain); }
 
+.entete-droite { display: flex; align-items: center; gap: 10px; }
+.langue { min-height: 36px; padding: 0 10px; border: 1px solid var(--trait); border-radius: 8px; background: transparent; font: 600 12px var(--mono); color: var(--doux); cursor: pointer; }
+.langue:hover { border-color: var(--terrain); color: var(--terrain); }
+.note-en { margin: 14px 0 0; font-size: 13.5px; color: var(--doux); }
+
 /* Boutons */
 .boutons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 54px; padding: 0 26px; border-radius: 12px; font: 600 16px var(--titre); text-decoration: none; border: 1px solid var(--trait); background: var(--blanc); }
@@ -280,11 +285,11 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	<div class="contenu">
 		<a class="marque" href="#haut"><span class="logo"><i></i></span>Baseball Lineup</a>
 		<nav class="nav" aria-label="Sections">
-			<a href="#fonctionnalites">Fonctionnalités</a>
+			<a href="#fonctionnalites" data-en="Features">Fonctionnalités</a>
 			<a href="#parents">Parents</a>
-			<a href="#questions">Questions</a>
+			<a href="#questions" data-en="FAQ">Questions</a>
 		</nav>
-		<a class="connexion" href="{{APP}}/connexion">Se connecter</a>
+		<div class="entete-droite"><button class="langue" id="langue" type="button" aria-label="English version">EN</button><a class="connexion" href="{{APP}}/connexion" data-en="Sign in">Se connecter</a></div>
 	</div>
 </header>
 
@@ -293,13 +298,14 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	<svg class="deco" viewBox="0 0 760 760" aria-hidden="true"><rect x="160" y="160" width="440" height="440" fill="none" stroke="#d5d9d3" stroke-width="1.5" transform="rotate(45 380 380)"/></svg>
 	<div class="contenu">
 		<div>
-			<p class="surtitre">Pour les coachs de baseball mineur · 7U à 18U</p>
-			<h1>Moins de gestion.<em>Plus de baseball.</em></h1>
-			<p class="chapeau">Lineup, feuille de match, pratiques, parents et stats — en quelques clics, sur votre téléphone.</p>
+			<p class="surtitre" data-en="For youth baseball coaches · 7U to 18U">Pour les coachs de baseball mineur · 7U à 18U</p>
+			<h1 data-en="Less admin.<em>More baseball.</em>">Moins de gestion.<em>Plus de baseball.</em></h1>
+			<p class="chapeau" data-en="Lineups, game sheets, practices, parents and stats — in a few taps, on your phone.">Lineup, feuille de match, pratiques, parents et stats — en quelques clics, sur votre téléphone.</p>
 			<div class="boutons">
-				<a class="btn principal" href="{{APP}}/connexion?creer">Créer mon équipe →</a>
-				<a class="btn" href="#fonctionnalites">Voir les fonctionnalités</a>
+				<a class="btn principal" href="{{APP}}/connexion?creer" data-en="Create my team →">Créer mon équipe →</a>
+				<a class="btn" href="#fonctionnalites" data-en="See the features">Voir les fonctionnalités</a>
 			</div>
+			<p class="note-en" data-seulement-en hidden>The app is currently in French — English is coming soon.</p>
 		</div>
 		<!-- La vue « Positions × manches » de l'ecran Alignement de l'app, sur ordinateur et sur telephone. -->
 		<div class="deux-ecrans" role="img" aria-label="Exemple d'alignement : positions par manche et joueurs au banc, sur ordinateur et sur téléphone">
@@ -332,13 +338,13 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 <section class="blanc">
 	<div class="contenu">
 		<div class="marqueur ocre"><span></span><i></i></div>
-		<p class="surtitre ocre">Pourquoi Baseball Lineup</p>
-		<h2>Coacher, c'est bien plus que le terrain.</h2>
-		<p class="intro pourquoi">Un engagement exigeant, entre le travail et la vie de famille. Baseball Lineup existe pour soutenir les coachs et leur simplifier la vie.</p>
+		<p class="surtitre ocre" data-en="Why Baseball Lineup">Pourquoi Baseball Lineup</p>
+		<h2 data-en="Coaching is much more than the field.">Coacher, c'est bien plus que le terrain.</h2>
+		<p class="intro pourquoi" data-en="A demanding commitment, between work and family life. Baseball Lineup exists to support coaches and make their lives easier.">Un engagement exigeant, entre le travail et la vie de famille. Baseball Lineup existe pour soutenir les coachs et leur simplifier la vie.</p>
 		<div class="confiance defis">
-			<div><h4>La communication</h4><p>Joindre tous les parents, au bon moment, avec la bonne information.</p></div>
-			<div><h4>Les attentes</h4><p>Donner à chaque joueur sa chance, et pouvoir l'expliquer.</p></div>
-			<div><h4>Le temps</h4><p>Tout préparer entre le travail, la famille… et le prochain match.</p></div>
+			<div><h4 data-en="Communication">La communication</h4><p data-en="Reaching every parent, at the right time, with the right information.">Joindre tous les parents, au bon moment, avec la bonne information.</p></div>
+			<div><h4 data-en="Expectations">Les attentes</h4><p data-en="Giving every player a fair chance, and being able to explain it.">Donner à chaque joueur sa chance, et pouvoir l'expliquer.</p></div>
+			<div><h4 data-en="Time">Le temps</h4><p data-en="Getting everything ready between work, family… and the next game.">Tout préparer entre le travail, la famille… et le prochain match.</p></div>
 		</div>
 	</div>
 </section>
@@ -346,26 +352,26 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 <section id="fonctionnalites">
 	<div class="contenu">
 		<div class="marqueur"><span></span><i></i></div>
-		<p class="surtitre">Fonctionnalités</p>
-		<h2>Cinq outils, un seul endroit.</h2>
-		<p class="intro">Cinq outils pensés pour la réalité du baseball mineur. Tout se fait sur le téléphone.</p>
+		<p class="surtitre" data-en="Features">Fonctionnalités</p>
+		<h2 data-en="Five tools, one place.">Cinq outils, un seul endroit.</h2>
+		<p class="intro" data-en="Five tools built for the reality of youth baseball. Everything works on your phone.">Cinq outils pensés pour la réalité du baseball mineur. Tout se fait sur le téléphone.</p>
 
 		<div class="outil">
 			<div class="texte">
 				<p class="surtitre">01 · Lineup</p>
-				<h3>Un lineup équitable, prêt en un clic</h3>
-				<p>Le lineup se construit à partir de l'évaluation de vos joueurs et de leurs positions à éviter.</p>
-				<ul><li>Manches réparties équitablement entre tous les joueurs</li><li>Respecte les règles de Baseball Québec : manches lancées et repos des lanceurs</li><li>Modifiable d'un simple toucher</li></ul>
+				<h3 data-en="A fair lineup, ready in one tap">Un lineup équitable, prêt en un clic</h3>
+				<p data-en="The lineup is built from your player evaluations and the positions they should avoid.">Le lineup se construit à partir de l'évaluation de vos joueurs et de leurs positions à éviter.</p>
+				<ul><li data-en="Innings shared fairly among all players">Manches réparties équitablement entre tous les joueurs</li><li data-en="Follows Baseball Québec rules: innings pitched and pitcher rest">Respecte les règles de Baseball Québec : manches lancées et repos des lanceurs</li><li data-en="Adjust it with a single tap">Modifiable d'un simple toucher</li></ul>
 			</div>
 			<div class="vitrine">{{ECRAN_8}}</div>
 		</div>
 
 		<div class="outil inverse">
 			<div class="texte">
-				<p class="surtitre">02 · Feuille de match</p>
-				<h3>Une feuille propre pour le marqueur et l'arbitre</h3>
-				<p>Fini la feuille gribouillée à la dernière minute. L'alignement sort imprimé, lisible, prêt à remettre.</p>
-				<ul><li>L'ordre au bâton, les numéros et les positions</li><li>Le banc de chaque manche, déjà prévu</li><li>Les entraîneurs présents, inscrits sur la feuille</li></ul>
+				<p class="surtitre" data-en="02 · Game sheet">02 · Feuille de match</p>
+				<h3 data-en="A clean sheet for the scorekeeper and the umpire">Une feuille propre pour le marqueur et l'arbitre</h3>
+				<p data-en="No more last-minute scribbled sheets. The lineup comes out printed, readable and ready to hand in.">Fini la feuille gribouillée à la dernière minute. L'alignement sort imprimé, lisible, prêt à remettre.</p>
+				<ul><li data-en="Batting order, jersey numbers and positions">L'ordre au bâton, les numéros et les positions</li><li data-en="The bench for every inning, already planned">Le banc de chaque manche, déjà prévu</li><li data-en="The coaches on hand, listed on the sheet">Les entraîneurs présents, inscrits sur la feuille</li></ul>
 			</div>
 			<!-- Recree d'apres la vraie feuille officielle (marqueur) de l'app, joueurs fictifs (ceux du lineup ci-dessus). -->
 			<div class="vitrine papier">
@@ -410,30 +416,30 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 
 		<div class="outil">
 			<div class="texte">
-				<p class="surtitre">03 · Pratiques</p>
-				<h3>Une pratique planifiée sans casse-tête</h3>
-				<p>Une pratique de 90 minutes découpée en blocs, avec des stations pour chaque coach.</p>
-				<ul><li>Un catalogue d'exercices illustrés</li><li>Le plan au complet sur le téléphone, au terrain</li><li>Un vote entre coachs pour trouver le meilleur soir</li></ul>
+				<p class="surtitre" data-en="03 · Practices">03 · Pratiques</p>
+				<h3 data-en="Practice planning without the headache">Une pratique planifiée sans casse-tête</h3>
+				<p data-en="A 90-minute practice split into blocks, with stations for each coach.">Une pratique de 90 minutes découpée en blocs, avec des stations pour chaque coach.</p>
+				<ul><li data-en="A library of illustrated drills">Un catalogue d'exercices illustrés</li><li data-en="The full plan on your phone, at the field">Le plan au complet sur le téléphone, au terrain</li><li data-en="A coach vote to find the best night">Un vote entre coachs pour trouver le meilleur soir</li></ul>
 			</div>
 			<div class="vitrine">{{ECRAN_3}}</div>
 		</div>
 
 		<div class="outil inverse">
 			<div class="texte">
-				<p class="surtitre">04 · Tracker terrain</p>
-				<h3>Suivez chaque présence au bâton</h3>
-				<p>Notez les résultats au bâton pendant le match, directement sur le téléphone.</p>
-				<ul><li>Moyenne, coups sûrs et points produits</li><li>Une carte de chaleur par joueur</li><li>Une phrase qui résume ses tendances au bâton</li></ul>
+				<p class="surtitre" data-en="04 · Field tracker">04 · Tracker terrain</p>
+				<h3 data-en="Track every plate appearance">Suivez chaque présence au bâton</h3>
+				<p data-en="Record at-bat results during the game, right on your phone.">Notez les résultats au bâton pendant le match, directement sur le téléphone.</p>
+				<ul><li data-en="Batting average, hits and RBIs">Moyenne, coups sûrs et points produits</li><li data-en="A spray chart for each player">Une carte de chaleur par joueur</li><li data-en="A sentence that sums up each hitter's tendencies">Une phrase qui résume ses tendances au bâton</li></ul>
 			</div>
 			<div class="vitrine">{{ECRAN_5}}</div>
 		</div>
 
 		<div class="outil">
 			<div class="texte">
-				<p class="surtitre">05 · Statistiques</p>
-				<h3>Voyez si tout le monde joue</h3>
-				<p>Les chiffres qui comptent pour un coach de baseball mineur.</p>
-				<ul><li>Manches par position et présence</li><li>Éligibilité aux séries, avant qu'il soit trop tard</li><li>Rapport de fin de saison pour chaque joueur</li></ul>
+				<p class="surtitre" data-en="05 · Stats">05 · Statistiques</p>
+				<h3 data-en="See whether everyone plays">Voyez si tout le monde joue</h3>
+				<p data-en="The numbers that matter to a youth baseball coach.">Les chiffres qui comptent pour un coach de baseball mineur.</p>
+				<ul><li data-en="Innings by position and attendance">Manches par position et présence</li><li data-en="Playoff eligibility, before it's too late">Éligibilité aux séries, avant qu'il soit trop tard</li><li data-en="An end-of-season report for every player">Rapport de fin de saison pour chaque joueur</li></ul>
 			</div>
 			<div class="vitrine">{{ECRAN_6}}</div>
 		</div>
@@ -443,12 +449,12 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 <section class="blanc">
 	<div class="contenu">
 		<div class="marqueur"><span></span><i></i></div>
-		<p class="surtitre">Comment ça marche</p>
-		<h2>Trois étapes, et c'est parti.</h2>
+		<p class="surtitre" data-en="How it works">Comment ça marche</p>
+		<h2 data-en="Three steps and you're set.">Trois étapes, et c'est parti.</h2>
 		<div class="trois">
-			<div class="etape"><div class="rond">1</div><h4>Créez votre équipe</h4><p>À partir du calendrier de votre ligue : vos matchs sont ajoutés pour vous, et vos joueurs aussi dès que la ligue les publie.</p></div>
-			<div class="etape"><div class="rond">2</div><h4>Les parents répondent</h4><p>Ils indiquent la présence de leur enfant à partir d'un seul lien.</p></div>
-			<div class="etape"><div class="rond plein">3</div><h4>Votre lineup est prêt</h4><p>Cochez qui est là, et le lineup est généré.</p></div>
+			<div class="etape"><div class="rond">1</div><h4 data-en="Create your team">Créez votre équipe</h4><p data-en="From your league's schedule: your games are added for you, and your players too as soon as the league publishes them.">À partir du calendrier de votre ligue : vos matchs sont ajoutés pour vous, et vos joueurs aussi dès que la ligue les publie.</p></div>
+			<div class="etape"><div class="rond">2</div><h4 data-en="Parents respond">Les parents répondent</h4><p data-en="They confirm their child's attendance from a single link.">Ils indiquent la présence de leur enfant à partir d'un seul lien.</p></div>
+			<div class="etape"><div class="rond plein">3</div><h4 data-en="Your lineup is ready">Votre lineup est prêt</h4><p data-en="Check who's there, and the lineup is generated.">Cochez qui est là, et le lineup est généré.</p></div>
 		</div>
 	</div>
 </section>
@@ -456,16 +462,16 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 <section class="parents" id="parents">
 	<div class="contenu">
 		<div>
-			<p class="surtitre">Page Info Parents</p>
-			<h2>Un seul lien.<br>Toute l'info au même endroit.</h2>
-			<p class="intro">Fini le groupe de messagerie qui ne rejoint pas tout le monde. Les parents ouvrent un lien, et ils ont la saison au complet.</p>
+			<p class="surtitre" data-en="Parent Info Page">Page Info Parents</p>
+			<h2 data-en="One link.<br>All the info in one place.">Un seul lien.<br>Toute l'info au même endroit.</h2>
+			<p class="intro" data-en="No more group chat that misses half the parents. Parents open one link and get the whole season.">Fini le groupe de messagerie qui ne rejoint pas tout le monde. Les parents ouvrent un lien, et ils ont la saison au complet.</p>
 			<div class="mini">
-				<div><b>Horaire</b><span>Matchs, pratiques, heure d'arrivée</span></div>
-				<div><b>Présences</b><span>Un geste : présent ou absent</span></div>
-				<div><b>Lineup</b><span>30 minutes avant le match</span></div>
-				<div><b>Chat d'équipe</b><span>Messages, photos, fichiers</span></div>
+				<div><b data-en="Schedule">Horaire</b><span data-en="Games, practices, arrival time">Matchs, pratiques, heure d'arrivée</span></div>
+				<div><b data-en="Attendance">Présences</b><span data-en="One tap: in or out">Un geste : présent ou absent</span></div>
+				<div><b>Lineup</b><span data-en="30 minutes before the game">30 minutes avant le match</span></div>
+				<div><b data-en="Team chat">Chat d'équipe</b><span data-en="Messages, photos, files">Messages, photos, fichiers</span></div>
 			</div>
-			<p class="note">Un lien et le mot de passe de l'équipe. Aucun compte, aucune application à installer.</p>
+			<p class="note" data-en="One link and the team password. No account, no app to install.">Un lien et le mot de passe de l'équipe. Aucun compte, aucune application à installer.</p>
 		</div>
 		<div class="telephone">{{ECRAN_7}}</div>
 	</div>
@@ -473,16 +479,16 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 
 <section>
 	<div class="contenu confiance">
-		<div><h4>De 7U à 18U</h4><p>Toutes les catégories du baseball mineur, avec leurs nombres de manches et de positions.</p></div>
-		<div><h4>Toute l'équipe d'entraîneurs</h4><p>Vos adjoints travaillent avec vous, chacun sur son téléphone.</p></div>
-		<div><h4>Données protégées</h4><p>Les autres familles ne voient que le prénom et l'initiale de votre enfant, et le chat est effacé 30 jours après la saison.</p></div>
+		<div><h4 data-en="From 7U to 18U">De 7U à 18U</h4><p data-en="Every youth baseball age group, with its own number of innings and positions.">Toutes les catégories du baseball mineur, avec leurs nombres de manches et de positions.</p></div>
+		<div><h4 data-en="Your whole coaching staff">Toute l'équipe d'entraîneurs</h4><p data-en="Your assistants work with you, each on their own phone.">Vos adjoints travaillent avec vous, chacun sur son téléphone.</p></div>
+		<div><h4 data-en="Protected data">Données protégées</h4><p data-en="Other families only see your child's first name and initial, and the chat is deleted 30 days after the season.">Les autres familles ne voient que le prénom et l'initiale de votre enfant, et le chat est effacé 30 jours après la saison.</p></div>
 	</div>
 </section>
 
 <section class="blanc">
 	<div class="contenu">
-		<p class="surtitre">Ils l'utilisent</p>
-		<h2>Ce qu'en disent les coachs.</h2>
+		<p class="surtitre" data-en="They use it">Ils l'utilisent</p>
+		<h2 data-en="What coaches say.">Ce qu'en disent les coachs.</h2>
 		<div class="temoins">
 			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote>[À REMPLIR : citation du coach]</blockquote><figcaption class="qui"><span class="avatar">?</span><span><b>[Prénom]</b><small>[ÉQUIPE] · [CATÉGORIE]</small></span></figcaption></figure>
 			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote>[À REMPLIR : citation du coach]</blockquote><figcaption class="qui"><span class="avatar">?</span><span><b>[Prénom]</b><small>[ÉQUIPE] · [CATÉGORIE]</small></span></figcaption></figure>
@@ -494,14 +500,14 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	<div class="contenu">
 		<div>
 			<div class="marqueur"><span></span><i></i></div>
-			<p class="surtitre">Questions</p>
-			<h2>Questions fréquentes</h2>
+			<p class="surtitre" data-en="FAQ">Questions</p>
+			<h2 data-en="Frequently asked questions">Questions fréquentes</h2>
 		</div>
 		<div>
-			<details open><summary>Ma ligue est-elle compatible ?<span>+</span></summary><p>Si votre ligue publie son calendrier en ligne, vous pouvez l'importer en créant votre équipe : matchs, tournois et séries. Sinon, vous ajoutez vos matchs vous-même, en quelques minutes.</p></details>
-			<details><summary>Mes adjoints peuvent-ils y accéder ?<span>+</span></summary><p>Oui. Invitez-les par courriel : chacun a son propre accès, sur son téléphone. Un adjoint qui ne veut pas utiliser l'application peut quand même figurer sur la feuille de match.</p></details>
-			<details><summary>Les parents doivent-ils installer une application ?<span>+</span></summary><p>Non. Ils reçoivent un lien qui s'ouvre dans leur navigateur, avec le mot de passe de l'équipe. Aucun compte à créer. Ils peuvent l'ajouter à leur écran d'accueil s'ils le souhaitent.</p></details>
-			<details><summary>Où sont mes données ?<span>+</span></summary><p>Les données de votre équipe ne sont visibles que par vos entraîneurs. Les autres familles ne voient que le prénom et l'initiale de votre enfant, et le chat d'équipe est effacé 30 jours après la fin de la saison. Les données sont hébergées de façon sécurisée aux États-Unis.</p></details>
+			<details open><summary data-en="Does it work with my league?<span>+</span>">Ma ligue est-elle compatible ?<span>+</span></summary><p data-en="If your league publishes its schedule online, you can import it when you create your team: games, tournaments and playoffs. Otherwise, you add your games yourself in a few minutes.">Si votre ligue publie son calendrier en ligne, vous pouvez l'importer en créant votre équipe : matchs, tournois et séries. Sinon, vous ajoutez vos matchs vous-même, en quelques minutes.</p></details>
+			<details><summary data-en="Can my assistant coaches use it?<span>+</span>">Mes adjoints peuvent-ils y accéder ?<span>+</span></summary><p data-en="Yes. Invite them by email: each one gets their own access, on their own phone. An assistant who doesn't want to use the app can still be listed on the game sheet.">Oui. Invitez-les par courriel : chacun a son propre accès, sur son téléphone. Un adjoint qui ne veut pas utiliser l'application peut quand même figurer sur la feuille de match.</p></details>
+			<details><summary data-en="Do parents need to install an app?<span>+</span>">Les parents doivent-ils installer une application ?<span>+</span></summary><p data-en="No. They get a link that opens in their browser, with the team password. No account to create. They can add it to their home screen if they wish.">Non. Ils reçoivent un lien qui s'ouvre dans leur navigateur, avec le mot de passe de l'équipe. Aucun compte à créer. Ils peuvent l'ajouter à leur écran d'accueil s'ils le souhaitent.</p></details>
+			<details><summary data-en="Where is my data stored?<span>+</span>">Où sont mes données ?<span>+</span></summary><p data-en="Your team's data is visible only to your coaches. Other families only see your child's first name and initial, and the team chat is deleted 30 days after the end of the season. The data is securely hosted in the United States.">Les données de votre équipe ne sont visibles que par vos entraîneurs. Les autres familles ne voient que le prénom et l'initiale de votre enfant, et le chat d'équipe est effacé 30 jours après la fin de la saison. Les données sont hébergées de façon sécurisée aux États-Unis.</p></details>
 		</div>
 	</div>
 </section>
@@ -510,9 +516,9 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	<div class="contenu">
 		<div class="bloc-fin">
 			<svg viewBox="0 0 520 520" aria-hidden="true"><rect x="110" y="110" width="300" height="300" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5" transform="rotate(45 260 260)"/></svg>
-			<h2>Votre prochaine saison commence ici.</h2>
-			<p>Créez votre équipe ce soir. Votre premier lineup sera prêt pour le prochain match.</p>
-			<a class="btn" href="{{APP}}/connexion?creer">Créer mon équipe →</a>
+			<h2 data-en="Your next season starts here.">Votre prochaine saison commence ici.</h2>
+			<p data-en="Create your team tonight. Your first lineup will be ready for the next game.">Créez votre équipe ce soir. Votre premier lineup sera prêt pour le prochain match.</p>
+			<a class="btn" href="{{APP}}/connexion?creer" data-en="Create my team →">Créer mon équipe →</a>
 		</div>
 	</div>
 </section>
@@ -523,10 +529,54 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		<a class="marque" href="#haut"><span class="logo"><i></i></span>Baseball Lineup</a>
 		<nav aria-label="Liens">
 			<a href="/contact.html">Contact</a>
-			<a href="/politique-confidentialite.html">Politique de confidentialité</a>
+			<a href="/politique-confidentialite.html" data-en-href="/privacy-policy.html" data-en="Privacy policy">Politique de confidentialité</a>
 		</nav>
 		<small>© 2026 Baseball Lineup</small>
 	</div>
 </footer>
+<script>
+// Langue : choix memorise, sinon ?lang=en, sinon la langue du navigateur. Le francais est l'original.
+(function () {
+	var bouton = document.getElementById('langue');
+	var textes = [].slice.call(document.querySelectorAll('[data-en]'));
+	textes.forEach(function (e) { e.setAttribute('data-fr', e.innerHTML); });
+
+	// Ecrans de l'app et feuille de match : textes traduits sur place (dictionnaire ECRANS_EN).
+	var ECRANS_EN = {"M1":"1","M2":"2","M3":"3","M4":"4","M5":"5","M6":"6","M1-M2":"Inn. 1-2","M3-M4":"Inn. 3-4","M5-M6":"Inn. 5-6","ENT":"HC","ADJ":"AC","Alignement · sam 14 juin":"Lineup · Sat Jun 14","Positions × manches":"Positions × innings","Banc":"Bench","Position en développement":"Development position","Préparer · sam 14 juin":"Prepare · Sat Jun 14","Présences":"Attendance","Réponses des parents, par la Page Info Parents":"Parent replies, through the Parent Info Page","présent":"in","absent · tournoi de soccer":"out · soccer tournament","+ 5 autres présents, dont":"+ 5 more in, including",", réserviste":", call-up player","Lanceurs":"Pitchers","Générer l'alignement →":"Generate lineup →","N° partie :":"Game #:","Date :":"Date:","Équipe :":"Team:","Opposant :":"Opponent:","Division :":"Division:","Type :":"Type:","Saison régulière":"Regular season","☑ Receveur (domicile) ☐ Visiteur":"☑ Home ☐ Visitor","Alignement des frappeurs":"Batting lineup","Nom, prénom":"Last name, first name","Joueurs au banc par manche":"Players on the bench by inning","Aucun joueur 2 manches consécutives au banc.":"No player sits 2 innings in a row.","90 minutes · 3 coachs":"90 minutes · 3 coaches","Pratique · mardi 18h30":"Practice · Tue 6:30 PM","Activation":"Warm-up","Lancer-attraper":"Throw & catch","Cœur 1 · Défense":"Core 1 · Defense","Cœur 2 · Frappe":"Core 2 · Hitting","Retour au calme":"Cool-down","Conclusion":"Wrap-up","Exercice · Cœur 1":"Drill · Core 1","Relais au deuxième but":"Relay to second base","Meilleur soir de pratique":"Best practice night","Mardi soir":"Tuesday night","4 coachs sur 5":"4 of 5 coaches","Carte de chaleur · saison":"Spray chart · season","Tire surtout vers la gauche — 59 % de ses balles en jeu.":"Pulls mostly to left field — 59% of his balls in play.","41 présences au bâton":"41 plate appearances","Moy.":"AVG","CS":"H","PP":"RBI","Stats · 12 matchs":"Stats · 12 games","Répartition des manches":"Innings breakdown","Répartition équilibrée : 4 manches d'écart au plus.":"Balanced: 4 innings apart at most.","Avant-champ":"Infield","Champ ext.":"Outfield","Lanceur":"Pitcher","Receveur":"Catcher","Éligibilité aux séries":"Playoff eligibility","11 joueurs qualifiés":"11 players qualified","1 à surveiller":"1 to watch","Page Info Parents":"Parent Info Page","Bonjour Julie":"Hi Julie","Samedi · match":"Saturday · game","Arrivée 9h00":"Arrive 9:00","Match 10h00 vs Faucons · Parc des Érables":"Game 10:00 vs Faucons · Parc des Érables","Léo sera là ?":"Will Léo be there?","Présent":"In","Absent":"Out","Nouveautés":"What's new","Lineup publié":"Lineup posted","Léo frappe 7e · 4 positions":"Léo bats 7th · 4 positions","Message du coach":"Message from the coach","Apportez vos gourdes, il fera chaud.":"Bring water bottles, it'll be hot.","Changement d'heure":"Time change","Pratique de jeudi : 18h30":"Thursday's practice: 6:30 PM","Accueil":"Home","Horaire":"Schedule","Plus":"More"};
+	var noeudsEcrans = [];
+	[].forEach.call(document.querySelectorAll('.deux-ecrans, .vitrine, .telephone'), function (c) {
+		var w = document.createTreeWalker(c, NodeFilter.SHOW_TEXT), n;
+		while ((n = w.nextNode())) {
+			var cle = n.nodeValue.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+			if (ECRANS_EN[cle]) noeudsEcrans.push([n, n.nodeValue, n.nodeValue.replace(n.nodeValue.trim(), ECRANS_EN[cle])]);
+		}
+	});
+	function traduireEcrans(l) { noeudsEcrans.forEach(function (x) { x[0].nodeValue = l === 'en' ? x[2] : x[1]; }); }
+	var TITRES = { fr: document.title, en: 'Baseball Lineup — Less admin. More baseball.' };
+	function appliquer(l) {
+		document.documentElement.lang = l;
+		textes.forEach(function (e) { e.innerHTML = e.getAttribute(l === 'en' ? 'data-en' : 'data-fr'); });
+		[].forEach.call(document.querySelectorAll('[data-en-href]'), function (a) {
+			if (!a.hasAttribute('data-fr-href')) a.setAttribute('data-fr-href', a.getAttribute('href'));
+			a.setAttribute('href', a.getAttribute(l === 'en' ? 'data-en-href' : 'data-fr-href'));
+		});
+		[].forEach.call(document.querySelectorAll('[data-seulement-en]'), function (e) { e.hidden = l !== 'en'; });
+		traduireEcrans(l);
+		document.title = TITRES[l];
+		bouton.textContent = l === 'en' ? 'FR' : 'EN';
+		bouton.setAttribute('aria-label', l === 'en' ? 'Version française' : 'English version');
+	}
+	var choix = null;
+	try { choix = localStorage.getItem('blu-langue'); } catch (e) {}
+	var param = new URLSearchParams(location.search).get('lang');
+	var langue = param === 'en' || param === 'fr' ? param : choix || ((navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'fr');
+	if (langue === 'en') appliquer('en');
+	bouton.addEventListener('click', function () {
+		var l = document.documentElement.lang === 'en' ? 'fr' : 'en';
+		appliquer(l);
+		try { localStorage.setItem('blu-langue', l); } catch (e) {}
+	});
+})();
+</script>
 </body>
 </html>
