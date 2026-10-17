@@ -24,7 +24,7 @@ const BARRE_PARENTS =
 	}).join('') +
 	'</div>';
 let page = fs.readFileSync(path.join(ICI, '_gabarit.html'), 'utf8').split('{{APP}}').join(APP);
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 9; i++) {
 	if (!page.includes(`{{ECRAN_${i}}}`)) continue; // ecran retire de la page (ex. 2 = selection des pages PDF)
 	let ecran = fs.readFileSync(path.join(ICI, 'ecrans', `ecran-${i}.html`), 'utf8');
 	// Coherence avec le lineup affiche : Leo B. frappe 8e, CF puis 2B (revue du 17 oct. 2026).
