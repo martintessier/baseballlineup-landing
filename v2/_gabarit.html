@@ -90,6 +90,26 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 .vitrine { background: var(--blanc); border: 1px solid var(--trait); border-radius: 24px; padding: 44px 24px; display: flex; justify-content: center; }
 .outil.inverse .vitrine { background: var(--carte-tinte); }
 
+/* Feuille de match (meme mise en page que la feuille officielle imprimee par l'app) */
+.vitrine.papier { padding: 36px 28px; }
+.feuille { width: 100%; max-width: 470px; background: #fff; color: #111; font: 400 11px/1.3 Arial, Helvetica, sans-serif; padding: 18px 16px 14px; border-radius: 4px; box-shadow: 0 18px 40px -18px rgba(20, 35, 28, .45), 0 1px 3px rgba(0, 0, 0, .08); transform: rotate(-1.2deg); }
+.f-entete { border: 2px solid #111; padding: 9px 10px 7px; }
+.f-entete b { font-size: 15px; }
+.f-champs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 16px; margin-top: 6px; }
+.f-champs span { border-bottom: 1px solid #bbb; padding-bottom: 2px; font-size: 10.5px; }
+.f-champs i { font-style: normal; font-size: 8px; font-weight: 700; text-transform: uppercase; color: #444; }
+.f-case { margin-top: 6px; font-size: 10px; }
+.f-bande { margin-top: 9px; background: #111; color: #fff; font: 700 9px Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 3px 6px; }
+.f-table { width: 100%; border-collapse: collapse; margin-top: 3px; }
+.f-table th, .f-table td { border: 1px solid #999; padding: 3px 4px; text-align: center; font-weight: 700; }
+.f-table th { background: #f0f0f0; font-size: 9.5px; text-transform: uppercase; }
+.f-table td.g, .f-table th.g { text-align: left; font-weight: 400; }
+.f-table td.d { text-align: right; }
+.f-table tr.f-sep td { border-top: 3px solid #333; }
+.f-banc td { font-weight: 400; font-size: 9.5px; }
+.f-banc td b { display: block; }
+.f-note { margin: 4px 0 0; text-align: center; font-size: 8.5px; font-style: italic; color: #666; }
+
 /* Etapes */
 .etape .rond { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--terrain); display: grid; place-items: center; font: 700 17px var(--mono); color: var(--terrain); background: var(--blanc); }
 .etape .rond.plein { background: var(--terrain); color: #fff; }
@@ -176,6 +196,10 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	.outil, .outil.inverse { grid-template-columns: 1fr; gap: 32px; margin-top: 64px; }
 	.outil.inverse .texte { order: 0; }
 	.vitrine { padding: 28px 12px; border-radius: 20px; }
+	.vitrine.papier { padding: 24px 10px; }
+	.feuille { padding: 12px 10px 10px; font-size: 10px; transform: rotate(-.8deg); }
+	.f-champs { grid-template-columns: 1fr; }
+	.f-banc td, .f-banc th { padding: 3px 1px; font-size: 8.5px; }
 	.faq .contenu { gap: 20px; }
 	.faq summary { font-size: 16px; }
 	.fin { padding: 0 0 64px; }
@@ -250,12 +274,51 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 
 		<div class="outil inverse">
 			<div class="texte">
-				<p class="surtitre">02 · Impression</p>
-				<h3>Prêt à imprimer avant de partir</h3>
-				<p>Le lineup et la feuille de match sortent en PDF, dans l'ordre que vous voulez.</p>
-				<ul><li>Formulaire du banc et feuille du marqueur</li><li>Ordre du jour d'avant-match</li><li>Le nombre de copies de chaque page, réglé une fois</li></ul>
+				<p class="surtitre">02 · Feuille de match</p>
+				<h3>Une feuille propre pour le marqueur et l'arbitre</h3>
+				<p>Fini la feuille gribouillée à la dernière minute. L'alignement sort imprimé, lisible, prêt à remettre.</p>
+				<ul><li>L'ordre au bâton, les numéros et les positions</li><li>Le banc de chaque manche, déjà prévu</li><li>Les entraîneurs présents, inscrits sur la feuille</li></ul>
 			</div>
-			<div class="vitrine">{{ECRAN_2}}</div>
+			<!-- Recree d'apres la vraie feuille officielle (marqueur) de l'app, joueurs fictifs (ceux du lineup ci-dessus). -->
+			<div class="vitrine papier">
+				<div class="feuille" role="img" aria-label="Exemple de feuille officielle du marqueur imprimée par Baseball Lineup">
+					<div class="f-entete">
+						<b>baseballlineup.ca</b>
+						<div class="f-champs">
+							<span><i>N° partie :</i> 1042</span><span><i>Date :</i> 2026-06-14</span>
+							<span><i>Équipe :</i> Aigles</span><span><i>Opposant :</i> Faucons</span>
+							<span><i>Division :</i> 11UB</span><span><i>Type :</i> Saison régulière</span>
+						</div>
+						<div class="f-case">☑ Receveur (domicile) &nbsp; ☐ Visiteur</div>
+					</div>
+					<div class="f-bande">Alignement des frappeurs</div>
+					<table class="f-table">
+						<thead><tr><th>BO</th><th>N°</th><th class="g">Nom, prénom</th><th>Pos</th><th>Pos</th></tr></thead>
+						<tbody>
+							<tr><td>1</td><td>1</td><td class="g">Lavoie, Mathis</td><td>1</td><td>P</td></tr>
+							<tr><td>2</td><td>21</td><td class="g">Côté, Émile</td><td>2</td><td>C</td></tr>
+							<tr><td>3</td><td>16</td><td class="g">Paquette, Nathan</td><td>3</td><td>1B</td></tr>
+							<tr><td>4</td><td>29</td><td class="g">Girard, Noah</td><td>4</td><td>2B</td></tr>
+							<tr><td>5</td><td>8</td><td class="g">Fortin, Jacob</td><td>5</td><td>3B</td></tr>
+							<tr><td>6</td><td>5</td><td class="g">Lévesque, Samuel</td><td>6</td><td>SS</td></tr>
+							<tr><td>7</td><td>7</td><td class="g">Gauthier, Édouard</td><td>7</td><td>LF</td></tr>
+							<tr><td>8</td><td>11</td><td class="g">Bélanger, Léo</td><td>8</td><td>CF</td></tr>
+							<tr><td>9</td><td>34</td><td class="g">Roy, Arnaud</td><td>9</td><td>RF</td></tr>
+							<tr><td>10</td><td>35</td><td class="g">Gagnon, Thomas</td><td>—</td><td>Banc</td></tr>
+							<tr><td>11</td><td>44</td><td class="g">Tremblay, Olivier</td><td>—</td><td>LR</td></tr>
+							<tr class="f-sep"><td></td><td>12</td><td class="g">Roy, Sophie</td><td colspan="2" class="d">ENT</td></tr>
+							<tr><td></td><td>27</td><td class="g">Lachance, Julie</td><td colspan="2" class="d">ADJ</td></tr>
+							<tr><td></td><td>9</td><td class="g">Gingras, Marc</td><td colspan="2" class="d">ADJ</td></tr>
+						</tbody>
+					</table>
+					<div class="f-bande">Joueurs au banc par manche</div>
+					<table class="f-table f-banc">
+						<thead><tr><th></th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th></tr></thead>
+						<tbody><tr><th>Banc</th><td><b>#35</b> Thomas</td><td><b>#7</b> Édouard</td><td><b>#29</b> Noah</td><td><b>#21</b> Émile</td><td><b>#16</b> Nathan</td><td><b>#1</b> Mathis</td></tr></tbody>
+					</table>
+					<p class="f-note">Aucun joueur 2 manches consécutives au banc.</p>
+				</div>
+			</div>
 		</div>
 
 		<div class="outil">
