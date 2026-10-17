@@ -23,6 +23,33 @@ const BARRE_PARENTS =
 			`<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="${nom === 'Plus' ? 3 : 1.8}" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>${nom}</span>`;
 	}).join('') +
 	'</div>';
+// Le lineup du match de la vitrine (aussi dans la feuille du marqueur et l'ecran Preparer) :
+// joueur -> positions M1..M6. 9 positions + 1 banc par manche (verifie ci-dessous).
+const JOUEURS = [
+	['Jacob', 8, ['3B', '3B', 'RF', 'RF', 'P', 'P']], ['Samuel', 5, ['SS', 'SS', 'CF', 'SS', 'C', 'C']],
+	['Émile', 21, ['C', 'C', 'SS', 'banc', '1B', '1B']], ['Arnaud', 34, ['RF', 'RF', 'P', 'P', '3B', '3B']],
+	['Nathan', 16, ['1B', '1B', 'LF', 'LF', 'banc', 'CF']], ['Édouard', 7, ['LF', 'banc', '1B', '1B', '2B', '2B']],
+	['Léo', 11, ['CF', 'CF', '2B', '2B', 'LF', 'RF']], ['Noah', 29, ['2B', '2B', 'banc', 'CF', 'CF', 'LF']],
+	['Mathis', 1, ['P', 'P', '3B', '3B', 'RF', 'banc']], ['Thomas', 35, ['banc', 'LF', 'C', 'C', 'SS', 'SS']]
+];
+// Positions en developpement (surlignees comme dans l'app) : [prenom, index de manche].
+const DEV = [['Thomas', 2], ['Noah', 3], ['Léo', 2]];
+const POSITIONS = ['P', 'C', '1B', '2B', '3B', 'SS', 'LF', 'CF', 'RF'];
+for (let m = 0; m < 6; m++) {
+	const v = JOUEURS.map((j) => j[2][m]).sort().join();
+	if (v !== [...POSITIONS, 'banc'].sort().join()) throw new Error('manche ' + (m + 1) + ' invalide : ' + v);
+}
+const tableau = (classe) => {
+	const M = [0, 1, 2, 3, 4, 5];
+	const cellule = ([prenom, num], m) => {
+		const dev = DEV.some(([p, mm]) => p === prenom && mm === m);
+		return '<td' + (dev ? ' class="dev"' : '') + '><b>#' + num + '</b> <span>' + prenom + '</span></td>';
+	};
+	return '<table class="pxm ' + classe + '"><thead><tr><th>Pos</th>' + M.map((m) => '<th>M' + (m + 1) + '</th>').join('') + '</tr></thead><tbody>' +
+		POSITIONS.map((pos) => '<tr><th>' + pos + '</th>' + M.map((m) => cellule(JOUEURS.find((j) => j[2][m] === pos), m)).join('') + '</tr>').join('') +
+		'<tr class="banc"><th>Banc</th>' + M.map((m) => '<td>' + JOUEURS.filter((j) => j[2][m] === 'banc').map((j) => '<span>' + j[0] + '</span>').join(' ') + '</td>').join('') + '</tr>' +
+		'</tbody></table>';
+};
 let page = fs.readFileSync(path.join(ICI, '_gabarit.html'), 'utf8').split('{{APP}}').join(APP);
 for (let i = 0; i < 9; i++) {
 	if (!page.includes(`{{ECRAN_${i}}}`)) continue; // ecran retire de la page (ex. 2 = selection des pages PDF)
@@ -33,6 +60,7 @@ for (let i = 0; i < 9; i++) {
 	ecran = ecran.replace(/<div style="margin-top: auto; display: flex; justify-content: space-around;[^"]*">(?:<span[^>]*>(?:Accueil|Horaire|Chat|Plus)<\/span>)+<\/div>/, BARRE_PARENTS);
 	page = page.split(`{{ECRAN_${i}}}`).join(`<div aria-hidden="true">${ecran}</div>`);
 }
+page = page.split('{{TABLEAU_ORDI}}').join(tableau('ordi')).split('{{TABLEAU_TEL}}').join(tableau('tel'));
 if (/\{\{[A-Z_0-9]+\}\}/.test(page)) throw new Error('marqueur non remplace : ' + page.match(/\{\{[A-Z_0-9]+\}\}/)[0]);
 fs.writeFileSync(path.join(ICI, 'index.html'), page);
 console.log(`v2/index.html : ${Math.round(page.length / 1024)} Ko (app : ${APP})`);
