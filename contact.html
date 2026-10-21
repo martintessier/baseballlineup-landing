@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nous écrire — Baseball Lineup</title>
-<meta name="description" content="Une question, une suggestion ou un problème ? Écrivez à l'équipe de Baseball Lineup.">
+<title>Nous écrire — BaseballLineup</title>
+<meta name="description" content="Une question, une suggestion ou un problème ? Écrivez à l'équipe de BaseballLineup.">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#2e5647">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232e5647'/%3E%3Crect x='11' y='11' width='10' height='10' rx='1.5' fill='%23fff' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
@@ -69,7 +69,7 @@ textarea { min-height: 140px; resize: vertical; }
 <body>
 <header class="entete">
 	<div class="contenu">
-		<a class="marque" href="/"><span class="logo"><i></i></span>Baseball Lineup</a>
+		<a class="marque" href="/"><span class="logo"><i></i></span>BaseballLineup</a>
 		<div class="droite">
 			<button class="langue" id="langue" type="button" aria-label="English version">EN</button>
 			<a class="retour" href="/" data-en="← Back to the site">← Retour au site</a>
@@ -126,7 +126,7 @@ textarea { min-height: 140px; resize: vertical; }
 
 <footer class="pied">
 	<div class="contenu">
-		<span>© 2026 Baseball Lineup</span>
+		<span>© 2026 BaseballLineup</span>
 		<a href="/politique-confidentialite.html" data-en-href="/privacy-policy.html" data-en="Privacy policy">Politique de confidentialité</a>
 	</div>
 </footer>
@@ -138,8 +138,8 @@ textarea { min-height: 140px; resize: vertical; }
 	var textes = [].slice.call(document.querySelectorAll('[data-en]'));
 	textes.forEach(function (e) { e.setAttribute('data-fr', e.innerHTML); });
 	var MSG = {
-		fr: { champs: 'Remplissez votre nom, un courriel valide et votre message.', envoi: 'Envoi…', echec: "L'envoi a échoué. Réessayez dans un moment.", titre: 'Nous écrire — Baseball Lineup' },
-		en: { champs: 'Please fill in your name, a valid email and your message.', envoi: 'Sending…', echec: 'Sending failed. Please try again in a moment.', titre: 'Contact — Baseball Lineup' }
+		fr: { champs: 'Remplissez votre nom, un courriel valide et votre message.', envoi: 'Envoi…', echec: "L'envoi a échoué. Réessayez dans un moment.", titre: 'Nous écrire — BaseballLineup' },
+		en: { champs: 'Please fill in your name, a valid email and your message.', envoi: 'Sending…', echec: 'Sending failed. Please try again in a moment.', titre: 'Contact — BaseballLineup' }
 	};
 	function langue() { return document.documentElement.lang === 'en' ? 'en' : 'fr'; }
 	function appliquer(l) {
