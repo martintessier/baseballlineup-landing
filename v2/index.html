@@ -230,6 +230,28 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 .pied nav a:hover { color: var(--terrain); }
 .pied small { font: 400 12px var(--mono); color: var(--doux); }
 
+/* Capsules video (section #videos) */
+.capsules { border-top: 1px solid var(--trait); }
+.capsule { display: block; position: relative; padding: 0; border: 0; border-radius: 16px; overflow: hidden; background: var(--nuit); cursor: pointer; text-align: left; color: #fff; box-shadow: 0 10px 30px rgba(20, 23, 26, .12); }
+.capsule img { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; transition: transform .3s; }
+.capsule.large { width: 100%; margin-top: 32px; }
+.capsule.large img { aspect-ratio: 16 / 9; }
+.capsule:hover img { transform: scale(1.03); }
+.capsule::before { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(20, 23, 26, .85)); z-index: 1; }
+.capsule::after { content: ''; position: absolute; top: 50%; left: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; z-index: 2; box-shadow: 0 6px 20px rgba(20, 23, 26, .25);
+	background: rgba(255, 255, 255, .92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7l9 5-9 5z' fill='%232e5647'/%3E%3C/svg%3E") center / 30px no-repeat; }
+.capsule-titre { position: absolute; left: 14px; right: 14px; bottom: 34px; z-index: 2; font: 700 16px/1.2 var(--titre); }
+.capsule-duree { position: absolute; left: 14px; bottom: 12px; z-index: 2; font: 400 12px var(--mono); opacity: .85; }
+.capsule.large .capsule-titre { font-size: 22px; bottom: 40px; left: 22px; }
+.capsule.large .capsule-duree { left: 22px; bottom: 16px; }
+.grille-capsules { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 24px; }
+@media (max-width: 1180px) { .grille-capsules { grid-template-columns: repeat(4, 1fr); } }
+.lecteur { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; }
+.lecteur::backdrop { background: rgba(20, 23, 26, .88); }
+.lecteur video { display: block; height: min(86vh, 900px); width: auto; max-width: 94vw; border-radius: 14px; background: #000; }
+.lecteur.large video { height: auto; width: min(94vw, 1100px); }
+.lecteur .fermer { position: absolute; top: -46px; right: 0; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .92); font: 600 24px/1 var(--titre); color: var(--encre); cursor: pointer; }
+
 /* Telephone et petits ecrans */
 @media (max-width: 960px) {
 	.contenu { padding: 0 20px; }
@@ -277,6 +299,13 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	.bloc-fin svg { width: 380px; height: 380px; }
 	.pied { padding: 36px 0; }
 	.pied .contenu { flex-direction: column; align-items: flex-start; }
+	.grille-capsules { grid-template-columns: 1fr 1fr; gap: 12px; }
+	.capsule-titre { font-size: 14px; left: 10px; right: 10px; bottom: 30px; }
+	.capsule-duree { left: 10px; bottom: 10px; }
+	.capsule::after { width: 44px; height: 44px; margin: -22px 0 0 -22px; background-size: 24px; }
+	.capsule.large .capsule-titre { font-size: 17px; left: 14px; bottom: 32px; }
+	.capsule.large .capsule-duree { left: 14px; bottom: 12px; }
+	.lecteur .fermer { top: 8px; right: 8px; z-index: 2; }
 }
 @media (max-width: 360px) { .vitrine { padding: 24px 0; } }
 </style>
@@ -288,6 +317,7 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		<a class="marque" href="#haut"><span class="logo"><i></i></span>BaseballLineup</a>
 		<nav class="nav" aria-label="Sections">
 			<a href="#fonctionnalites" data-en="Features">Fonctionnalités</a>
+			<a href="#videos" data-en="Videos">Vidéos</a>
 			<a href="#parents">Parents</a>
 			<a href="#questions" data-en="FAQ">Questions</a>
 		</nav>
@@ -475,6 +505,36 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	</div>
 </section>
 
+<!-- Capsules (Documentation/demo/capsules du depot de l'app) : une vue d'ensemble + une capsule verticale par outil.
+     Hebergees ici (video/capsules/), chargees seulement au clic. L'app v2 lit les memes fichiers (lib/decouvrir/capsules.ts). -->
+<section id="videos" class="capsules">
+	<div class="contenu">
+		<div class="marqueur"><span></span><i></i></div>
+		<p class="surtitre" data-en="Videos">En vidéo</p>
+		<h2 data-en="Every tool, in under a minute.">Chaque outil, en moins d’une minute.</h2>
+		<p class="intro" data-en="A whole season at a glance, then one short video per tool. Watch the ones you need.">Une saison complète en un coup d’œil, puis une courte vidéo par outil. Regardez celles qui vous intéressent.</p>
+		<button type="button" class="capsule large" data-video="00-saison" data-format="large"><img src="video/capsules/00-saison.jpg" alt="" loading="lazy" width="1280" height="720"><span class="capsule-titre" data-en="A whole season with BaseballLineup">Une saison avec BaseballLineup</span><span class="capsule-duree">1 min 18</span></button>
+		<div class="grille-capsules">
+			<button type="button" class="capsule" data-video="01-equipe"><img src="video/capsules/01-equipe.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="Your team in 2 minutes">Votre équipe en 2 minutes</span><span class="capsule-duree">41 s</span></button>
+			<button type="button" class="capsule" data-video="02-lineup"><img src="video/capsules/02-lineup.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="The fair lineup">Le lineup équitable</span><span class="capsule-duree">51 s</span></button>
+			<button type="button" class="capsule" data-video="03-ia"><img src="video/capsules/03-ia.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="Just ask the AI">Demandez-le à l’IA</span><span class="capsule-duree">34 s</span></button>
+			<button type="button" class="capsule" data-video="04-jour-de-match"><img src="video/capsules/04-jour-de-match.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="Game day">Le jour du match</span><span class="capsule-duree">48 s</span></button>
+			<button type="button" class="capsule" data-video="05-tracker"><img src="video/capsules/05-tracker.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="The at-bat tracker">Le tracker au bâton</span><span class="capsule-duree">47 s</span></button>
+			<button type="button" class="capsule" data-video="06-lanceurs"><img src="video/capsules/06-lanceurs.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="Pitchers">Les lanceurs</span><span class="capsule-duree">52 s</span></button>
+			<button type="button" class="capsule" data-video="07-adversaire"><img src="video/capsules/07-adversaire.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="The opponent report">La fiche adversaire</span><span class="capsule-duree">34 s</span></button>
+			<button type="button" class="capsule" data-video="08-parents"><img src="video/capsules/08-parents.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="The Parent Info Page">La Page Info Parents</span><span class="capsule-duree">1 min 02</span></button>
+			<button type="button" class="capsule" data-video="09-pratiques"><img src="video/capsules/09-pratiques.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="Practices">Les pratiques</span><span class="capsule-duree">1 min 00</span></button>
+			<button type="button" class="capsule" data-video="10-evaluations"><img src="video/capsules/10-evaluations.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="Evaluations and season’s end">Évaluations et fin de saison</span><span class="capsule-duree">49 s</span></button>
+			<button type="button" class="capsule" data-video="11-series"><img src="video/capsules/11-series.jpg" alt="" loading="lazy" width="540" height="960"><span class="capsule-titre" data-en="Ready for the playoffs">Prêts pour les séries</span><span class="capsule-duree">26 s</span></button>
+		</div>
+		<p class="note-en" data-seulement-en hidden>The videos are in French.</p>
+	</div>
+	<dialog id="lecteur" class="lecteur" aria-label="Vidéo">
+		<button type="button" class="fermer" aria-label="Fermer">×</button>
+		<video controls playsinline preload="none"></video>
+	</dialog>
+</section>
+
 <section class="parents" id="parents">
 	<div class="contenu">
 		<div>
@@ -592,6 +652,29 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		appliquer(l);
 		try { localStorage.setItem('blu-langue', l); } catch (e) {}
 	});
+})();
+</script>
+<script>
+// Capsules : une seule video a la fois, dans une fenetre ; rien n'est telecharge avant le clic.
+(function () {
+	var d = document.getElementById('lecteur'), v = d.querySelector('video');
+	function ouvrir(id, large) {
+		v.innerHTML = '<source src="video/capsules/' + id + '.mp4" type="video/mp4"><track kind="subtitles" src="video/capsules/' + id + '.vtt" srclang="fr" label="Français">';
+		v.poster = 'video/capsules/' + id + '.jpg';
+		d.classList.toggle('large', !!large);
+		v.load();
+		d.showModal();
+		var p = v.play(); if (p && p.catch) p.catch(function () {});
+	}
+	[].forEach.call(document.querySelectorAll('.capsule'), function (b) {
+		b.addEventListener('click', function () { ouvrir(b.getAttribute('data-video'), b.getAttribute('data-format') === 'large'); });
+	});
+	d.querySelector('.fermer').addEventListener('click', function () { d.close(); });
+	d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+	d.addEventListener('close', function () { v.pause(); v.innerHTML = ''; v.removeAttribute('poster'); v.load(); });
+	// Lien direct vers une capsule : .../v2/#video-05-tracker
+	var h = location.hash.match(/^#video-(\d\d-[a-z-]+)$/);
+	if (h && document.querySelector('.capsule[data-video="' + h[1] + '"]')) ouvrir(h[1], h[1] === '00-saison');
 })();
 </script>
 </body>
