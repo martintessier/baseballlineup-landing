@@ -88,11 +88,19 @@ const CAPSULES = [
 	['11-series', 26, 'Prêts pour les séries', 'Ready for the playoffs', 'L’éligibilité de chaque joueur, suivie match après match.', 'Each player’s eligibility, tracked game after game.']
 ];
 const duree = (s) => (s >= 60 ? `${Math.floor(s / 60)} min ${String(s % 60).padStart(2, '0')}` : `${s} s`);
-const chapitres = CAPSULES.map(([id, s, fr, en, dfr, den]) =>
-	`\t\t\t\t<li><button type="button" class="chapitre" data-id="${id}"><span class="no">${id.slice(0, 2)}</span><b data-en="${en}">${fr}</b>` +
-	`<span class="duree">${duree(s)}</span><p data-en="${den}">${dfr}</p></button></li>`).join('\n');
+const blocs = CAPSULES.map(([id, s, fr, en, dfr, den], i) => {
+	const suiv = CAPSULES[i + 1];
+	return `		<article class="capsule" id="${id}">
+` +
+		`			<div class="texte"><p class="no">CAPSULE ${id.slice(0, 2)} <span>${duree(s)}</span></p><h3 data-en="${en}">${fr}</h3><p data-en="${den}">${dfr}</p>` +
+		(suiv ? `<a class="suite" href="#${suiv[0]}" data-en="Next: ${suiv[3]} ↓">Suivante : ${suiv[2]} ↓</a>` : '') + `</div>
+` +
+		`			<div class="tel"><video controls playsinline preload="none" poster="video/capsules/${id}.jpg" aria-label="${fr}"><source src="video/capsules/${id}.mp4" type="video/mp4"><track kind="subtitles" src="video/capsules/${id}.vtt" srclang="fr" label="Français"></video></div>
+` +
+		`		</article>`;
+}).join('\n');
 for (const [id] of CAPSULES) for (const ext of ['mp4', 'jpg', 'vtt']) if (!fs.existsSync(path.join(ICI, 'video', 'capsules', `${id}.${ext}`))) throw new Error(`capsule manquante : ${id}.${ext}`);
-const pageCapsules = fs.readFileSync(path.join(ICI, '_capsules.html'), 'utf8').split('{{APP}}').join(APP).split('{{CHAPITRES}}').join(chapitres);
+const pageCapsules = fs.readFileSync(path.join(ICI, '_capsules.html'), 'utf8').split('{{APP}}').join(APP).split('{{CAPSULES}}').join(blocs);
 if (/\{\{[A-Z_0-9]+\}\}/.test(pageCapsules)) throw new Error('marqueur non remplace (capsules) : ' + pageCapsules.match(/\{\{[A-Z_0-9]+\}\}/)[0]);
 fs.writeFileSync(path.join(ICI, 'capsules.html'), pageCapsules);
 console.log(`v2/capsules.html : ${CAPSULES.length} capsules`);
