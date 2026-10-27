@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Apercu cache sur baseballlineup.ca/v2/ : a retirer le jour ou la v2 remplace la page d'accueil. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Capsules vidéo — BaseballLineup</title>
+<meta name="description" content="Apprenez BaseballLineup en quelques minutes : une vue d'ensemble, puis une courte vidéo par outil.">
+<meta name="theme-color" content="#2e5647">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232e5647'/%3E%3Crect x='11' y='11' width='10' height='10' rx='1.5' fill='%23fff' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Page des capsules video (27 oct. 2026) : memes couleurs, polices et en-tete que la vitrine (_gabarit.html). */
+:root {
+	--fond: #f2f2ee; --blanc: #fff; --encre: #14171a; --doux: #5c655f; --pale: #939b95;
+	--trait: #d5d9d3; --terrain: #2e5647; --terrain-fonce: #234234; --nuit: #14171a;
+	--titre: 'Space Grotesk', system-ui, sans-serif; --texte: 'Hanken Grotesk', system-ui, sans-serif; --mono: 'Space Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--fond); color: var(--encre); font-family: var(--texte); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; }
+a { color: inherit; }
+.contenu { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+h1, h2 { font-family: var(--titre); margin: 0; }
+.note-en { margin: 14px 0 0; font-size: 13.5px; color: var(--doux); }
+
+/* Entete (comme la vitrine) */
+.entete { position: sticky; top: 0; z-index: 20; background: rgba(242, 242, 238, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--trait); }
+.entete .contenu { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+.marque { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 700 16px var(--titre); letter-spacing: -.01em; }
+.logo { width: 30px; height: 30px; border-radius: 8px; background: var(--terrain); display: grid; place-items: center; flex: 0 0 auto; }
+.logo i { width: 11px; height: 11px; background: #fff; border-radius: 2px; transform: rotate(45deg); }
+.nav { display: flex; gap: 32px; }
+.nav a { text-decoration: none; font: 500 14.5px var(--texte); }
+.nav a:hover, .nav a[aria-current] { color: var(--terrain); }
+.entete-droite { display: flex; align-items: center; gap: 10px; }
+.langue { min-height: 36px; padding: 0 10px; border: 1px solid var(--trait); border-radius: 8px; background: transparent; font: 600 12px var(--mono); color: var(--doux); cursor: pointer; }
+.langue:hover { border-color: var(--terrain); color: var(--terrain); }
+.connexion { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1px solid var(--trait); border-radius: 12px; text-decoration: none; font: 600 14.5px var(--titre); background: var(--blanc); }
+.connexion:hover { border-color: var(--terrain); }
+
+.surtitre { font: 600 11px var(--titre); letter-spacing: .16em; text-transform: uppercase; color: var(--terrain); margin: 0 0 14px; }
+.marqueur { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; color: var(--terrain); }
+.marqueur span { width: 28px; height: 1.5px; background: currentColor; }
+.marqueur i { width: 7px; height: 7px; border: 1.5px solid currentColor; transform: rotate(45deg); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 54px; padding: 0 26px; border-radius: 12px; font: 600 16px var(--titre); text-decoration: none; border: 1px solid var(--trait); background: var(--blanc); cursor: pointer; }
+
+/* Ouverture : le titre et la vue d'ensemble */
+.ouverture { padding: 88px 0 96px; }
+.ouverture .contenu { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
+.ouverture h1 { font-weight: 700; font-size: clamp(44px, 4vw, 58px); line-height: 1.02; letter-spacing: -.035em; }
+.ouverture h1 em { font-style: normal; color: var(--terrain); }
+.chapeau { font-size: 19px; line-height: 1.55; color: var(--doux); margin: 24px 0 0; max-width: 470px; }
+.ensemble figure { margin: 0; }
+.ensemble video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; background: var(--nuit); box-shadow: 0 30px 60px -28px rgba(20, 35, 28, .45); }
+.ensemble figcaption { display: flex; justify-content: space-between; gap: 16px; margin-top: 14px; font: 600 15px var(--titre); }
+.ensemble figcaption span { font: 400 12.5px var(--mono); color: var(--doux); }
+
+/* Outil par outil : la liste des capsules + le lecteur (telephone) qui reste a l'ecran */
+.outils { background: var(--blanc); border-top: 1px solid var(--trait); padding: 104px 0 112px; }
+.outils h2 { font-weight: 700; font-size: 40px; line-height: 1.08; letter-spacing: -.025em; }
+.outils .intro { font-size: 17.5px; line-height: 1.55; color: var(--doux); margin: 16px 0 0; max-width: 560px; }
+.cours { display: grid; grid-template-columns: 1fr 360px; gap: 80px; margin-top: 48px; align-items: start; }
+.chapitres { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--trait); }
+.chapitres li { border-bottom: 1px solid var(--trait); }
+.chapitre { width: 100%; display: grid; grid-template-columns: 44px 1fr auto; gap: 4px 18px; align-items: baseline; padding: 22px 16px 22px 12px; border: 0; background: none; text-align: left; cursor: pointer; color: inherit; border-radius: 14px; transition: background .15s; }
+.chapitre:hover { background: var(--fond); }
+.chapitre .no { font: 700 13px var(--mono); color: var(--pale); }
+.chapitre b { font: 600 19px/1.25 var(--titre); letter-spacing: -.01em; }
+.chapitre p { grid-column: 2; margin: 0; font-size: 15px; line-height: 1.5; color: var(--doux); }
+.chapitre .duree { grid-row: 1; grid-column: 3; font: 400 12.5px var(--mono); color: var(--doux); white-space: nowrap; }
+.chapitre[aria-current="true"] { background: #eef4f0; }
+.chapitre[aria-current="true"] .no { color: var(--terrain); }
+.chapitre[aria-current="true"] b { color: var(--terrain-fonce); }
+
+.lecteur { position: sticky; top: 104px; display: flex; flex-direction: column; align-items: center; }
+.tel { width: min(320px, calc((100vh - 320px) * .5625 + 16px)); background: #101312; border-radius: 40px; padding: 8px; box-shadow: 0 40px 70px -30px rgba(20, 35, 28, .55); }
+.tel video { display: block; width: 100%; aspect-ratio: 9 / 16; border-radius: 32px; background: #000; object-fit: cover; }
+.legende { width: 100%; max-width: 320px; margin-top: 18px; }
+.legende .no { font: 700 12px var(--mono); color: var(--terrain); letter-spacing: .06em; }
+.legende b { display: block; margin-top: 4px; font: 700 18px var(--titre); }
+.suivante { margin-top: 12px; padding: 0; border: 0; background: none; font: 600 14px var(--titre); color: var(--terrain); cursor: pointer; text-align: left; }
+.suivante:hover { text-decoration: underline; }
+
+/* Telephone : la video s'ouvre en plein ecran */
+.fenetre { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100dvh; overflow: visible; color: #fff; }
+.fenetre::backdrop { background: rgba(14, 16, 18, .94); }
+.fenetre video { display: block; height: min(76dvh, 860px); width: auto; max-width: 92vw; border-radius: 16px; background: #000; }
+.fenetre .haut { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+.fenetre .haut .no { font: 700 12px var(--mono); color: #9fc9b4; }
+.fenetre .haut b { display: block; font: 700 17px var(--titre); }
+.fenetre .fermer { flex: 0 0 auto; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff; font: 500 24px/1 var(--titre); cursor: pointer; }
+.fenetre .suivante { color: #9fc9b4; margin-top: 14px; }
+
+/* Appel final et pied (comme la vitrine) */
+.fin { padding: 104px 0 112px; }
+.bloc-fin { position: relative; overflow: hidden; background: var(--nuit); border-radius: 28px; padding: 88px 32px; text-align: center; color: #fff; }
+.bloc-fin svg { position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; transform: translate(-50%, -50%); pointer-events: none; }
+.bloc-fin h2 { position: relative; font-weight: 700; font-size: 40px; line-height: 1.08; letter-spacing: -.025em; }
+.bloc-fin p { position: relative; margin: 18px auto 0; max-width: 520px; font-size: 18px; line-height: 1.55; color: #b9c2bc; }
+.bloc-fin .btn { position: relative; margin-top: 34px; border-color: #fff; color: var(--terrain-fonce); }
+.pied { background: var(--blanc); border-top: 1px solid var(--trait); padding: 48px 0; }
+.pied .contenu { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.pied nav { display: flex; gap: 28px; flex-wrap: wrap; }
+.pied nav a { text-decoration: none; font: 500 14px var(--texte); color: var(--doux); }
+.pied nav a:hover { color: var(--terrain); }
+.pied small { font: 400 12px var(--mono); color: var(--doux); }
+
+@media (max-width: 960px) {
+	.contenu { padding: 0 20px; }
+	.entete .contenu { height: 60px; }
+	.nav { display: none; }
+	.connexion { min-height: auto; padding: 0; border: 0; background: none; color: var(--terrain); font-size: 13px; }
+	.ouverture { padding: 44px 0 56px; }
+	.ouverture .contenu { grid-template-columns: 1fr; gap: 36px; }
+	.ouverture h1 { font-size: 40px; }
+	.chapeau { font-size: 17px; margin-top: 18px; }
+	.ensemble video { border-radius: 14px; }
+	.outils { padding: 60px 0 64px; }
+	.outils h2 { font-size: 30px; }
+	.outils .intro { font-size: 16px; }
+	.cours { grid-template-columns: 1fr; margin-top: 28px; }
+	.lecteur { display: none; }
+	.chapitre { grid-template-columns: 30px 1fr auto; gap: 4px 12px; padding: 18px 4px; border-radius: 0; }
+	.chapitre b { font-size: 17px; }
+	.chapitre p { font-size: 14.5px; }
+	.chapitre[aria-current="true"] { background: none; }
+	.fin { padding: 56px 0 64px; }
+	.bloc-fin { padding: 60px 22px; border-radius: 22px; }
+	.bloc-fin h2 { font-size: 30px; }
+	.bloc-fin svg { width: 380px; height: 380px; }
+	.pied { padding: 36px 0; }
+	.pied .contenu { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header class="entete">
+	<div class="contenu">
+		<a class="marque" href="./"><span class="logo"><i></i></span>BaseballLineup</a>
+		<nav class="nav" aria-label="Sections">
+			<a href="./#fonctionnalites" data-en="Features">Fonctionnalités</a>
+			<a href="capsules.html" aria-current="page" data-en="Videos">Vidéos</a>
+			<a href="./#parents">Parents</a>
+			<a href="./#questions" data-en="FAQ">Questions</a>
+		</nav>
+		<div class="entete-droite"><button class="langue" id="langue" type="button" aria-label="English version">EN</button><a class="connexion" href="{{APP}}/connexion" data-en="Sign in">Se connecter</a></div>
+	</div>
+</header>
+
+<main>
+<section class="ouverture">
+	<div class="contenu">
+		<div>
+			<div class="marqueur"><span></span><i></i></div>
+			<p class="surtitre" data-en="Video lessons">Capsules vidéo</p>
+			<h1 data-en="Learn BaseballLineup, <em>one minute at a time.</em>">Apprenez BaseballLineup, <em>une minute à la fois.</em></h1>
+			<p class="chapeau" data-en="Start with the whole season at a glance. Then go straight to the tool you need: eleven short videos, in the order of a season.">Commencez par la saison en un coup d’œil. Puis allez droit à l’outil qui vous intéresse : onze courtes vidéos, dans l’ordre d’une saison.</p>
+			<p class="note-en" data-seulement-en hidden>The videos are in French.</p>
+		</div>
+		<div class="ensemble">
+			<figure>
+				<video controls playsinline preload="none" poster="video/capsules/00-saison.jpg" aria-label="Une saison avec BaseballLineup">
+					<source src="video/capsules/00-saison.mp4" type="video/mp4">
+					<track kind="subtitles" src="video/capsules/00-saison.vtt" srclang="fr" label="Français">
+				</video>
+				<figcaption><b data-en="A whole season with BaseballLineup">Une saison avec BaseballLineup</b><span>1 min 18</span></figcaption>
+			</figure>
+		</div>
+	</div>
+</section>
+
+<section class="outils" id="outils">
+	<div class="contenu">
+		<div class="marqueur"><span></span><i></i></div>
+		<p class="surtitre" data-en="Tool by tool">Outil par outil</p>
+		<h2 data-en="Eleven videos. Under a minute each.">Onze vidéos. Moins d’une minute chacune.</h2>
+		<p class="intro" data-en="Pick a topic: the videos play one after the other.">Choisissez un sujet : les vidéos s’enchaînent ensuite toutes seules.</p>
+		<div class="cours">
+			<ol class="chapitres">
+{{CHAPITRES}}
+			</ol>
+			<div class="lecteur" aria-live="polite">
+				<div class="tel">
+					<video id="video-tel" controls playsinline preload="none"></video>
+				</div>
+				<div class="legende">
+					<span class="no" id="legende-no"></span>
+					<b id="legende-titre"></b>
+					<button type="button" class="suivante" id="suivante-tel" hidden></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="fin">
+	<div class="contenu">
+		<div class="bloc-fin">
+			<svg viewBox="0 0 520 520" aria-hidden="true"><rect x="110" y="110" width="300" height="300" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5" transform="rotate(45 260 260)"/></svg>
+			<h2 data-en="Ready to try it?">Prêt à l’essayer ?</h2>
+			<p data-en="Create your team tonight. Your first lineup will be ready for the next game.">Créez votre équipe ce soir. Votre premier lineup sera prêt pour le prochain match.</p>
+			<a class="btn" href="{{APP}}/connexion?creer" data-en="Create my team →">Créer mon équipe →</a>
+		</div>
+	</div>
+</section>
+</main>
+
+<dialog class="fenetre" id="fenetre" aria-label="Vidéo">
+	<div class="haut">
+		<div><span class="no" id="fenetre-no"></span><b id="fenetre-titre"></b></div>
+		<button type="button" class="fermer" aria-label="Fermer">×</button>
+	</div>
+	<video id="video-fenetre" controls playsinline preload="none"></video>
+	<button type="button" class="suivante" id="suivante-fenetre" hidden></button>
+</dialog>
+
+<footer class="pied">
+	<div class="contenu">
+		<a class="marque" href="./"><span class="logo"><i></i></span>BaseballLineup</a>
+		<nav aria-label="Liens">
+			<a href="/contact.html">Contact</a>
+			<a href="/politique-confidentialite.html" data-en-href="/privacy-policy.html" data-en="Privacy policy">Politique de confidentialité</a>
+		</nav>
+		<small>© 2026 BaseballLineup</small>
+	</div>
+</footer>
+
+<script>
+// Langue : meme logique et meme choix memorise que la vitrine (blu-langue).
+var bouton = document.getElementById('langue');
+var textes = [].slice.call(document.querySelectorAll('[data-en]'));
+textes.forEach(function (e) { e.setAttribute('data-fr', e.innerHTML); });
+var TITRES = { fr: document.title, en: 'Video lessons — BaseballLineup' };
+function appliquer(l) {
+	document.documentElement.lang = l;
+	textes.forEach(function (e) { e.innerHTML = e.getAttribute(l === 'en' ? 'data-en' : 'data-fr'); });
+	[].forEach.call(document.querySelectorAll('[data-en-href]'), function (a) {
+		if (!a.hasAttribute('data-fr-href')) a.setAttribute('data-fr-href', a.getAttribute('href'));
+		a.setAttribute('href', a.getAttribute(l === 'en' ? 'data-en-href' : 'data-fr-href'));
+	});
+	[].forEach.call(document.querySelectorAll('[data-seulement-en]'), function (e) { e.hidden = l !== 'en'; });
+	document.title = TITRES[l];
+	bouton.textContent = l === 'en' ? 'FR' : 'EN';
+	bouton.setAttribute('aria-label', l === 'en' ? 'Version française' : 'English version');
+	if (typeof majLegendes === 'function') majLegendes();
+}
+var choix = null;
+try { choix = localStorage.getItem('blu-langue'); } catch (e) {}
+var param = new URLSearchParams(location.search).get('lang');
+var langue = param === 'en' || param === 'fr' ? param : choix || ((navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'fr');
+
+// Capsules : sur ordinateur, le telephone a droite joue la capsule choisie ; sur telephone, elle s'ouvre en plein ecran.
+// A la fin d'une capsule, la suivante commence.
+var chapitres = [].slice.call(document.querySelectorAll('.chapitre'));
+var grand = window.matchMedia('(min-width: 961px)');
+var fenetre = document.getElementById('fenetre');
+var courant = 0;
+function titre(i) { return chapitres[i].querySelector('b').textContent; }
+function charger(v, i, jouer) {
+	var id = chapitres[i].getAttribute('data-id');
+	v.innerHTML = '<source src="video/capsules/' + id + '.mp4" type="video/mp4"><track kind="subtitles" src="video/capsules/' + id + '.vtt" srclang="fr" label="Français">';
+	v.poster = 'video/capsules/' + id + '.jpg';
+	v.load();
+	if (jouer) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+}
+function majLegendes() {
+	var no = 'CAPSULE ' + chapitres[courant].querySelector('.no').textContent;
+	var suiv = courant + 1 < chapitres.length ? (document.documentElement.lang === 'en' ? 'Next: ' : 'Suivante : ') + titre(courant + 1) + ' →' : '';
+	['tel', 'fenetre'].forEach(function (q) {
+		document.getElementById(q === 'tel' ? 'legende-no' : 'fenetre-no').textContent = no;
+		document.getElementById(q === 'tel' ? 'legende-titre' : 'fenetre-titre').textContent = titre(courant);
+		var s = document.getElementById('suivante-' + q);
+		s.textContent = suiv; s.hidden = !suiv;
+	});
+	chapitres.forEach(function (c, j) { c.setAttribute('aria-current', j === courant ? 'true' : 'false'); });
+}
+function choisir(i, jouer) {
+	courant = i;
+	majLegendes();
+	if (grand.matches) charger(document.getElementById('video-tel'), i, jouer);
+	else { charger(document.getElementById('video-fenetre'), i, jouer); if (!fenetre.open) fenetre.showModal(); }
+}
+chapitres.forEach(function (c, i) {
+	c.addEventListener('click', function () { choisir(i, true); });
+});
+['tel', 'fenetre'].forEach(function (q) {
+	document.getElementById('suivante-' + q).addEventListener('click', function () { if (courant + 1 < chapitres.length) choisir(courant + 1, true); });
+	document.getElementById('video-' + q).addEventListener('ended', function () { if (courant + 1 < chapitres.length) choisir(courant + 1, true); });
+});
+fenetre.querySelector('.fermer').addEventListener('click', function () { fenetre.close(); });
+fenetre.addEventListener('close', function () { var v = document.getElementById('video-fenetre'); v.pause(); v.innerHTML = ''; v.removeAttribute('poster'); v.load(); });
+// La video de la vue d'ensemble s'arrete quand une capsule commence (et inversement).
+var videos = [].slice.call(document.querySelectorAll('video'));
+videos.forEach(function (v) { v.addEventListener('play', function () { videos.forEach(function (w) { if (w !== v) w.pause(); }); }); });
+
+// Lien direct : capsules.html#05-tracker
+var h = location.hash.slice(1), depart = chapitres.findIndex(function (c) { return c.getAttribute('data-id') === h; });
+courant = depart >= 0 ? depart : 0;
+if (langue === 'en') appliquer('en');
+majLegendes();
+if (grand.matches) charger(document.getElementById('video-tel'), courant, false);
+if (depart >= 0) chapitres[depart].scrollIntoView({ block: 'center' });
+bouton.addEventListener('click', function () {
+	var l = document.documentElement.lang === 'en' ? 'fr' : 'en';
+	appliquer(l);
+	try { localStorage.setItem('blu-langue', l); } catch (e) {}
+});
+</script>
+</body>
+</html>

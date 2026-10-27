@@ -71,3 +71,28 @@ fs.writeFileSync(path.join(ICI, 'index.html'), page);
 // Garde-fou : les temoignages de maquette ne doivent pas partir a la bascule.
 if (page.includes('TEMOIGNAGES_FICTIFS')) console.warn('⚠ Témoignages FICTIFS dans la page : à remplacer par de vrais témoignages avant la bascule.');
 console.log(`v2/index.html : ${Math.round(page.length / 1024)} Ko (app : ${APP})`);
+
+// Page des capsules video (capsules.html) : _capsules.html + la liste ci-dessous (memes titres que l'app v2,
+// src/lib/decouvrir/capsules.ts). Fichiers dans video/capsules/<id>.mp4|jpg|vtt (Documentation/demo/capsules de l'app).
+const CAPSULES = [
+	['01-equipe', 41, 'Votre équipe en 2 minutes', 'Your team in 2 minutes', 'Le nom, la catégorie, les joueurs et leurs positions : votre équipe est prête.', 'Name, age group, players and their positions: your team is ready.'],
+	['02-lineup', 51, 'Le lineup équitable', 'The fair lineup', 'Les absents déjà notés, un réserviste au besoin, le temps de jeu partagé et les règles BQ vérifiées.', 'Absences already in, a call-up if needed, playing time shared and BQ rules checked.'],
+	['03-ia', 34, 'Demandez-le à l’IA', 'Just ask the AI', 'Écrivez ce que vous voulez comme vous le diriez. L’app règle les options et vérifie les règles.', 'Write what you want, the way you would say it. The app sets the options and checks the rules.'],
+	['04-jour-de-match', 48, 'Le jour du match', 'Game day', 'La fiche de l’adversaire, les feuilles pour l’arbitre et les marqueurs, le nombre de copies.', 'The opponent report, the sheets for the umpire and the scorekeepers, how many copies.'],
+	['05-tracker', 47, 'Le tracker au bâton', 'The at-bat tracker', 'Notez chaque présence au bâton en deux touchers. Les stats se calculent toutes seules.', 'Log every at-bat in two taps. The stats add up on their own.'],
+	['06-lanceurs', 52, 'Les lanceurs', 'Pitchers', 'Automatique selon les règles, ou votre rotation. Dès le 1er juillet, les plafonds s’ajustent.', 'Automatic within the rules, or your own rotation. From July 1, the limits adjust.'],
+	['07-adversaire', 34, 'La fiche adversaire', 'The opponent report', 'Son bilan, sa forme, ses lanceurs, et ce que vous avez noté contre lui.', 'Their record, their form, their pitchers, and what you noted against them.'],
+	['08-parents', 62, 'La Page Info Parents', 'The Parent Info Page', 'Horaire, présences, lineup, stats de leur enfant et messages : tout à une seule place.', 'Schedule, attendance, lineup, their child’s stats and messages: all in one place.'],
+	['09-pratiques', 60, 'Les pratiques', 'Practices', 'Une banque d’exercices, une pratique planifiée en une minute, et le vote des coachs par courriel.', 'A drill library, a practice planned in a minute, and the coaches’ vote by email.'],
+	['10-evaluations', 49, 'Évaluations et fin de saison', 'Evaluations and season’s end', 'Quelques secondes par joueur après chaque match, pour bien le placer et le faire progresser.', 'A few seconds per player after each game, to place them well and help them grow.'],
+	['11-series', 26, 'Prêts pour les séries', 'Ready for the playoffs', 'L’éligibilité de chaque joueur, suivie match après match.', 'Each player’s eligibility, tracked game after game.']
+];
+const duree = (s) => (s >= 60 ? `${Math.floor(s / 60)} min ${String(s % 60).padStart(2, '0')}` : `${s} s`);
+const chapitres = CAPSULES.map(([id, s, fr, en, dfr, den]) =>
+	`\t\t\t\t<li><button type="button" class="chapitre" data-id="${id}"><span class="no">${id.slice(0, 2)}</span><b data-en="${en}">${fr}</b>` +
+	`<span class="duree">${duree(s)}</span><p data-en="${den}">${dfr}</p></button></li>`).join('\n');
+for (const [id] of CAPSULES) for (const ext of ['mp4', 'jpg', 'vtt']) if (!fs.existsSync(path.join(ICI, 'video', 'capsules', `${id}.${ext}`))) throw new Error(`capsule manquante : ${id}.${ext}`);
+const pageCapsules = fs.readFileSync(path.join(ICI, '_capsules.html'), 'utf8').split('{{APP}}').join(APP).split('{{CHAPITRES}}').join(chapitres);
+if (/\{\{[A-Z_0-9]+\}\}/.test(pageCapsules)) throw new Error('marqueur non remplace (capsules) : ' + pageCapsules.match(/\{\{[A-Z_0-9]+\}\}/)[0]);
+fs.writeFileSync(path.join(ICI, 'capsules.html'), pageCapsules);
+console.log(`v2/capsules.html : ${CAPSULES.length} capsules`);
