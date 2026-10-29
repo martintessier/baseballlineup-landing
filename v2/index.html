@@ -202,10 +202,10 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 /* Temoignages */
 .temoins { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 46px; }
 .temoins > .temoin:only-child { grid-column: 1 / -1; max-width: 780px; }
-.temoin { border: 1px solid var(--trait); border-radius: 18px; padding: 32px; background: var(--blanc); }
+.temoin { border: 1px solid var(--trait); border-radius: 18px; padding: 32px; background: var(--blanc); display: flex; flex-direction: column; }
 .temoin .guillemet { font: 700 40px/24px var(--titre); color: var(--terrain); height: 24px; }
 .temoin blockquote { margin: 16px 0 26px; font: 500 20px/1.45 var(--titre); }
-.temoin .qui { display: flex; align-items: center; gap: 12px; }
+.temoin .qui { display: flex; align-items: center; gap: 12px; margin-top: auto; }
 .temoin .avatar { width: 40px; height: 40px; border-radius: 50%; background: #eaf1ed; color: var(--terrain); display: grid; place-items: center; font: 700 13px var(--titre); }
 .temoin b { display: block; font: 700 14.5px var(--titre); }
 .temoin small { font: 400 12px var(--mono); color: var(--doux); }
@@ -517,8 +517,9 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		<p class="surtitre" data-en="They use it">Ils l'utilisent</p>
 		<h2 data-en="What coaches say.">Ce qu'en disent les coachs.</h2>
 		<div class="temoins">
-			<!-- Vrais temoignages seulement (nom et equipe permis par le coach). JF Clement, 29 oct. 2026 : ses mots, coupes. -->
+			<!-- Vrais temoignages seulement (nom et equipe permis par le coach). JF Clement et Frederic Jean-Savard, 29 oct. 2026 : leurs mots, coupes. -->
 			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="I used BaseballLineup to make sure positions were shared fairly among all the players, to prepare clear, structured lineups I could share with my assistant coaches, and to know exactly which player was on the bench each inning.">J'ai utilisé BaseballLineup pour assurer l'équité dans la répartition des positions pour tous les joueurs, préparer des alignements clairs et structurés que je pouvais partager avec mes entraîneurs adjoints, et identifier précisément quel joueur était sur le banc à chaque manche.</blockquote><figcaption class="qui"><span class="avatar">JC</span><span><b>Jean François Clément</b><small data-en="Head coach · Express 11U A">Coach en chef · Express 11U A</small></span></figcaption></figure>
+			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="For player rotation and who sits on the bench, it saved me a lot of headaches.">Pour la rotation des joueurs et les joueurs sur le banc, ça m'a aidé à moins me casser la tête.</blockquote><figcaption class="qui"><span class="avatar">FJ</span><span><b>Frédéric Jean-Savard</b><small data-en="Head coach · Aigles bleus 15U B">Coach en chef · Aigles bleus 15U B</small></span></figcaption></figure>
 		</div>
 	</div>
 </section>
