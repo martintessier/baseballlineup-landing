@@ -201,6 +201,7 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 
 /* Temoignages */
 .temoins { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 46px; }
+.temoins > .temoin:only-child { grid-column: 1 / -1; max-width: 780px; }
 .temoin { border: 1px solid var(--trait); border-radius: 18px; padding: 32px; background: var(--blanc); }
 .temoin .guillemet { font: 700 40px/24px var(--titre); color: var(--terrain); height: 24px; }
 .temoin blockquote { margin: 16px 0 26px; font: 500 20px/1.45 var(--titre); }
@@ -515,9 +516,8 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		<p class="surtitre" data-en="They use it">Ils l'utilisent</p>
 		<h2 data-en="What coaches say.">Ce qu'en disent les coachs.</h2>
 		<div class="temoins">
-			<!-- TEMOIGNAGES_FICTIFS : textes de maquette, a remplacer par de vrais temoignages AVANT la bascule (construire.mjs le rappelle). -->
-			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="By Monday, I already know who will be there on Saturday. The lineup takes a few minutes, and nobody asks me anymore why their kid sat two innings on the bench.">Le lundi, je sais déjà qui sera là samedi. Le lineup se fait en quelques minutes, et plus personne ne me demande pourquoi son enfant est resté deux manches au banc.</blockquote><figcaption class="qui"><span class="avatar">IT</span><span><b>Isabelle Tellier</b><small data-en="Head coach · 11U B">Coach en chef · 11U B</small></span></figcaption></figure>
-			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="Our schedule used to go through three group chats. Now parents have one link, and my two assistants see the same thing I do.">Avant, l'horaire passait par trois groupes de messagerie. Maintenant, les parents ont un seul lien, et mes deux adjoints voient la même chose que moi.</blockquote><figcaption class="qui"><span class="avatar">MP</span><span><b>Marc-André Poissant</b><small data-en="Head coach · 9U A">Coach en chef · 9U A</small></span></figcaption></figure>
+			<!-- Vrais temoignages seulement (nom et equipe permis par le coach). JF Clement, 29 oct. 2026 : ses mots, coupes. -->
+			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="I used BaseballLineup to make sure positions were shared fairly among all the players, to prepare clear, structured lineups I could share with my assistant coaches, and to know exactly which player was on the bench each inning.">J'ai utilisé BaseballLineup pour assurer l'équité dans la répartition des positions pour tous les joueurs, préparer des alignements clairs et structurés que je pouvais partager avec mes entraîneurs adjoints, et identifier précisément quel joueur était sur le banc à chaque manche.</blockquote><figcaption class="qui"><span class="avatar">JC</span><span><b>Jean François Clément</b><small data-en="Head coach · Express 11U A">Coach en chef · Express 11U A</small></span></figcaption></figure>
 		</div>
 	</div>
 </section>
