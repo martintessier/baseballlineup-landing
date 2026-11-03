@@ -309,7 +309,7 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	<div class="contenu">
 		<div>
 			<p class="surtitre" data-en="For youth baseball coaches · 7U to 15U">Pour les coachs de baseball mineur · 7U à 15U</p>
-			<h1 data-en="Less admin.<em>More baseball.</em>">Moins de gestion.<em>Plus de baseball.</em></h1>
+			<h1 data-en="Less paperwork.<em>More baseball.</em>">Moins de gestion.<em>Plus de baseball.</em></h1>
 			<p class="chapeau" data-en="Lineups, game sheets, practices, parents and stats: in a few taps, on your phone.">Lineup, feuille de match, pratiques, parents et stats : en quelques clics, sur votre téléphone.</p>
 			<div class="boutons">
 				<a class="btn principal" href="{{APP}}/connexion?creer" data-en="Create my team →">Créer mon équipe →</a>
@@ -580,7 +580,7 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		}
 	});
 	function traduireEcrans(l) { noeudsEcrans.forEach(function (x) { x[0].nodeValue = l === 'en' ? x[2] : x[1]; }); }
-	var TITRES = { fr: document.title, en: 'BaseballLineup — Less admin. More baseball.' };
+	var TITRES = { fr: document.title, en: 'BaseballLineup — Less paperwork. More baseball.' };
 	function appliquer(l) {
 		document.documentElement.lang = l;
 		textes.forEach(function (e) { e.innerHTML = e.getAttribute(l === 'en' ? 'data-en' : 'data-fr'); });
