@@ -364,11 +364,10 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	<div class="contenu">
 		<p class="surtitre" data-en="In one minute">En une minute</p>
 		<h2 data-en="See BaseballLineup in action.">Voyez BaseballLineup en action.</h2>
-		<video controls playsinline preload="none" poster="video/BaseballLineup-vitrine-apercu.jpg" aria-label="Vidéo de présentation de BaseballLineup">
-			<source src="video/BaseballLineup-vitrine-720.mp4" type="video/mp4">
-			<track kind="subtitles" src="video/BaseballLineup-vitrine.vtt" srclang="fr" label="Français">
+		<video controls playsinline preload="none" poster="video/BaseballLineup-vitrine-apercu.jpg" data-en-poster="video/BaseballLineup-vitrine-en-apercu.jpg" aria-label="Vidéo de présentation de BaseballLineup" data-en-aria-label="BaseballLineup introduction video">
+			<source src="video/BaseballLineup-vitrine-720.mp4" data-en-src="video/BaseballLineup-vitrine-en-720.mp4" type="video/mp4">
+			<track kind="subtitles" src="video/BaseballLineup-vitrine.vtt" data-en-src="video/BaseballLineup-vitrine-en.vtt" srclang="fr" label="Français">
 		</video>
-		<p class="note-en" data-seulement-en hidden>The video is in French.</p>
 		<a class="vers-capsules" href="capsules.html">
 			<span><b data-en="Want to see more?">Envie d’en voir plus ?</b><span data-en="Eleven one-minute videos, tool by tool.">Onze capsules d’une minute, outil par outil.</span></span>
 			<span class="fleche" data-en="See the videos →">Voir les capsules →</span>
@@ -582,6 +581,23 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	});
 	function traduireEcrans(l) { noeudsEcrans.forEach(function (x) { x[0].nodeValue = l === 'en' ? x[2] : x[1]; }); }
 	var TITRES = { fr: document.title, en: 'BaseballLineup — Less paperwork. More baseball.' };
+	// Videos : en anglais, les fichiers anglais (meme video, affiche et sous-titres traduits).
+	function medias(l) {
+		[].forEach.call(document.querySelectorAll('video[data-en-poster]'), function (v) {
+			['poster', 'aria-label'].forEach(function (a) {
+				if (!v.hasAttribute('data-fr-' + a)) v.setAttribute('data-fr-' + a, v.getAttribute(a));
+				v.setAttribute(a, v.getAttribute((l === 'en' ? 'data-en-' : 'data-fr-') + a));
+			});
+			var change = false;
+			[].forEach.call(v.querySelectorAll('[data-en-src]'), function (s) {
+				if (!s.hasAttribute('data-fr-src')) s.setAttribute('data-fr-src', s.getAttribute('src'));
+				var src = s.getAttribute(l === 'en' ? 'data-en-src' : 'data-fr-src');
+				if (s.getAttribute('src') !== src) { s.setAttribute('src', src); change = true; }
+				if (s.tagName === 'TRACK') { s.setAttribute('srclang', l); s.setAttribute('label', l === 'en' ? 'English' : 'Français'); }
+			});
+			if (change) v.load();
+		});
+	}
 	function appliquer(l) {
 		document.documentElement.lang = l;
 		textes.forEach(function (e) { e.innerHTML = e.getAttribute(l === 'en' ? 'data-en' : 'data-fr'); });
@@ -590,6 +606,7 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 			a.setAttribute('href', a.getAttribute(l === 'en' ? 'data-en-href' : 'data-fr-href'));
 		});
 		[].forEach.call(document.querySelectorAll('[data-seulement-en]'), function (e) { e.hidden = l !== 'en'; });
+		medias(l);
 		traduireEcrans(l);
 		document.title = TITRES[l];
 		bouton.textContent = l === 'en' ? 'FR' : 'EN';

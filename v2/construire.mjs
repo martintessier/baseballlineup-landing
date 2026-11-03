@@ -75,31 +75,31 @@ console.log(`v2/index.html : ${Math.round(page.length / 1024)} Ko (app : ${APP})
 // Page des capsules video (capsules.html) : _capsules.html + la liste ci-dessous (memes titres que l'app v2,
 // src/lib/decouvrir/capsules.ts). Fichiers dans video/capsules/<id>.mp4|jpg|vtt (Documentation/demo/capsules de l'app).
 const CAPSULES = [
-	['01-equipe', 41, 'Votre équipe en 2 minutes', 'Your team in 2 minutes', 'Le nom, la catégorie, les joueurs et leurs positions : votre équipe est prête.', 'Name, age group, players and their positions: your team is ready.'],
-	['02-lineup', 77, 'Le lineup équitable', 'The fair lineup', 'Les absents déjà notés, un réserviste au besoin, le temps de jeu partagé et les règles BQ vérifiées. Puis vous peaufinez, même avec un absent de dernière minute.', 'Absences already in, a call-up if needed, playing time shared and BQ rules checked. Then fine-tune it, even for a last-minute no-show.'],
-	['03-ia', 34, 'Demandez-le à l’IA', 'Just ask the AI', 'Écrivez ce que vous voulez comme vous le diriez. L’app règle les options et vérifie les règles.', 'Write what you want, the way you would say it. The app sets the options and checks the rules.'],
-	['04-jour-de-match', 57, 'Le jour du match', 'Game day', 'La fiche de l’adversaire, les feuilles pour l’arbitre et les marqueurs, et L’iArbitre en cas de doute.', 'The opponent report, the sheets for the umpire and the scorekeepers, and L’iArbitre when in doubt.'],
-	['05-tracker', 47, 'Le tracker au bâton', 'The at-bat tracker', 'Notez chaque présence au bâton en deux touches à l’écran. Les stats se calculent toutes seules.', 'Log every at-bat in two taps. The stats add up on their own.'],
-	['06-lanceurs', 52, 'Les lanceurs', 'Pitchers', 'Automatique selon les règles, ou votre rotation. Dès le 1er juillet, les plafonds s’ajustent.', 'Automatic within the rules, or your own rotation. From July 1, the limits adjust.'],
-	['07-adversaire', 34, 'La fiche adversaire', 'The opponent report', 'Son bilan, sa forme, ses lanceurs, et ce que vous avez noté contre lui.', 'Their record, their form, their pitchers, and what you noted against them.'],
-	['08-parents', 61, 'La Page Info Parents', 'The Parent Info Page', 'Horaire, présences, lineup, stats de leur enfant et messages : tout à une seule place.', 'Schedule, attendance, lineup, their child’s stats and messages: all in one place.'],
-	['09-pratiques', 60, 'Les pratiques', 'Practices', 'Une banque d’exercices, une pratique planifiée en une minute, et le vote des coachs par courriel.', 'A drill library, a practice planned in a minute, and the coaches’ vote by email.'],
-	['10-evaluations', 49, 'Évaluations et fin de saison', 'Evaluations and season’s end', 'Quelques secondes par joueur après chaque match, pour bien le placer et le faire progresser.', 'A few seconds per player after each game, to place them well and help them grow.'],
-	['11-series', 26, 'Prêts pour les séries', 'Ready for the playoffs', 'L’éligibilité de chaque joueur, suivie match après match.', 'Each player’s eligibility, tracked game after game.']
+	['01-equipe', 41, 'Votre équipe en 2 minutes', 'Your team in 2 minutes', 'Le nom, la catégorie, les joueurs et leurs positions : votre équipe est prête.', 'The name, the category, the players and their positions: your team is ready.', 40],
+	['02-lineup', 77, 'Le lineup équitable', 'The fair lineup', 'Les absents déjà notés, un réserviste au besoin, le temps de jeu partagé et les règles BQ vérifiées. Puis vous peaufinez, même avec un absent de dernière minute.', 'Absences already noted, an affiliated player if needed, shared playing time and Baseball Québec rules checked. Then you fine-tune, even with a last-minute absence.', 74],
+	['03-ia', 34, 'Demandez-le à l’IA', 'Ask the AI', 'Écrivez ce que vous voulez comme vous le diriez. L’app règle les options et vérifie les règles.', 'Write what you want the way you’d say it. The app sets the options and checks the rules.', 33],
+	['04-jour-de-match', 57, 'Le jour du match', 'Game day', 'La fiche de l’adversaire, les feuilles pour l’arbitre et les marqueurs, et L’iArbitre en cas de doute.', 'The opponent report, the sheets for the umpire and scorekeepers, and UmpBot when in doubt.', 55],
+	['05-tracker', 47, 'Le tracker au bâton', 'The batting tracker', 'Notez chaque présence au bâton en deux touches à l’écran. Les stats se calculent toutes seules.', 'Record each plate appearance with two taps on the screen. The stats calculate themselves.', 44],
+	['06-lanceurs', 52, 'Les lanceurs', 'Pitchers', 'Automatique selon les règles, ou votre rotation. Dès le 1er juillet, les plafonds s’ajustent.', 'Automatic according to the rules, or your own rotation. From July 1, the limits adjust.', 49],
+	['07-adversaire', 34, 'La fiche adversaire', 'The opponent report', 'Son bilan, sa forme, ses lanceurs, et ce que vous avez noté contre lui.', 'Their record, their form, their pitchers, and what you noted against them.', 31],
+	['08-parents', 61, 'La Page Info Parents', 'The Parent Info Page', 'Horaire, présences, lineup, stats de leur enfant et messages : tout à une seule place.', 'Schedule, attendance, lineup, their child’s stats and messages: all in one place.', 59],
+	['09-pratiques', 60, 'Les pratiques', 'Practices', 'Une banque d’exercices, une pratique planifiée en une minute, et le vote des coachs par courriel.', 'A drill bank, a practice planned in a minute, and coaches voting by email.', 56],
+	['10-evaluations', 49, 'Évaluations et fin de saison', 'Evaluations and end of season', 'Quelques secondes par joueur après chaque match, pour bien le placer et le faire progresser.', 'A few seconds per player, after each game, to place them well and help them improve.', 46],
+	['11-series', 26, 'Prêts pour les séries', 'Ready for the playoffs', 'L’éligibilité de chaque joueur, suivie match après match.', 'Each player’s eligibility, tracked game after game.', 26]
 ];
 const duree = (s) => (s >= 60 ? `${Math.floor(s / 60)} min ${String(s % 60).padStart(2, '0')}` : `${s} s`);
-const blocs = CAPSULES.map(([id, s, fr, en, dfr, den], i) => {
+const blocs = CAPSULES.map(([id, s, fr, en, dfr, den, sEn], i) => {
 	const suiv = CAPSULES[i + 1];
 	return `		<article class="capsule" id="${id}">
 ` +
-		`			<div class="texte"><p class="no">CAPSULE ${id.slice(0, 2)} <span>${duree(s)}</span></p><h3 data-en="${en}">${fr}</h3><p data-en="${den}">${dfr}</p>` +
+		`			<div class="texte"><p class="no">CAPSULE ${id.slice(0, 2)} <span data-en="${duree(sEn)}">${duree(s)}</span></p><h3 data-en="${en}">${fr}</h3><p data-en="${den}">${dfr}</p>` +
 		(suiv ? `<a class="suite" href="#${suiv[0]}" data-en="Next: ${suiv[3]} ↓">Suivante : ${suiv[2]} ↓</a>` : '') + `</div>
 ` +
-		`			<div class="tel"><video controls playsinline preload="none" poster="video/capsules/${id}.jpg" aria-label="${fr}"><source src="video/capsules/${id}.mp4" type="video/mp4"><track kind="subtitles" src="video/capsules/${id}.vtt" srclang="fr" label="Français"></video></div>
+		`			<div class="tel"><video controls playsinline preload="none" poster="video/capsules/${id}.jpg" data-en-poster="video/capsules-en/${id}.jpg" aria-label="${fr}" data-en-aria-label="${en}"><source src="video/capsules/${id}.mp4" data-en-src="video/capsules-en/${id}.mp4" type="video/mp4"><track kind="subtitles" src="video/capsules/${id}.vtt" data-en-src="video/capsules-en/${id}.vtt" srclang="fr" label="Français"></video></div>
 ` +
 		`		</article>`;
 }).join('\n');
-for (const [id] of CAPSULES) for (const ext of ['mp4', 'jpg', 'vtt']) if (!fs.existsSync(path.join(ICI, 'video', 'capsules', `${id}.${ext}`))) throw new Error(`capsule manquante : ${id}.${ext}`);
+for (const [id] of [['00-saison'], ...CAPSULES]) for (const dossier of ['capsules', 'capsules-en']) for (const ext of ['mp4', 'jpg', 'vtt']) if (!fs.existsSync(path.join(ICI, 'video', dossier, `${id}.${ext}`))) throw new Error(`capsule manquante : ${dossier}/${id}.${ext}`);
 const pageCapsules = fs.readFileSync(path.join(ICI, '_capsules.html'), 'utf8').split('{{APP}}').join(APP).split('{{CAPSULES}}').join(blocs);
 if (/\{\{[A-Z_0-9]+\}\}/.test(pageCapsules)) throw new Error('marqueur non remplace (capsules) : ' + pageCapsules.match(/\{\{[A-Z_0-9]+\}\}/)[0]);
 fs.writeFileSync(path.join(ICI, 'capsules.html'), pageCapsules);

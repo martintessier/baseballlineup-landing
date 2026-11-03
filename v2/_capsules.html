@@ -150,15 +150,14 @@ h1, h2, h3 { font-family: var(--titre); margin: 0; }
 			<p class="surtitre" data-en="Video lessons">Capsules vidéo</p>
 			<h1 data-en="Learn BaseballLineup, <em>one minute at a time.</em>">Apprenez BaseballLineup, <em>une minute à la fois.</em></h1>
 			<p class="chapeau" data-en="Start with the whole season at a glance. Then scroll: eleven short videos, one per tool, in the order of a season.">Commencez par la saison en un coup d’œil. Puis faites défiler : onze courtes vidéos, une par outil, dans l’ordre d’une saison.</p>
-			<p class="note-en" data-seulement-en hidden>The videos are in French.</p>
 		</div>
 		<div class="ensemble">
 			<figure>
-				<video controls playsinline preload="none" poster="video/capsules/00-saison.jpg" aria-label="Une saison avec BaseballLineup">
-					<source src="video/capsules/00-saison.mp4" type="video/mp4">
-					<track kind="subtitles" src="video/capsules/00-saison.vtt" srclang="fr" label="Français">
+				<video controls playsinline preload="none" poster="video/capsules/00-saison.jpg" data-en-poster="video/capsules-en/00-saison.jpg" aria-label="Une saison avec BaseballLineup" data-en-aria-label="A season with BaseballLineup">
+					<source src="video/capsules/00-saison.mp4" data-en-src="video/capsules-en/00-saison.mp4" type="video/mp4">
+					<track kind="subtitles" src="video/capsules/00-saison.vtt" data-en-src="video/capsules-en/00-saison.vtt" srclang="fr" label="Français">
 				</video>
-				<figcaption><b data-en="A whole season with BaseballLineup">Une saison avec BaseballLineup</b><span>1 min 18</span></figcaption>
+				<figcaption><b data-en="A season with BaseballLineup">Une saison avec BaseballLineup</b><span data-en="1 min 12">1 min 18</span></figcaption>
 			</figure>
 		</div>
 	</div>
@@ -204,6 +203,23 @@ h1, h2, h3 { font-family: var(--titre); margin: 0; }
 	var textes = [].slice.call(document.querySelectorAll('[data-en]'));
 	textes.forEach(function (e) { e.setAttribute('data-fr', e.innerHTML); });
 	var TITRES = { fr: document.title, en: 'Video lessons — BaseballLineup' };
+	// Videos : en anglais, les fichiers anglais (meme video, affiche et sous-titres traduits).
+	function medias(l) {
+		[].forEach.call(document.querySelectorAll('video[data-en-poster]'), function (v) {
+			['poster', 'aria-label'].forEach(function (a) {
+				if (!v.hasAttribute('data-fr-' + a)) v.setAttribute('data-fr-' + a, v.getAttribute(a));
+				v.setAttribute(a, v.getAttribute((l === 'en' ? 'data-en-' : 'data-fr-') + a));
+			});
+			var change = false;
+			[].forEach.call(v.querySelectorAll('[data-en-src]'), function (s) {
+				if (!s.hasAttribute('data-fr-src')) s.setAttribute('data-fr-src', s.getAttribute('src'));
+				var src = s.getAttribute(l === 'en' ? 'data-en-src' : 'data-fr-src');
+				if (s.getAttribute('src') !== src) { s.setAttribute('src', src); change = true; }
+				if (s.tagName === 'TRACK') { s.setAttribute('srclang', l); s.setAttribute('label', l === 'en' ? 'English' : 'Français'); }
+			});
+			if (change) v.load();
+		});
+	}
 	function appliquer(l) {
 		document.documentElement.lang = l;
 		textes.forEach(function (e) { e.innerHTML = e.getAttribute(l === 'en' ? 'data-en' : 'data-fr'); });
@@ -212,6 +228,7 @@ h1, h2, h3 { font-family: var(--titre); margin: 0; }
 			a.setAttribute('href', a.getAttribute(l === 'en' ? 'data-en-href' : 'data-fr-href'));
 		});
 		[].forEach.call(document.querySelectorAll('[data-seulement-en]'), function (e) { e.hidden = l !== 'en'; });
+		medias(l);
 		document.title = TITRES[l];
 		bouton.textContent = l === 'en' ? 'FR' : 'EN';
 		bouton.setAttribute('aria-label', l === 'en' ? 'Version française' : 'English version');
