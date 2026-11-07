@@ -66,8 +66,80 @@ for (let i = 0; i < 9; i++) {
 	page = page.split(`{{ECRAN_${i}}}`).join(`<div aria-hidden="true">${ecran}</div>`);
 }
 page = page.split('{{TABLEAU_ORDI}}').join(tableau('ordi')).split('{{TABLEAU_TEL}}').join(tableau('tel'));
-if (/\{\{[A-Z_0-9]+\}\}/.test(page)) throw new Error('marqueur non remplace : ' + page.match(/\{\{[A-Z_0-9]+\}\}/)[0]);
-fs.writeFileSync(path.join(ICI, 'index.html'), page);
+// Referencement : une page par langue (index.html, en.html), memes adresses qu'apres la bascule a la racine.
+const SITE = 'https://www.baseballlineup.ca/';
+const META = {
+	fr: { url: SITE, titre: 'BaseballLineup — Lineup équitable pour le baseball mineur', image: SITE + 'og-image.png', locale: 'fr_CA',
+		desc: 'Lineup équitable selon les règles de Baseball Québec, lanceurs, feuilles de match, pratiques et Page Info Parents. Pour les coachs de baseball mineur, 7U à 15U.' },
+	en: { url: SITE + 'en.html', titre: 'BaseballLineup — Fair lineups for youth baseball', image: SITE + 'og-image-en.png', locale: 'en_CA',
+		desc: 'Fair lineups that follow Baseball Québec rules, pitchers, game sheets, practices and a Parent Info Page. For youth baseball coaches, 7U to 15U.' }
+};
+const attr = (t) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+const decode = (t) => t.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+const texte = (h) => decode(h.replace(/<span>\+<\/span>/g, '').replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim();
+// FAQ de la page (balises <details>) -> FAQPage pour Google et les IA.
+const faq = (l) => [...page.matchAll(/<details><summary data-en="([^"]*)">([\s\S]*?)<\/summary><p data-en="([^"]*)">([\s\S]*?)<\/p><\/details>/g)]
+	.map((m) => ({ '@type': 'Question', name: texte(l === 'en' ? m[1] : m[2]), acceptedAnswer: { '@type': 'Answer', text: texte(l === 'en' ? m[3] : m[4]) } }));
+const tete = (l) => {
+	const m = META[l];
+	const ld = [
+		{ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'BaseballLineup', url: m.url, image: m.image, description: m.desc,
+			applicationCategory: 'SportsApplication', operatingSystem: 'Web', inLanguage: l === 'en' ? 'en-CA' : 'fr-CA',
+			offers: { '@type': 'Offer', price: '0', priceCurrency: 'CAD' }, publisher: { '@type': 'Organization', name: 'BaseballLineup', url: SITE } },
+		{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq(l) }
+	];
+	return [`<title>${m.titre}</title>`, `<meta name="description" content="${attr(m.desc)}">`,
+		`<link rel="canonical" href="${m.url}">`, `<link rel="alternate" hreflang="fr-CA" href="${META.fr.url}">`,
+		`<link rel="alternate" hreflang="en-CA" href="${META.en.url}">`, `<link rel="alternate" hreflang="x-default" href="${META.fr.url}">`,
+		`<meta property="og:title" content="${attr(m.titre)}">`, `<meta property="og:description" content="${attr(m.desc)}">`,
+		`<meta property="og:type" content="website">`, `<meta property="og:url" content="${m.url}">`, `<meta property="og:site_name" content="BaseballLineup">`,
+		`<meta property="og:locale" content="${m.locale}">`, `<meta property="og:image" content="${m.image}">`,
+		`<meta property="og:image:width" content="1200">`, `<meta property="og:image:height" content="630">`,
+		`<meta name="twitter:card" content="summary_large_image">`, `<meta name="twitter:image" content="${m.image}">`,
+		`<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, () => String.fromCharCode(92) + 'u003c')}</script>`].join('\n');
+};
+page = page.split('{{TITRE_FR}}').join(META.fr.titre.replace(/'/g, "\\'")).split('{{TITRE_EN}}').join(META.en.titre.replace(/'/g, "\\'"));
+// Page anglaise : les textes data-en mis en place dans le HTML (les robots ne lancent pas toujours le JavaScript).
+// Le francais reste dans data-fr ; les textes des ecrans de l'app restent traduits par le script de la page.
+const BALISE = /<([a-zA-Z][\w-]*)((?:\s+[^\s=>"']+(?:="[^"]*")?)*)\s*>/g;
+function versAnglais(html) {
+	let sortie = '', i = 0;
+	BALISE.lastIndex = 0;
+	for (let m; (m = BALISE.exec(html)); ) {
+		const [ouv, nom] = m;
+		let attrs = m[2];
+		// Attributs doubles (lien, video, sous-titres) : la valeur anglaise en place, la francaise gardee.
+		attrs = attrs.replace(/\sdata-en-(href|poster|aria-label|src)="([^"]*)"/g, (x, a, v) => {
+			const orig = (attrs.match(new RegExp(`\\s${a}="([^"]*)"`)) || [])[1];
+			return orig === undefined ? x : ` data-fr-${a}="${orig}"` + x;
+		});
+		for (const a of ['href', 'poster', 'aria-label', 'src']) {
+			const en = (attrs.match(new RegExp(`\\sdata-en-${a}="([^"]*)"`)) || [])[1];
+			if (en !== undefined) attrs = attrs.replace(new RegExp(`(\\s)${a}="[^"]*"`), `$1${a}="${en}"`);
+		}
+		if (/\sdata-seulement-en\b/.test(attrs)) attrs = attrs.replace(/\shidden\b(?!=)/, '');
+		const en = (attrs.match(/\sdata-en="([^"]*)"/) || [])[1];
+		if (en === undefined) { sortie += html.slice(i, m.index) + `<${nom}${attrs}>`; i = m.index + ouv.length; continue; }
+		// Fermeture correspondante (meme balise, en tenant compte de l'imbrication).
+		const re = new RegExp(`<${nom}\\b|</${nom}>`, 'g');
+		re.lastIndex = m.index + ouv.length;
+		let prof = 1, f;
+		while (prof && (f = re.exec(html))) prof += f[0][1] === '/' ? -1 : 1;
+		if (!f) throw new Error('fermeture introuvable : ' + ouv.slice(0, 80));
+		const interieur = html.slice(m.index + ouv.length, f.index);
+		sortie += html.slice(i, m.index) + `<${nom}${attrs} data-fr="${attr(interieur)}">` + decode(en) + `</${nom}>`;
+		i = f.index + f[0].length;
+		BALISE.lastIndex = i;
+	}
+	return sortie + html.slice(i);
+}
+const pageEn = versAnglais(page.split('{{TETE}}').join(tete('en'))).replace('<html lang="fr">', '<html lang="en">');
+page = page.split('{{TETE}}').join(tete('fr'));
+for (const [nom, p] of [['index.html', page], ['en.html', pageEn]]) {
+	if (/\{\{[A-Z_0-9]+\}\}/.test(p)) throw new Error(`marqueur non remplace (${nom}) : ` + p.match(/\{\{[A-Z_0-9]+\}\}/)[0]);
+	fs.writeFileSync(path.join(ICI, nom), p);
+}
+console.log(`v2/en.html : ${Math.round(pageEn.length / 1024)} Ko`);
 // Garde-fou : les temoignages de maquette ne doivent pas partir a la bascule.
 if (page.includes('TEMOIGNAGES_FICTIFS')) console.warn('⚠ Témoignages FICTIFS dans la page : à remplacer par de vrais témoignages avant la bascule.');
 console.log(`v2/index.html : ${Math.round(page.length / 1024)} Ko (app : ${APP})`);
