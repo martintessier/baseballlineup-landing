@@ -5,12 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Apercu cache sur baseballlineup.ca/v2/ : a retirer le jour ou la v2 remplace la page d'accueil. -->
 <meta name="robots" content="noindex, nofollow">
-<title>BaseballLineup — Moins de gestion. Plus de baseball.</title>
-<meta name="description" content="Lineup, feuille de match, pratiques, parents et stats pour les coachs de baseball mineur, de 7U à 15U. En quelques clics, sur votre téléphone.">
-<meta property="og:title" content="BaseballLineup — Moins de gestion. Plus de baseball.">
-<meta property="og:description" content="Lineup, feuille de match, pratiques, parents et stats pour les coachs de baseball mineur.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.baseballlineup.ca/">
+{{TETE}}
 <meta name="theme-color" content="#2e5647">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232e5647'/%3E%3Crect x='11' y='11' width='10' height='10' rx='1.5' fill='%23fff' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -567,11 +562,11 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 	</div>
 </footer>
 <script>
-// Langue : choix memorise, sinon ?lang=en, sinon la langue du navigateur. Le francais est l'original.
+// Langue : une page par langue ; ?lang=en ou le choix memorise envoie vers en.html. Le francais est l'original.
 (function () {
 	var bouton = document.getElementById('langue');
 	var textes = [].slice.call(document.querySelectorAll('[data-en]'));
-	textes.forEach(function (e) { e.setAttribute('data-fr', e.innerHTML); });
+	textes.forEach(function (e) { if (!e.hasAttribute('data-fr')) e.setAttribute('data-fr', e.innerHTML); });
 
 	// Ecrans de l'app et feuille de match : textes traduits sur place (dictionnaire ECRANS_EN).
 	var ECRANS_EN = {"M1":"1","M2":"2","M3":"3","M4":"4","M5":"5","M6":"6","M1-M2":"Inn. 1-2","M3-M4":"Inn. 3-4","M5-M6":"Inn. 5-6","ENT":"HC","ADJ":"AC","Lineup · sam 14 juin":"Lineup · Sat Jun 14","Positions × manches":"Positions × innings","Banc":"Bench","Position en développement":"Development position","Préparer · sam 14 juin":"Prepare · Sat Jun 14","Présences":"Attendance","Réponses des parents, par la Page Info Parents":"Parent replies, through the Parent Info Page","présent":"in","absent":"out","+ 5 autres présents, dont":"+ 5 more in, including",", réserviste":", call-up player","Lanceurs":"Pitchers","Générer le lineup →":"Generate lineup →","N° partie :":"Game #:","Date :":"Date:","Équipe :":"Team:","Opposant :":"Opponent:","Division :":"Division:","Type :":"Type:","Saison régulière":"Regular season","☑ Receveur (domicile) ☐ Visiteur":"☑ Home ☐ Visitor","Alignement des frappeurs":"Batting lineup","Nom, prénom":"Last name, first name","Joueurs au banc par manche":"Players on the bench by inning","Aucun joueur 2 manches consécutives au banc.":"No player sits 2 innings in a row.","90 minutes · 3 coachs":"90 minutes · 3 coaches","Pratique · mardi 18h30":"Practice · Tue 6:30 PM","Activation":"Warm-up","Lancer-attraper":"Throw & catch","Cœur 1 · Défense":"Core 1 · Defense","Cœur 2 · Frappe":"Core 2 · Hitting","Retour au calme":"Cool-down","Conclusion":"Wrap-up","Exercice · Cœur 1":"Drill · Core 1","Relais au deuxième but":"Relay to second base","Meilleur soir de pratique":"Best practice night","Mardi soir":"Tuesday night","4 coachs sur 5":"4 of 5 coaches","Moy.":"AVG","CS":"H","PP":"RBI","Stats · 12 matchs":"Stats · 12 games","Répartition des manches":"Innings breakdown","Répartition équilibrée : 4 manches d'écart au plus.":"Balanced: 4 innings apart at most.","Avant-champ":"Infield","Champ ext.":"Outfield","Lanceur":"Pitcher","Receveur":"Catcher","Éligibilité aux séries":"Playoff eligibility","11 joueurs qualifiés":"11 players qualified","1 à surveiller":"1 to watch","Page Info Parents":"Parent Info Page","Bonjour Julie":"Hi Julie","Samedi · match":"Saturday · game","Arrivée 9h00":"Arrive 9:00 AM","Match 10h00 vs Faucons · Parc des Érables":"Game 10:00 AM vs Faucons · Parc des Érables","Léo sera là ?":"Will Léo be there?","Présent":"In","Absent":"Out","Nouveautés":"What's new","Fiche joueur":"Player","Au bâton · tracker":"At bat · tracker","Saison":"Season","5 derniers":"Last 5","Dernier":"Last game","MOY":"AVG","PAB":"AB","12 matchs suivis · présence sur les buts .386 · 3 BB · 5 K":"12 games tracked · on-base .386 · 3 BB · 5 K","Où il envoie la balle":"Where he hits the ball","Frappe surtout du côté où il tire (61 % des balles en jeu).":"Mostly pulls the ball (61% of balls in play).","Pourcentage des balles mises en jeu par zone (1 = lanceur … 9 = champ droit).":"Share of balls in play by zone (1 = pitcher … 9 = right field).","— lineup publié":"— lineup posted","Pratique de jeudi":"Thursday's practice","— nouvelle heure":"— new time","Apportez vos gourdes, il fera chaud.":"Bring water bottles, it'll be hot.","Accueil":"Home","Horaire":"Schedule","Plus":"More"};
@@ -584,7 +579,7 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		}
 	});
 	function traduireEcrans(l) { noeudsEcrans.forEach(function (x) { x[0].nodeValue = l === 'en' ? x[2] : x[1]; }); }
-	var TITRES = { fr: document.title, en: 'BaseballLineup — Less paperwork. More baseball.' };
+	var TITRES = { fr: '{{TITRE_FR}}', en: '{{TITRE_EN}}' };
 	// Videos : en anglais, les fichiers anglais (meme video, affiche et sous-titres traduits).
 	function medias(l) {
 		[].forEach.call(document.querySelectorAll('video[data-en-poster]'), function (v) {
@@ -616,15 +611,21 @@ h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em
 		bouton.textContent = l === 'en' ? 'FR' : 'EN';
 		bouton.setAttribute('aria-label', l === 'en' ? 'Version française' : 'English version');
 	}
+	// Une page par langue (index.html = francais, en.html = anglais, pages construites par construire.mjs) :
+	// les moteurs de recherche et les IA voient chacune dans sa langue. Pas de detection du navigateur
+	// (Googlebot est en anglais : il verrait la page francaise en anglais).
+	var page = document.documentElement.lang === 'en' ? 'en' : 'fr';
 	var choix = null;
 	try { choix = localStorage.getItem('blu-langue'); } catch (e) {}
 	var param = new URLSearchParams(location.search).get('lang');
-	var langue = param === 'en' || param === 'fr' ? param : choix || ((navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'fr');
-	if (langue === 'en') appliquer('en');
+	function aller(l) { location.replace((l === 'en' ? 'en.html' : './') + location.hash); }
+	if (page === 'fr' && (param === 'en' || (!param && choix === 'en'))) { aller('en'); return; }
+	if (page === 'en' && param === 'fr') { aller('fr'); return; }
+	if (page === 'en') appliquer('en');
 	bouton.addEventListener('click', function () {
-		var l = document.documentElement.lang === 'en' ? 'fr' : 'en';
-		appliquer(l);
+		var l = page === 'en' ? 'fr' : 'en';
 		try { localStorage.setItem('blu-langue', l); } catch (e) {}
+		location.href = (l === 'en' ? 'en.html' : './') + location.hash;
 	});
 })();
 </script>

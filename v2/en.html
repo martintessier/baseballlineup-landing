@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Apercu cache sur baseballlineup.ca/v2/ : a retirer le jour ou la v2 remplace la page d'accueil. -->
+<meta name="robots" content="noindex, nofollow">
+<title>BaseballLineup — Fair lineups for youth baseball</title>
+<meta name="description" content="Fair lineups that follow Baseball Québec rules, pitchers, game sheets, practices and a Parent Info Page. For youth baseball coaches, 7U to 15U.">
+<link rel="canonical" href="https://www.baseballlineup.ca/en.html">
+<link rel="alternate" hreflang="fr-CA" href="https://www.baseballlineup.ca/">
+<link rel="alternate" hreflang="en-CA" href="https://www.baseballlineup.ca/en.html">
+<link rel="alternate" hreflang="x-default" href="https://www.baseballlineup.ca/">
+<meta property="og:title" content="BaseballLineup — Fair lineups for youth baseball">
+<meta property="og:description" content="Fair lineups that follow Baseball Québec rules, pitchers, game sheets, practices and a Parent Info Page. For youth baseball coaches, 7U to 15U.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baseballlineup.ca/en.html">
+<meta property="og:site_name" content="BaseballLineup">
+<meta property="og:locale" content="en_CA">
+<meta property="og:image" content="https://www.baseballlineup.ca/og-image-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.baseballlineup.ca/og-image-en.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BaseballLineup","url":"https://www.baseballlineup.ca/en.html","image":"https://www.baseballlineup.ca/og-image-en.png","description":"Fair lineups that follow Baseball Québec rules, pitchers, game sheets, practices and a Parent Info Page. For youth baseball coaches, 7U to 15U.","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"en-CA","offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"publisher":{"@type":"Organization","name":"BaseballLineup","url":"https://www.baseballlineup.ca/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it work with my league?","acceptedAnswer":{"@type":"Answer","text":"If your league publishes its schedule online, you can import it when you create your team: games, tournaments and playoffs. Otherwise, you add your games yourself in a few minutes."}},{"@type":"Question","name":"Can my assistant coaches use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. Invite them by email: each one gets their own access, on their own phone. An assistant who doesn't want to use the app can still be listed on the game sheet."}},{"@type":"Question","name":"Do parents need to install an app?","acceptedAnswer":{"@type":"Answer","text":"No. They get a link that opens in their browser, with the team password. No account to create. They can add it to their home screen if they wish."}},{"@type":"Question","name":"Where is my data stored?","acceptedAnswer":{"@type":"Answer","text":"Your team's data is visible only to your coaches. Other families only see your child's first name and initial, and the team chat is deleted 30 days after the end of the season. The data is securely hosted in the United States."}}]}]</script>
+<meta name="theme-color" content="#2e5647">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232e5647'/%3E%3Crect x='11' y='11' width='10' height='10' rx='1.5' fill='%23fff' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Site vitrine v2 — maquette Claude Design (17 oct. 2026), couleurs et polices de l'app v2. */
+:root {
+	--fond: #f2f2ee; --blanc: #fff; --encre: #14171a; --doux: #5c655f; --pale: #939b95;
+	--trait: #d5d9d3; --terrain: #2e5647; --terrain-fonce: #234234; --ocre: #a1553d;
+	--carte-tinte: #f6faf7; --nuit: #14171a;
+	--titre: 'Space Grotesk', system-ui, sans-serif; --texte: 'Hanken Grotesk', system-ui, sans-serif; --mono: 'Space Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--fond); color: var(--encre); font-family: var(--texte); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; }
+a { color: inherit; }
+.contenu { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+section { padding: 112px 0; }
+.blanc { background: var(--blanc); border-top: 1px solid var(--trait); }
+.video { border-top: 1px solid var(--trait); }
+.video video { display: block; width: 100%; max-width: 960px; aspect-ratio: 16 / 9; margin-top: 32px; border-radius: 18px; background: var(--nuit); box-shadow: 0 24px 60px rgba(20, 23, 26, .16); }
+.vers-capsules { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 960px; margin-top: 20px; padding: 20px 24px; border: 1px solid var(--trait); border-radius: 16px; background: var(--blanc); text-decoration: none; transition: border-color .15s; }
+.vers-capsules:hover { border-color: var(--terrain); }
+.vers-capsules b { display: block; font: 700 17px var(--titre); }
+.vers-capsules > span > span { display: block; margin-top: 3px; font-size: 15px; color: var(--doux); }
+.vers-capsules .fleche { flex: 0 0 auto; font: 600 15px var(--titre); color: var(--terrain); }
+
+/* Entete */
+.entete { position: sticky; top: 0; z-index: 20; background: rgba(242, 242, 238, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--trait); }
+.entete .contenu { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+.marque { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 700 16px var(--titre); letter-spacing: -.01em; }
+.logo { width: 30px; height: 30px; border-radius: 8px; background: var(--terrain); display: grid; place-items: center; flex: 0 0 auto; }
+.logo i { width: 11px; height: 11px; background: #fff; border-radius: 2px; transform: rotate(45deg); }
+.nav { display: flex; gap: 32px; }
+.nav a { text-decoration: none; font: 500 14.5px var(--texte); }
+.nav a:hover { color: var(--terrain); }
+.connexion { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1px solid var(--trait); border-radius: 12px; text-decoration: none; font: 600 14.5px var(--titre); background: var(--blanc); }
+.connexion:hover { border-color: var(--terrain); }
+
+.entete-droite { display: flex; align-items: center; gap: 10px; }
+.langue { min-height: 36px; padding: 0 10px; border: 1px solid var(--trait); border-radius: 8px; background: transparent; font: 600 12px var(--mono); color: var(--doux); cursor: pointer; }
+.langue:hover { border-color: var(--terrain); color: var(--terrain); }
+.note-en { margin: 14px 0 0; font-size: 13.5px; color: var(--doux); }
+
+/* Boutons */
+.boutons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 54px; padding: 0 26px; border-radius: 12px; font: 600 16px var(--titre); text-decoration: none; border: 1px solid var(--trait); background: var(--blanc); }
+.btn.principal { background: var(--terrain); border-color: var(--terrain); color: #fff; }
+.btn.principal:hover { background: var(--terrain-fonce); }
+.btn:not(.principal):hover { border-color: var(--terrain); }
+
+/* Etiquettes et titres */
+.surtitre { font: 600 11px var(--titre); letter-spacing: .16em; text-transform: uppercase; color: var(--terrain); margin: 0 0 14px; }
+.marqueur { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; color: var(--terrain); }
+.marqueur span { width: 28px; height: 1.5px; background: currentColor; }
+.marqueur i { width: 7px; height: 7px; border: 1.5px solid currentColor; transform: rotate(45deg); }
+h1, h2, h3 { font-family: var(--titre); margin: 0; }
+h1 { font-weight: 700; font-size: 76px; line-height: 1; letter-spacing: -.035em; max-width: 600px; }
+h1 em { font-style: normal; color: var(--terrain); display: block; }
+h2 { font-weight: 700; font-size: 44px; line-height: 1.08; letter-spacing: -.025em; }
+h3 { font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -.02em; }
+.chapeau { font-size: 20px; line-height: 1.55; color: var(--doux); margin: 26px 0 0; max-width: 560px; }
+.intro { font-size: 18px; line-height: 1.55; color: var(--doux); margin: 20px 0 0; max-width: 560px; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding: 88px 0 104px; }
+.hero .contenu { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; position: relative; }
+.hero .deco { position: absolute; width: 760px; height: 760px; right: -120px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+.hero .telephone { display: flex; justify-content: center; position: relative; }
+
+.hero h1 { font-size: clamp(50px, 4.3vw, 62px); max-width: none; }
+/* Accueil : l'alignement en 2 ecrans (vue « Positions × manches » de l'app) */
+.deux-ecrans { position: relative; padding: 0 0 70px; }
+.ecran-ordi { background: var(--blanc); border: 1px solid var(--trait); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -34px rgba(20, 35, 28, .4); }
+.barre-fenetre { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; background: #ecebe6; border-bottom: 1px solid var(--trait); }
+.barre-fenetre i { width: 9px; height: 9px; border-radius: 50%; background: #d3d2cc; }
+.barre-fenetre span { margin-left: 10px; font: 400 10px var(--mono); color: var(--pale); }
+.ecran-ordi-corps { padding: 20px 22px 18px; }
+.pxm-sur { margin: 0; font: 400 9.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--doux); }
+.pxm-titre { margin: 3px 0 0; font: 700 18px var(--titre); }
+.pxm-section { margin: 14px 0 6px; font: 500 10.5px var(--titre); letter-spacing: .1em; text-transform: uppercase; color: var(--pale); }
+.pxm { border-collapse: collapse; font-family: var(--titre); }
+.pxm th, .pxm td { text-align: center; border-bottom: 1px solid #ebede8; }
+.pxm thead th { font-weight: 600; font-family: var(--mono); color: var(--pale); border-bottom: 1.5px solid var(--trait); }
+.pxm thead th:first-child, .pxm tbody th { text-align: left; }
+.pxm tbody th { font-weight: 700; color: var(--encre); }
+.pxm td { color: #3b433e; white-space: nowrap; }
+.pxm td b { font-weight: 500; color: var(--doux); }
+.pxm td.dev { background: #efe4d0; color: #8a6420; }
+.pxm td.dev b { color: #8a6420; }
+.pxm tr.banc th { color: var(--pale); font-weight: 600; }
+.pxm tr.banc td { border-bottom: 0; border-top: 1.5px solid var(--trait); }
+.pxm tr.banc span { color: var(--pale); text-decoration: underline dotted; text-underline-offset: 3px; }
+.pxm.ordi { width: 100%; table-layout: fixed; }
+.pxm.ordi th, .pxm.ordi td { padding: 6px 1px; font-size: 10.5px; letter-spacing: -.01em; }
+.pxm.ordi thead th:first-child, .pxm.ordi tbody th { width: 30px; }
+.pxm-legende { display: flex; align-items: center; gap: 7px; margin: 12px 0 0; font: 500 11.5px var(--texte); color: #8a6420; }
+.pxm-legende i { width: 13px; height: 13px; border-radius: 4px; background: #efe4d0; }
+/* Le telephone : meme vue, M1 a M4 visibles, la suite coupee a droite comme dans l'app (on fait defiler). */
+.ecran-tel { position: absolute; right: -26px; bottom: 0; width: 214px; background: #101312; border-radius: 34px; padding: 7px; box-shadow: 0 30px 60px -20px rgba(20, 35, 28, .5); }
+.ecran-tel-verre { background: var(--fond); border-radius: 28px; overflow: hidden; padding: 0 10px 14px 12px; }
+.ecran-tel .pxm-legende { font-size: 8.5px; margin-top: 8px; }
+.ecran-tel .pxm-legende i { width: 10px; height: 10px; border-radius: 3px; }
+.ecran-tel-heure { display: flex; justify-content: space-between; align-items: flex-end; height: 30px; padding: 0 18px 5px 8px; font: 600 11px var(--titre); }
+.ecran-tel-heure b { width: 17px; height: 8px; border: 1.3px solid var(--encre); border-radius: 2px; padding: 1px; background: linear-gradient(90deg, var(--encre) 75%, transparent 75%) content-box; }
+.ecran-tel .pxm-titre { font-size: 14px; }
+.ecran-tel .pxm-section { margin-top: 10px; font-size: 8.5px; }
+/* Comme l'app : une carte blanche, le tableau defile a l'interieur (coupe a droite). */
+.carte-tel { margin: 10px 0 0; background: var(--blanc); border: 1px solid #e3e5df; border-radius: 14px; padding: 10px 0 10px 8px; overflow: hidden; }
+.carte-tel .pxm-section { margin: 0 0 4px; }
+.defile { overflow: hidden; }
+.pxm.tel { width: 290px; table-layout: fixed; }
+.pxm.tel th, .pxm.tel td { padding: 4px 1px; font-size: 8.5px; line-height: 1.2; }
+.pxm.tel thead th:first-child, .pxm.tel tbody th { width: 22px; }
+.pxm.tel td b { display: block; font-size: 8.5px; color: var(--encre); font-weight: 600; }
+.pxm.tel td span { color: var(--doux); }
+.pxm.tel tr.banc span { display: block; }
+
+/* Probleme */
+.trois { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 46px; }
+.carte { background: var(--blanc); border: 1px solid var(--trait); border-radius: 18px; padding: 30px 28px; }
+.carte .num { font: 700 13px var(--mono); color: var(--ocre); }
+.carte h4 { margin: 16px 0 10px; font: 700 21px/1.2 var(--titre); letter-spacing: -.01em; }
+.carte p { margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--doux); }
+.ocre { color: var(--ocre); }
+
+/* Fonctionnalites */
+.outil { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 104px; }
+.outil:first-of-type { margin-top: 80px; }
+.outil.inverse .texte { order: 2; }
+.outil .texte p:not(.surtitre) { font-size: 18px; line-height: 1.55; color: var(--doux); margin: 22px 0 0; max-width: 460px; }
+.outil ul { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+.outil li { position: relative; padding-left: 22px; font-weight: 500; font-size: 15.5px; line-height: 1.45; }
+.outil li::before { content: ''; position: absolute; left: 2px; top: 6px; width: 8px; height: 8px; background: var(--terrain); transform: rotate(45deg); }
+.vitrine { background: var(--blanc); border: 1px solid var(--trait); border-radius: 24px; padding: 44px 24px; display: flex; justify-content: center; }
+.outil.inverse .vitrine { background: var(--carte-tinte); }
+
+/* Feuille de match (meme mise en page que la feuille officielle imprimee par l'app) */
+.vitrine.papier { padding: 36px 28px; }
+.feuille { width: 100%; max-width: 470px; background: #fff; color: #111; font: 400 11px/1.3 Arial, Helvetica, sans-serif; padding: 18px 16px 14px; border-radius: 4px; box-shadow: 0 18px 40px -18px rgba(20, 35, 28, .45), 0 1px 3px rgba(0, 0, 0, .08); transform: rotate(-1.2deg); }
+.f-entete { border: 2px solid #111; padding: 9px 10px 7px; }
+.f-entete b { font-size: 15px; }
+.f-champs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 16px; margin-top: 6px; }
+.f-champs span { border-bottom: 1px solid #bbb; padding-bottom: 2px; font-size: 10.5px; }
+.f-champs i { font-style: normal; font-size: 8px; font-weight: 700; text-transform: uppercase; color: #444; }
+.f-case { margin-top: 6px; font-size: 10px; }
+.f-bande { margin-top: 9px; background: #111; color: #fff; font: 700 9px Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 3px 6px; }
+.f-table { width: 100%; border-collapse: collapse; margin-top: 3px; }
+.f-table th, .f-table td { border: 1px solid #999; padding: 3px 4px; text-align: center; font-weight: 700; }
+.f-table th { background: #f0f0f0; font-size: 9.5px; text-transform: uppercase; }
+.f-table td.g, .f-table th.g { text-align: left; font-weight: 400; }
+.f-table td.d { text-align: right; }
+.f-table tr.f-sep td { border-top: 3px solid #333; }
+.f-banc td { font-weight: 400; font-size: 9.5px; }
+.f-banc td b { display: block; }
+.f-lr { margin-left: 18px; }
+.f-note { margin: 4px 0 0; text-align: center; font-size: 8.5px; font-style: italic; color: #666; }
+
+/* Etapes */
+.etape .rond { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--terrain); display: grid; place-items: center; font: 700 17px var(--mono); color: var(--terrain); background: var(--blanc); }
+.etape .rond.plein { background: var(--terrain); color: #fff; }
+.etape h4 { margin: 26px 0 8px; font: 700 19px var(--titre); }
+.etape p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--doux); }
+
+/* Page Info Parents */
+.parents { background: var(--terrain-fonce); color: #fff; }
+.parents .contenu { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: center; }
+.parents .surtitre { color: #9fc9b4; }
+.parents h2 { color: #fff; }
+.parents .intro { color: #c9d8cf; }
+.mini { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 34px; max-width: 500px; }
+.mini div { border: 1px solid rgba(255, 255, 255, .18); border-radius: 12px; padding: 16px; }
+.mini b { display: block; font: 700 15px var(--titre); }
+.mini span { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.45; color: #b9cbc0; }
+.parents .note { margin-top: 26px; font-weight: 500; font-size: 14px; color: #9fc9b4; }
+.parents .telephone { display: flex; justify-content: center; }
+
+/* Confiance */
+.confiance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+.confiance div { border-top: 2px solid var(--encre); padding-top: 30px; }
+.confiance h4 { margin: 0 0 12px; font: 700 20px var(--titre); }
+.confiance p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--doux); }
+
+.intro.pourquoi { max-width: 760px; font-size: 19px; }
+.confiance.defis { margin-top: 48px; }
+
+/* Temoignages */
+.temoins { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 46px; }
+.temoins > .temoin:only-child { grid-column: 1 / -1; max-width: 780px; }
+@media (min-width: 961px) { .temoins:has(> .temoin:nth-child(4)) { grid-template-columns: repeat(2, 1fr); } }
+.temoin.vedette { grid-column: 1 / -1; background: #f6faf7; border-color: #cfe0d6; }
+.temoin.vedette blockquote { font-size: 22px; }
+.temoin { border: 1px solid var(--trait); border-radius: 18px; padding: 32px; background: var(--blanc); display: flex; flex-direction: column; }
+.temoin .guillemet { font: 700 40px/24px var(--titre); color: var(--terrain); height: 24px; }
+.temoin blockquote { margin: 16px 0 26px; font: 500 20px/1.45 var(--titre); }
+.temoin .qui { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+.temoin .avatar { width: 40px; height: 40px; border-radius: 50%; background: #eaf1ed; color: var(--terrain); display: grid; place-items: center; font: 700 13px var(--titre); }
+.temoin b { display: block; font: 700 14.5px var(--titre); }
+.temoin small { font: 400 12px var(--mono); color: var(--doux); }
+
+/* FAQ */
+.faq .contenu { display: grid; grid-template-columns: 360px 1fr; gap: 80px; }
+.faq details { border-bottom: 1px solid var(--trait); }
+.faq details:first-child { border-top: 1px solid var(--trait); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 0; font: 600 18px var(--titre); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary span { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--trait); display: grid; place-items: center; color: var(--terrain); font: 500 16px var(--titre); transition: transform .2s; }
+.faq details[open] summary span { transform: rotate(45deg); }
+.faq details p { margin: 0; padding: 0 40px 22px 0; font-size: 15.5px; line-height: 1.6; color: var(--doux); }
+
+/* Appel final */
+.fin { padding: 0 0 112px; }
+.bloc-fin { position: relative; overflow: hidden; background: var(--nuit); border-radius: 28px; padding: 92px 32px; text-align: center; color: #fff; }
+.bloc-fin svg { position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; transform: translate(-50%, -50%); pointer-events: none; }
+.bloc-fin h2 { color: #fff; position: relative; }
+.bloc-fin p { position: relative; margin: 18px auto 0; max-width: 520px; font-size: 18px; line-height: 1.55; color: #b9c2bc; }
+.bloc-fin .btn { position: relative; margin-top: 34px; background: #fff; border-color: #fff; color: var(--terrain-fonce); }
+
+/* Pied */
+.pied { background: var(--blanc); border-top: 1px solid var(--trait); padding: 48px 0; }
+.pied .contenu { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.pied nav { display: flex; gap: 28px; flex-wrap: wrap; }
+.pied nav a { text-decoration: none; font: 500 14px var(--texte); color: var(--doux); }
+.pied nav a:hover { color: var(--terrain); }
+.pied small { font: 400 12px var(--mono); color: var(--doux); }
+
+/* Telephone et petits ecrans */
+@media (max-width: 960px) {
+	.contenu { padding: 0 20px; }
+	section { padding: 64px 0; }
+	.entete .contenu { height: 60px; }
+	.nav { display: none; }
+	.connexion { min-height: auto; padding: 0; border: 0; background: none; color: var(--terrain); font-size: 13px; }
+	h1 { font-size: 44px; letter-spacing: -.035em; }
+	h2 { font-size: 30px; }
+	h3 { font-size: 26px; }
+	.chapeau { font-size: 17px; margin-top: 20px; }
+	.intro, .outil .texte p:not(.surtitre) { font-size: 16px; }
+	.hero { padding: 44px 0 64px; }
+	.hero .contenu, .parents .contenu, .faq .contenu { grid-template-columns: 1fr; gap: 44px; }
+	.hero .deco { display: none; }
+	/* Telephone : seulement l'ecran du telephone, centre. */
+	.deux-ecrans { padding: 0; display: flex; justify-content: center; }
+	.ecran-ordi { display: none; }
+	.ecran-tel { position: static; width: 290px; }
+	.ecran-tel-verre { padding-bottom: 22px; }
+	.ecran-tel .pxm-legende { font-size: 10.5px; }
+	.pxm.tel { width: 400px; }
+	.pxm.tel th, .pxm.tel td { font-size: 10px; padding: 5px 1px; }
+	.pxm.tel td b { font-size: 10px; }
+	.boutons { flex-direction: column; align-items: flex-start; margin-top: 28px; }
+	.trois, .confiance, .temoins { grid-template-columns: 1fr; gap: 14px; }
+	.confiance { gap: 36px; }
+	.intro.pourquoi { font-size: 16.5px; }
+	.confiance.defis { margin-top: 32px; gap: 26px; }
+	.trois:has(.etape) { gap: 28px; }
+	.etape { display: grid; grid-template-columns: 48px 1fr; column-gap: 16px; }
+	.etape .rond { grid-row: span 2; }
+	.etape h4 { margin: 4px 0 6px; }
+	.outil, .outil.inverse { grid-template-columns: 1fr; gap: 32px; margin-top: 64px; }
+	.outil.inverse .texte { order: 0; }
+	.vitrine { padding: 28px 12px; border-radius: 20px; }
+	.vitrine.papier { padding: 24px 10px; }
+	.feuille { padding: 12px 10px 10px; font-size: 10px; transform: rotate(-.8deg); }
+	.f-champs { grid-template-columns: 1fr; }
+	.f-banc td, .f-banc th { padding: 3px 1px; font-size: 8.5px; }
+	.faq .contenu { gap: 20px; }
+	.faq summary { font-size: 16px; }
+	.fin { padding: 0 0 64px; }
+	.bloc-fin { padding: 64px 24px; border-radius: 22px; }
+	.bloc-fin svg { width: 380px; height: 380px; }
+	.pied { padding: 36px 0; }
+	.pied .contenu { flex-direction: column; align-items: flex-start; }
+	.vers-capsules { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px; }
+}
+@media (max-width: 360px) { .vitrine { padding: 24px 0; } }
+</style>
+</head>
+<body>
+
+<header class="entete">
+	<div class="contenu">
+		<a class="marque" href="#haut"><span class="logo"><i></i></span>BaseballLineup</a>
+		<nav class="nav" aria-label="Sections">
+			<a href="#fonctionnalites" data-en="Features" data-fr="Fonctionnalités">Features</a>
+			<a href="capsules.html" data-en="Videos" data-fr="Vidéos">Videos</a>
+			<a href="#parents">Parents</a>
+			<a href="#questions" data-en="FAQ" data-fr="Questions">FAQ</a>
+		</nav>
+		<div class="entete-droite"><button class="langue" id="langue" type="button" aria-label="English version">EN</button><a class="connexion" href="https://baseballlineup-v2.vercel.app/connexion" data-en="Sign in" data-fr="Se connecter">Sign in</a></div>
+	</div>
+</header>
+
+<main id="haut">
+<section class="hero">
+	<svg class="deco" viewBox="0 0 760 760" aria-hidden="true"><rect x="160" y="160" width="440" height="440" fill="none" stroke="#d5d9d3" stroke-width="1.5" transform="rotate(45 380 380)"/></svg>
+	<div class="contenu">
+		<div>
+			<p class="surtitre" data-en="For youth baseball coaches · 7U to 15U" data-fr="Pour les coachs de baseball mineur · 7U à 15U">For youth baseball coaches · 7U to 15U</p>
+			<h1 data-en="Less paperwork.<em>More baseball.</em>" data-fr="Moins de gestion.<em>Plus de baseball.</em>">Less paperwork.<em>More baseball.</em></h1>
+			<p class="chapeau" data-en="Lineups, game sheets, practices, parents and stats: in a few taps, on your phone." data-fr="Lineup, feuille de match, pratiques, parents et stats : en quelques clics, sur votre téléphone.">Lineups, game sheets, practices, parents and stats: in a few taps, on your phone.</p>
+			<div class="boutons">
+				<a class="btn principal" href="https://baseballlineup-v2.vercel.app/connexion?creer" data-en="Create my team →" data-fr="Créer mon équipe →">Create my team →</a>
+			</div>
+			<p class="note-en" data-seulement-en>The app is currently in French — English is coming soon.</p>
+		</div>
+		<!-- La vue « Positions × manches » de l'ecran Alignement de l'app, sur ordinateur et sur telephone. -->
+		<div class="deux-ecrans" role="img" aria-label="Exemple de lineup : positions par manche et joueurs au banc, sur ordinateur et sur téléphone">
+			<div class="ecran-ordi">
+				<div class="barre-fenetre"><i></i><i></i><i></i><span>baseballlineup</span></div>
+				<div class="ecran-ordi-corps">
+					<p class="pxm-sur">Lineup · sam 14 juin</p>
+					<p class="pxm-titre">vs Faucons 11UB2</p>
+					<p class="pxm-section">Positions × manches</p>
+					<table class="pxm ordi"><thead><tr><th>Pos</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th></tr></thead><tbody><tr><th>P</th><td><b>#1</b> <span>Mathis</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#34</b> <span>Arnaud</span></td><td><b>#34</b> <span>Arnaud</span></td><td><b>#8</b> <span>Jacob</span></td><td><b>#8</b> <span>Jacob</span></td></tr><tr><th>C</th><td class="dev"><b>#35</b> <span>Thomas</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#21</b> <span>Émile</span></td><td><b>#34</b> <span>Arnaud</span></td></tr><tr><th>1B</th><td><b>#8</b> <span>Jacob</span></td><td><b>#29</b> <span>Noah</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#21</b> <span>Émile</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#35</b> <span>Thomas</span></td></tr><tr><th>2B</th><td class="dev"><b>#7</b> <span>Édouard</span></td><td><b>#8</b> <span>Jacob</span></td><td><b>#29</b> <span>Noah</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#29</b> <span>Noah</span></td></tr><tr><th>3B</th><td><b>#21</b> <span>Émile</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#16</b> <span>Nathan</span></td></tr><tr><th>SS</th><td><b>#11</b> <span>Léo</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#11</b> <span>Léo</span></td></tr><tr><th>LF</th><td><b>#16</b> <span>Nathan</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#29</b> <span>Noah</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#21</b> <span>Émile</span></td></tr><tr><th>CF</th><td><b>#34</b> <span>Arnaud</span></td><td><b>#21</b> <span>Émile</span></td><td><b>#8</b> <span>Jacob</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#5</b> <span>Samuel</span></td></tr><tr><th>RF</th><td><b>#29</b> <span>Noah</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#34</b> <span>Arnaud</span></td><td><b>#1</b> <span>Mathis</span></td></tr><tr class="banc"><th>Banc</th><td><span>Samuel</span></td><td><span>Arnaud</span></td><td><span>Émile</span></td><td><span>Jacob</span></td><td><span>Noah</span></td><td><span>Édouard</span></td></tr></tbody></table>
+					<p class="pxm-legende"><i></i>Position en développement</p>
+				</div>
+			</div>
+			<div class="ecran-tel">
+				<div class="ecran-tel-verre">
+					<div class="ecran-tel-heure"><span>9:41</span><b></b></div>
+					<p class="pxm-sur">Lineup · sam 14 juin</p>
+					<p class="pxm-titre">vs Faucons 11UB2</p>
+					<div class="carte-tel">
+						<p class="pxm-section">Positions × manches</p>
+						<div class="defile"><table class="pxm tel"><thead><tr><th>Pos</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th></tr></thead><tbody><tr><th>P</th><td><b>#1</b> <span>Mathis</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#34</b> <span>Arnaud</span></td><td><b>#34</b> <span>Arnaud</span></td><td><b>#8</b> <span>Jacob</span></td><td><b>#8</b> <span>Jacob</span></td></tr><tr><th>C</th><td class="dev"><b>#35</b> <span>Thomas</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#21</b> <span>Émile</span></td><td><b>#34</b> <span>Arnaud</span></td></tr><tr><th>1B</th><td><b>#8</b> <span>Jacob</span></td><td><b>#29</b> <span>Noah</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#21</b> <span>Émile</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#35</b> <span>Thomas</span></td></tr><tr><th>2B</th><td class="dev"><b>#7</b> <span>Édouard</span></td><td><b>#8</b> <span>Jacob</span></td><td><b>#29</b> <span>Noah</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#29</b> <span>Noah</span></td></tr><tr><th>3B</th><td><b>#21</b> <span>Émile</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#16</b> <span>Nathan</span></td></tr><tr><th>SS</th><td><b>#11</b> <span>Léo</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#1</b> <span>Mathis</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#11</b> <span>Léo</span></td></tr><tr><th>LF</th><td><b>#16</b> <span>Nathan</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#29</b> <span>Noah</span></td><td><b>#7</b> <span>Édouard</span></td><td><b>#21</b> <span>Émile</span></td></tr><tr><th>CF</th><td><b>#34</b> <span>Arnaud</span></td><td><b>#21</b> <span>Émile</span></td><td><b>#8</b> <span>Jacob</span></td><td><b>#35</b> <span>Thomas</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#5</b> <span>Samuel</span></td></tr><tr><th>RF</th><td><b>#29</b> <span>Noah</span></td><td><b>#5</b> <span>Samuel</span></td><td><b>#16</b> <span>Nathan</span></td><td><b>#11</b> <span>Léo</span></td><td><b>#34</b> <span>Arnaud</span></td><td><b>#1</b> <span>Mathis</span></td></tr><tr class="banc"><th>Banc</th><td><span>Samuel</span></td><td><span>Arnaud</span></td><td><span>Émile</span></td><td><span>Jacob</span></td><td><span>Noah</span></td><td><span>Édouard</span></td></tr></tbody></table></div>
+						<p class="pxm-legende"><i></i>Position en développement</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="blanc">
+	<div class="contenu">
+		<div class="marqueur ocre"><span></span><i></i></div>
+		<p class="surtitre ocre" data-en="Why BaseballLineup" data-fr="Pourquoi BaseballLineup">Why BaseballLineup</p>
+		<h2 data-en="Coaching is much more than the field." data-fr="Coacher, c'est bien plus que le terrain.">Coaching is much more than the field.</h2>
+		<p class="intro pourquoi" data-en="A demanding commitment, between work and family life. BaseballLineup exists to support coaches and make their lives easier." data-fr="Un engagement exigeant, entre le travail et la vie de famille. BaseballLineup existe pour soutenir les coachs et leur simplifier la vie.">A demanding commitment, between work and family life. BaseballLineup exists to support coaches and make their lives easier.</p>
+		<div class="confiance defis">
+			<div><h4 data-en="Communication" data-fr="La communication">Communication</h4><p data-en="Reaching every parent, at the right time, with the right information." data-fr="Joindre tous les parents, au bon moment, avec la bonne information.">Reaching every parent, at the right time, with the right information.</p></div>
+			<div><h4 data-en="Expectations" data-fr="Les attentes">Expectations</h4><p data-en="Giving every player a fair chance, and being able to explain it." data-fr="Donner à chaque joueur sa chance, et pouvoir l'expliquer.">Giving every player a fair chance, and being able to explain it.</p></div>
+			<div><h4 data-en="Time" data-fr="Le temps">Time</h4><p data-en="Getting everything ready between work, family… and the next game." data-fr="Tout préparer entre le travail, la famille… et le prochain match.">Getting everything ready between work, family… and the next game.</p></div>
+		</div>
+	</div>
+</section>
+
+<!-- Video de presentation (Documentation/demo/video du depot de l'app, VITRINE=1) : chargee seulement au clic
+     (preload none + image d'apercu), hebergee ici (pas YouTube : aucun temoin de suivi), sous-titres pour le son coupe. -->
+<section id="video" class="video">
+	<div class="contenu">
+		<p class="surtitre" data-en="In one minute" data-fr="En une minute">In one minute</p>
+		<h2 data-en="See BaseballLineup in action." data-fr="Voyez BaseballLineup en action.">See BaseballLineup in action.</h2>
+		<video controls playsinline preload="none" poster="video/BaseballLineup-vitrine-en-apercu.jpg" data-fr-poster="video/BaseballLineup-vitrine-apercu.jpg" data-en-poster="video/BaseballLineup-vitrine-en-apercu.jpg" aria-label="BaseballLineup introduction video" data-fr-aria-label="Vidéo de présentation de BaseballLineup" data-en-aria-label="BaseballLineup introduction video">
+			<source src="video/BaseballLineup-vitrine-en-720.mp4" data-fr-src="video/BaseballLineup-vitrine-720.mp4" data-en-src="video/BaseballLineup-vitrine-en-720.mp4" type="video/mp4">
+			<track kind="subtitles" src="video/BaseballLineup-vitrine-en.vtt" data-fr-src="video/BaseballLineup-vitrine.vtt" data-en-src="video/BaseballLineup-vitrine-en.vtt" srclang="fr" label="Français">
+		</video>
+		<a class="vers-capsules" href="capsules.html">
+			<span><b data-en="Want to see more?" data-fr="Envie d’en voir plus ?">Want to see more?</b><span data-en="Eleven one-minute videos, tool by tool." data-fr="Onze capsules d’une minute, outil par outil.">Eleven one-minute videos, tool by tool.</span></span>
+			<span class="fleche" data-en="See the videos →" data-fr="Voir les capsules →">See the videos →</span>
+		</a>
+	</div>
+</section>
+
+<section id="fonctionnalites">
+	<div class="contenu">
+		<div class="marqueur"><span></span><i></i></div>
+		<p class="surtitre" data-en="Features" data-fr="Fonctionnalités">Features</p>
+		<h2 data-en="Five tools, one place." data-fr="Cinq outils, un seul endroit.">Five tools, one place.</h2>
+		<p class="intro" data-en="Five tools built for the reality of youth baseball. Everything works on your phone." data-fr="Cinq outils pensés pour la réalité du baseball mineur. Tout se fait sur le téléphone.">Five tools built for the reality of youth baseball. Everything works on your phone.</p>
+
+		<div class="outil">
+			<div class="texte">
+				<p class="surtitre">01 · Lineup</p>
+				<h3 data-en="A fair lineup, ready in one tap" data-fr="Un lineup équitable, prêt en un clic">A fair lineup, ready in one tap</h3>
+				<p data-en="The lineup is built from your player evaluations and the positions they should avoid." data-fr="Le lineup se construit à partir de l'évaluation de vos joueurs et de leurs positions à éviter.">The lineup is built from your player evaluations and the positions they should avoid.</p>
+				<ul><li data-en="Innings shared fairly among all players" data-fr="Manches réparties équitablement entre tous les joueurs">Innings shared fairly among all players</li><li data-en="Follows Baseball Québec rules: innings pitched and pitcher rest" data-fr="Respecte les règles de Baseball Québec : manches lancées et repos des lanceurs">Follows Baseball Québec rules: innings pitched and pitcher rest</li><li data-en="Adjust it with a single tap" data-fr="Modifiable d'un simple toucher">Adjust it with a single tap</li></ul>
+			</div>
+			<div class="vitrine"><div aria-hidden="true"><div style="width: 290px; flex: 0 0 auto; background: rgb(16, 19, 18); border-radius: 40px; padding: 8px;"><div style="background: rgb(242, 242, 238); border-radius: 33px; overflow: hidden; height: 586px; display: flex; flex-direction: column;"><div style="height: 34px; flex: 0 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0px 22px 6px; font: 600 12px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);"><span>9:41</span><span style="width: 20px; height: 10px; border: 1.4px solid rgb(20, 23, 26); border-radius: 3px; padding: 1px; display: inline-flex;"><i style="flex: 0 0 75%; background: rgb(20, 23, 26); border-radius: 1px; display: block;"></i></span></div><div style="flex: 1 1 0%; min-height: 0px; overflow: hidden; padding: 4px 12px 12px; display: flex; flex-direction: column; gap: 9px;"><!-- Ecran « Préparer » de l'app (recree pour la vitrine, meme match et memes joueurs que le lineup). --><div style="padding: 2px;"><div style="font: 400 9px &quot;Space Mono&quot;; letter-spacing: 0.06em; color: rgb(92, 101, 95); text-transform: uppercase;">Préparer · sam 14 juin</div><div style="font: 700 15px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); letter-spacing: -0.01em; margin-top: 2px;">vs Faucons 11UB2</div></div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 9px 10px 4px;"><div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font: 700 11px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Présences</span><span style="font: 700 9px &quot;Space Mono&quot;; color: rgb(46, 86, 71);">10 / 11</span></div><div style="font: 400 8.5px &quot;Hanken Grotesk&quot;; color: rgb(92, 101, 95); margin: 2px 0 5px;">Réponses des parents, par la Page Info Parents</div><div style="display: flex; align-items: center; gap: 7px; padding: 4px 6px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 8px; height: 8px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto; margin: 0 3px;"></span><span style="flex: 1; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Jacob F.</span></div><div style="display: flex; align-items: center; gap: 7px; padding: 4px 6px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 8px; height: 8px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto; margin: 0 3px;"></span><span style="flex: 1; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Samuel L.</span></div><div style="display: flex; align-items: center; gap: 7px; padding: 4px 6px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 8px; height: 8px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto; margin: 0 3px;"></span><span style="flex: 1; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Émile C.</span></div><div style="display: flex; align-items: center; gap: 7px; padding: 4px 6px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 8px; height: 8px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto; margin: 0 3px;"></span><span style="flex: 1; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Arnaud R.</span></div><div style="display: flex; align-items: center; gap: 7px; padding: 4px 6px; border-top: 1px solid rgba(20, 23, 26, 0.05); background: rgba(161, 85, 61, 0.08);"><span style="width: 8px; height: 8px; border-radius: 50%; background: rgb(161, 85, 61); flex: 0 0 auto; margin: 0 3px;"></span><span style="flex: 1; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(154, 161, 156); text-decoration: line-through;">Victor D.</span><span style="font: 600 8.5px &quot;Hanken Grotesk&quot;; color: rgb(161, 85, 61);">absent</span></div><div style="display: flex; align-items: center; gap: 7px; padding: 4px 6px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 8px; height: 8px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto; margin: 0 3px;"></span><span style="flex: 1; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Nathan P.</span></div><div style="padding: 5px 0 4px; border-top: 1px solid rgba(20, 23, 26, 0.05); font: 500 8.5px &quot;Hanken Grotesk&quot;; color: rgb(92, 101, 95);">+ 5 autres présents, dont <span style="color: rgb(46, 86, 71); font-weight: 700;">Thomas G. (LR)</span>, réserviste</div></div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 9px 10px;"><div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font: 700 11px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Lanceurs</span><span style="font: 700 8.5px &quot;Space Mono&quot;; padding: 2px 6px; border-radius: 5px; background: rgb(46, 86, 71); color: rgb(255, 255, 255);">2-2-2</span></div><div style="display: grid; grid-template-columns: 44px 1fr; gap: 4px 6px; margin-top: 7px; font: 500 9.5px &quot;Hanken Grotesk&quot;; color: rgb(20, 23, 26);"><span style="font: 700 8.5px &quot;Space Mono&quot;; color: rgb(154, 161, 156);">M1-M2</span><span>Mathis L.</span><span style="font: 700 8.5px &quot;Space Mono&quot;; color: rgb(154, 161, 156);">M3-M4</span><span>Arnaud R.</span><span style="font: 700 8.5px &quot;Space Mono&quot;; color: rgb(154, 161, 156);">M5-M6</span><span>Jacob F.</span></div></div><div style="margin-top: auto; background: rgb(46, 86, 71); color: rgb(255, 255, 255); border-radius: 11px; padding: 11px; text-align: center; font: 600 11.5px &quot;Space Grotesk&quot;;">Générer le lineup →</div></div></div></div>
+</div></div>
+		</div>
+
+		<div class="outil inverse">
+			<div class="texte">
+				<p class="surtitre" data-en="02 · Game sheet" data-fr="02 · Feuille de match">02 · Game sheet</p>
+				<h3 data-en="A clean sheet for the scorekeeper and the umpire" data-fr="Une feuille propre pour le marqueur et l'arbitre">A clean sheet for the scorekeeper and the umpire</h3>
+				<p data-en="No more last-minute scribbled sheets. The lineup comes out printed, readable and ready to hand in." data-fr="Fini la feuille gribouillée à la dernière minute. L'alignement sort imprimé, lisible, prêt à remettre.">No more last-minute scribbled sheets. The lineup comes out printed, readable and ready to hand in.</p>
+				<ul><li data-en="Batting order, jersey numbers and positions" data-fr="L'ordre au bâton, les numéros et les positions">Batting order, jersey numbers and positions</li><li data-en="The bench for every inning, already planned" data-fr="Le banc de chaque manche, déjà prévu">The bench for every inning, already planned</li><li data-en="The coaches on hand, listed on the sheet" data-fr="Les entraîneurs présents, inscrits sur la feuille">The coaches on hand, listed on the sheet</li></ul>
+			</div>
+			<!-- Recree d'apres la vraie feuille officielle (marqueur) de l'app, joueurs fictifs (ceux du lineup ci-dessus). -->
+			<div class="vitrine papier">
+				<div class="feuille" role="img" aria-label="Exemple de feuille officielle du marqueur imprimée par BaseballLineup">
+					<div class="f-entete">
+						<b>baseballlineup.ca</b>
+						<div class="f-champs">
+							<span><i>N° partie :</i> 1042</span><span><i>Date :</i> 2026-06-14</span>
+							<span><i>Équipe :</i> Aigles</span><span><i>Opposant :</i> Faucons</span>
+							<span><i>Division :</i> 11UB</span><span><i>Type :</i> Saison régulière</span>
+						</div>
+						<div class="f-case">☑ Receveur (domicile) &nbsp; ☐ Visiteur</div>
+					</div>
+					<div class="f-bande">Alignement des frappeurs</div>
+					<table class="f-table">
+						<thead><tr><th>BO</th><th>N°</th><th class="g">Nom, prénom</th><th>Pos</th><th>Pos</th></tr></thead>
+						<tbody>
+							<tr><td>1</td><td>8</td><td class="g">Fortin, Jacob</td><td>3</td><td>1B</td></tr>
+							<tr><td>2</td><td>5</td><td class="g">Lévesque, Samuel</td><td>—</td><td>Banc</td></tr>
+							<tr><td>3</td><td>34</td><td class="g">Roy, Arnaud</td><td>8</td><td>CF</td></tr>
+							<tr><td>4</td><td>21</td><td class="g">Côté, Émile</td><td>5</td><td>3B</td></tr>
+							<tr><td>5</td><td>16</td><td class="g">Paquette, Nathan</td><td>7</td><td>LF</td></tr>
+							<tr><td>6</td><td>11</td><td class="g">Bélanger, Léo</td><td>6</td><td>SS</td></tr>
+							<tr><td>7</td><td>7</td><td class="g">Gauthier, Édouard</td><td>4</td><td>2B</td></tr>
+							<tr><td>8</td><td>29</td><td class="g">Girard, Noah</td><td>9</td><td>RF</td></tr>
+							<tr><td>9</td><td>1</td><td class="g">Lavoie, Mathis</td><td>1</td><td>P</td></tr>
+							<tr><td>10</td><td>35</td><td class="g">Gagnon, Thomas <span class="f-lr">LR</span></td><td>2</td><td>C</td></tr>
+							<tr class="f-sep"><td></td><td>12</td><td class="g">Roy, Sophie</td><td colspan="2" class="d">ENT</td></tr>
+							<tr><td></td><td>27</td><td class="g">Lachance, Julie</td><td colspan="2" class="d">ADJ</td></tr>
+							<tr><td></td><td>9</td><td class="g">Gingras, Marc</td><td colspan="2" class="d">ADJ</td></tr>
+						</tbody>
+					</table>
+					<div class="f-bande">Joueurs au banc par manche</div>
+					<table class="f-table f-banc">
+						<thead><tr><th></th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th></tr></thead>
+						<tbody><tr><th>Banc</th><td><b>#5</b> Samuel</td><td><b>#34</b> Arnaud</td><td><b>#21</b> Émile</td><td><b>#8</b> Jacob</td><td><b>#29</b> Noah</td><td><b>#7</b> Édouard</td></tr></tbody>
+					</table>
+					<p class="f-note">Aucun joueur 2 manches consécutives au banc.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="outil">
+			<div class="texte">
+				<p class="surtitre" data-en="03 · Practices" data-fr="03 · Pratiques">03 · Practices</p>
+				<h3 data-en="Practice planning without the headache" data-fr="Une pratique planifiée sans casse-tête">Practice planning without the headache</h3>
+				<p data-en="A 90-minute practice split into blocks, with stations for each coach." data-fr="Une pratique de 90 minutes découpée en blocs, avec des stations pour chaque coach.">A 90-minute practice split into blocks, with stations for each coach.</p>
+				<ul><li data-en="A library of illustrated drills" data-fr="Un catalogue d'exercices illustrés">A library of illustrated drills</li><li data-en="The full plan on your phone, at the field" data-fr="Le plan au complet sur le téléphone, au terrain">The full plan on your phone, at the field</li><li data-en="A coach vote to find the best night" data-fr="Un vote entre coachs pour trouver le meilleur soir">A coach vote to find the best night</li></ul>
+			</div>
+			<div class="vitrine"><div aria-hidden="true"><div style="width: 290px; flex: 0 0 auto; background: rgb(16, 19, 18); border-radius: 40px; padding: 8px;"><div style="background: rgb(242, 242, 238); border-radius: 33px; overflow: hidden; height: 586px; display: flex; flex-direction: column;"><div style="height: 34px; flex: 0 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0px 22px 6px; font: 600 12px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);"><span>9:41</span><span style="width: 20px; height: 10px; border: 1.4px solid rgb(20, 23, 26); border-radius: 3px; padding: 1px; display: inline-flex;"><i style="flex: 0 0 75%; background: rgb(20, 23, 26); border-radius: 1px; display: block;"></i></span></div><div style="flex: 1 1 0%; min-height: 0px; overflow: hidden; padding: 4px 12px 12px; display: flex; flex-direction: column; gap: 9px;"><div style="padding: 2px;"><div style="font: 400 9px &quot;Space Mono&quot;; letter-spacing: 0.06em; color: rgb(92, 101, 95); text-transform: uppercase;">90 minutes · 3 coachs</div><div style="font: 700 15px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); letter-spacing: -0.01em; margin-top: 2px;">Pratique · mardi 18h30</div></div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 10px;"><div style="display: flex; height: 9px; border-radius: 5px; overflow: hidden; gap: 1.5px; margin-bottom: 9px;"><span style="flex: 5 1 0%; background: rgb(207, 213, 207); display: block;"></span><span style="flex: 10 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 3 1 0%; background: rgb(207, 213, 207); display: block;"></span><span style="flex: 15 1 0%; background: rgb(207, 213, 207); display: block;"></span><span style="flex: 2 1 0%; background: rgb(207, 213, 207); display: block;"></span><span style="flex: 20 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 3 1 0%; background: rgb(207, 213, 207); display: block;"></span><span style="flex: 20 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 7 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 5 1 0%; background: rgb(207, 213, 207); display: block;"></span></div><div style="display: flex; align-items: center; gap: 8px; padding: 4.5px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 5px; height: 5px; border-radius: 50%; background: rgb(207, 213, 207); flex: 0 0 auto;"></span><span style="flex: 1 1 0%; font: 500 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Introduction</span><span style="font: 600 9px &quot;Space Mono&quot;; color: rgb(92, 101, 95); width: 30px; text-align: right;">5 min</span></div><div style="display: flex; align-items: center; gap: 8px; padding: 4.5px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 5px; height: 5px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto;"></span><span style="flex: 1 1 0%; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Activation</span><span style="font: 600 8px &quot;Space Mono&quot;; color: rgb(46, 86, 71);">3 STATIONS</span><span style="font: 600 9px &quot;Space Mono&quot;; color: rgb(92, 101, 95); width: 30px; text-align: right;">10 min</span></div><div style="display: flex; align-items: center; gap: 8px; padding: 4.5px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 5px; height: 5px; border-radius: 50%; background: rgb(207, 213, 207); flex: 0 0 auto;"></span><span style="flex: 1 1 0%; font: 500 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Lancer-attraper</span><span style="font: 600 9px &quot;Space Mono&quot;; color: rgb(92, 101, 95); width: 30px; text-align: right;">15 min</span></div><div style="display: flex; align-items: center; gap: 8px; padding: 4.5px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 5px; height: 5px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto;"></span><span style="flex: 1 1 0%; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Cœur 1 · Défense</span><span style="font: 600 8px &quot;Space Mono&quot;; color: rgb(46, 86, 71);">3 STATIONS</span><span style="font: 600 9px &quot;Space Mono&quot;; color: rgb(92, 101, 95); width: 30px; text-align: right;">20 min</span></div><div style="display: flex; align-items: center; gap: 8px; padding: 4.5px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 5px; height: 5px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto;"></span><span style="flex: 1 1 0%; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Cœur 2 · Frappe</span><span style="font: 600 8px &quot;Space Mono&quot;; color: rgb(46, 86, 71);">3 STATIONS</span><span style="font: 600 9px &quot;Space Mono&quot;; color: rgb(92, 101, 95); width: 30px; text-align: right;">20 min</span></div><div style="display: flex; align-items: center; gap: 8px; padding: 4.5px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 5px; height: 5px; border-radius: 50%; background: rgb(46, 86, 71); flex: 0 0 auto;"></span><span style="flex: 1 1 0%; font: 600 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Retour au calme</span><span style="font: 600 8px &quot;Space Mono&quot;; color: rgb(46, 86, 71);">3 STATIONS</span><span style="font: 600 9px &quot;Space Mono&quot;; color: rgb(92, 101, 95); width: 30px; text-align: right;">10 min</span></div><div style="display: flex; align-items: center; gap: 8px; padding: 4.5px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05);"><span style="width: 5px; height: 5px; border-radius: 50%; background: rgb(207, 213, 207); flex: 0 0 auto;"></span><span style="flex: 1 1 0%; font: 500 10px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">Conclusion</span><span style="font: 600 9px &quot;Space Mono&quot;; color: rgb(92, 101, 95); width: 30px; text-align: right;">10 min</span></div></div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 9px;"><div style="display: flex; gap: 9px; align-items: center;"><div style="width: 44px; height: 38px; border-radius: 8px; background: rgb(234, 241, 237); flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"><div style="width: 12px; height: 12px; border: 1.5px solid rgb(46, 86, 71); transform: rotate(45deg);"></div></div><div style="flex: 1 1 0%; min-width: 0px;"><div style="font: 600 8.5px &quot;Space Mono&quot;; letter-spacing: 0.11em; text-transform: uppercase; color: rgb(124, 132, 126);">Exercice · Cœur 1</div><div style="font: 600 10.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); margin-top: 2px;">Relais au deuxième but</div></div></div></div><div style="background: rgb(20, 23, 26); border-radius: 12px; padding: 10px 11px;"><div style="font: 600 8.5px &quot;Space Mono&quot;; letter-spacing: 0.11em; text-transform: uppercase; color: rgb(139, 150, 143);">Meilleur soir de pratique</div><div style="display: flex; align-items: baseline; justify-content: space-between; margin-top: 4px;"><span style="font: 700 13px &quot;Space Grotesk&quot;; color: rgb(255, 255, 255);">Mardi soir</span><span style="font: 600 9.5px &quot;Space Mono&quot;; color: rgb(159, 201, 180);">4 coachs sur 5</span></div></div></div></div></div></div></div>
+		</div>
+
+		<div class="outil inverse">
+			<div class="texte">
+				<p class="surtitre" data-en="04 · Field tracker" data-fr="04 · Tracker terrain">04 · Field tracker</p>
+				<h3 data-en="Track every plate appearance" data-fr="Suivez chaque présence au bâton">Track every plate appearance</h3>
+				<p data-en="Record at-bat results during the game, right on your phone." data-fr="Notez les résultats au bâton pendant le match, directement sur le téléphone.">Record at-bat results during the game, right on your phone.</p>
+				<ul><li data-en="Batting average, hits and RBIs" data-fr="Moyenne, coups sûrs et points produits">Batting average, hits and RBIs</li><li data-en="A spray chart for each player" data-fr="Une carte de chaleur par joueur">A spray chart for each player</li><li data-en="A sentence that sums up each hitter's tendencies" data-fr="Une phrase qui résume ses tendances au bâton">A sentence that sums up each hitter's tendencies</li></ul>
+			</div>
+			<div class="vitrine"><div aria-hidden="true"><div style="width: 290px; flex: 0 0 auto; background: rgb(16, 19, 18); border-radius: 40px; padding: 8px;"><div style="background: rgb(242, 242, 238); border-radius: 33px; overflow: hidden; height: 586px; display: flex; flex-direction: column;"><div style="height: 34px; flex: 0 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0px 22px 6px; font: 600 12px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);"><span>9:41</span><span style="width: 20px; height: 10px; border: 1.4px solid rgb(20, 23, 26); border-radius: 3px; padding: 1px; display: inline-flex;"><i style="flex: 0 0 75%; background: rgb(20, 23, 26); border-radius: 1px; display: block;"></i></span></div><div style="flex: 1 1 0%; min-height: 0px; overflow: hidden; padding: 4px 12px 12px; display: flex; flex-direction: column; gap: 9px;"><div style="padding: 2px;"><div style="font: 400 9px &quot;Space Mono&quot;; letter-spacing: 0.06em; color: rgb(92, 101, 95); text-transform: uppercase;">Fiche joueur</div><div style="font: 700 15px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); letter-spacing: -0.01em; margin-top: 2px;">Nathan P. · #16</div></div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 10px 10px 10px;"><div style="font: 400 8px &quot;Space Grotesk&quot;; letter-spacing: 0.14em; color: rgb(147, 155, 149); text-transform: uppercase;">Au bâton · tracker</div><div style="display: flex; gap: 4px; margin-top: 6px;"><span style="font: 500 8.5px &quot;Hanken Grotesk&quot;; padding: 3px 8px; border-radius: 99px; background: rgb(46, 86, 71); color: rgb(255, 255, 255);">Saison</span><span style="font: 500 8.5px &quot;Hanken Grotesk&quot;; padding: 3px 8px; border-radius: 99px; border: 1px solid rgb(213, 217, 211); color: rgb(20, 23, 26);">5 derniers</span><span style="font: 500 8.5px &quot;Hanken Grotesk&quot;; padding: 3px 8px; border-radius: 99px; border: 1px solid rgb(213, 217, 211); color: rgb(20, 23, 26);">Dernier</span></div><div style="display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; margin-top: 9px;"><div><div style="font: 700 17px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); line-height: 1.1;">.341</div><div style="font: 400 8px &quot;Hanken Grotesk&quot;; color: rgb(147, 155, 149); margin-top: 1px;">MOY</div></div><div><div style="font: 700 17px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); line-height: 1.1;">41</div><div style="font: 400 8px &quot;Hanken Grotesk&quot;; color: rgb(147, 155, 149); margin-top: 1px;">PAB</div></div><div><div style="font: 700 17px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); line-height: 1.1;">14</div><div style="font: 400 8px &quot;Hanken Grotesk&quot;; color: rgb(147, 155, 149); margin-top: 1px;">CS</div></div><div><div style="font: 700 17px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); line-height: 1.1;">9</div><div style="font: 400 8px &quot;Hanken Grotesk&quot;; color: rgb(147, 155, 149); margin-top: 1px;">PP</div></div></div><div style="font: 400 8px &quot;Hanken Grotesk&quot;; color: rgb(147, 155, 149); margin-top: 5px;">12 matchs suivis · présence sur les buts .386 · 3 BB · 5 K</div><div style="border-top: 1px solid rgba(20, 23, 26, 0.06); margin-top: 8px; padding-top: 8px;"><div style="position: relative; width: 100%; padding-top: 78%;"><svg viewBox="0 0 100 82" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path d="M50,78 L8,44 Q50,4 92,44 Z" fill="#2e5647"></path><path d="M50,78 L70,60 L50,45 L30,60 Z" fill="#d8c3a0" stroke="#c4a274" stroke-width="0.5"></path><line x1="50" y1="78" x2="8" y2="44" stroke="#fff" stroke-width="0.4" opacity="0.6"></line><line x1="50" y1="78" x2="92" y2="44" stroke="#fff" stroke-width="0.4" opacity="0.6"></line><circle cx="50" cy="76" r="6.0" fill="#a1553d" opacity="0.18"></circle><circle cx="70" cy="71" r="7.0" fill="#a1553d" opacity="0.22"></circle><circle cx="59" cy="60" r="9.0" fill="#a1553d" opacity="0.29"></circle><circle cx="30" cy="71" r="9.0" fill="#a1553d" opacity="0.29"></circle><circle cx="41" cy="60" r="13.0" fill="#a1553d" opacity="0.43"></circle><circle cx="21" cy="47" r="15.0" fill="#a1553d" opacity="0.50"></circle><circle cx="50" cy="30" r="10.0" fill="#a1553d" opacity="0.32"></circle><circle cx="79" cy="47" r="7.0" fill="#a1553d" opacity="0.22"></circle></svg><div style="position: absolute; left: 50%; top: 76%; width: 18px; height: 18px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">1</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">3%</span></div><div style="position: absolute; left: 50%; top: 90%; width: 17px; height: 17px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(216, 205, 180); background: rgb(255, 255, 255); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(20, 23, 26);">2</span></div><div style="position: absolute; left: 70%; top: 71%; width: 20px; height: 20px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">3</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">6%</span></div><div style="position: absolute; left: 59%; top: 60%; width: 22px; height: 22px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">4</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">11%</span></div><div style="position: absolute; left: 30%; top: 71%; width: 22px; height: 22px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">5</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">11%</span></div><div style="position: absolute; left: 41%; top: 60%; width: 27px; height: 27px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">6</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">22%</span></div><div style="position: absolute; left: 21%; top: 47%; width: 30px; height: 30px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">7</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">28%</span></div><div style="position: absolute; left: 50%; top: 30%; width: 24px; height: 24px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">8</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">14%</span></div><div style="position: absolute; left: 79%; top: 47%; width: 20px; height: 20px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid rgb(20, 23, 26); background: rgb(20, 23, 26); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15);"><span style="font: 700 8.5px &quot;Space Grotesk&quot;; line-height: 1; color: rgb(232, 197, 71);">9</span><span style="font: 400 6px &quot;Hanken Grotesk&quot;; line-height: 1; color: rgba(255, 255, 255, 0.9); margin-top: 1px;">6%</span></div></div><div style="font: 600 10px &quot;Hanken Grotesk&quot;; color: rgb(20, 23, 26); margin-top: 6px;">Où il envoie la balle</div><div style="font: 400 9.5px &quot;Hanken Grotesk&quot;; color: rgb(92, 101, 95); margin-top: 2px;">Frappe surtout du côté où il tire (61 % des balles en jeu).</div><div style="font: 400 7.5px &quot;Hanken Grotesk&quot;; color: rgb(147, 155, 149); margin-top: 4px;">Pourcentage des balles mises en jeu par zone (1 = lanceur … 9 = champ droit).</div></div></div></div></div></div></div></div>
+		</div>
+
+		<div class="outil">
+			<div class="texte">
+				<p class="surtitre" data-en="05 · Stats" data-fr="05 · Statistiques">05 · Stats</p>
+				<h3 data-en="See whether everyone plays" data-fr="Voyez si tout le monde joue">See whether everyone plays</h3>
+				<p data-en="The numbers that matter to a youth baseball coach." data-fr="Les chiffres qui comptent pour un coach de baseball mineur.">The numbers that matter to a youth baseball coach.</p>
+				<ul><li data-en="Innings by position and attendance" data-fr="Manches par position et présence">Innings by position and attendance</li><li data-en="Playoff eligibility, before it's too late" data-fr="Éligibilité aux séries, avant qu'il soit trop tard">Playoff eligibility, before it's too late</li><li data-en="An end-of-season report for every player" data-fr="Rapport de fin de saison pour chaque joueur">An end-of-season report for every player</li></ul>
+			</div>
+			<div class="vitrine"><div aria-hidden="true"><div style="width: 290px; flex: 0 0 auto; background: rgb(16, 19, 18); border-radius: 40px; padding: 8px;"><div style="background: rgb(242, 242, 238); border-radius: 33px; overflow: hidden; height: 586px; display: flex; flex-direction: column;"><div style="height: 34px; flex: 0 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0px 22px 6px; font: 600 12px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);"><span>9:41</span><span style="width: 20px; height: 10px; border: 1.4px solid rgb(20, 23, 26); border-radius: 3px; padding: 1px; display: inline-flex;"><i style="flex: 0 0 75%; background: rgb(20, 23, 26); border-radius: 1px; display: block;"></i></span></div><div style="flex: 1 1 0%; min-height: 0px; overflow: hidden; padding: 4px 12px 12px; display: flex; flex-direction: column; gap: 9px;"><div style="padding: 2px;"><div style="font: 400 9px &quot;Space Mono&quot;; letter-spacing: 0.06em; color: rgb(92, 101, 95); text-transform: uppercase;">Stats · 12 matchs</div><div style="font: 700 15px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); letter-spacing: -0.01em; margin-top: 2px;">Répartition des manches</div></div><div style="font: 600 10.5px / 1.35 &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); padding: 0px 2px;">Répartition équilibrée : 4 manches d'écart au plus.</div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 10px;"><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Mathis L.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 14 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 10 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 6 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 0 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 6 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Émile C.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 16 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 8 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 4 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 2 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 6 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Noah G.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 10 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 8 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 0 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 8 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 8 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Nathan P.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 8 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 8 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 10 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 0 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 8 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Jacob F.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 10 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 6 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 0 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 6 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 10 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Samuel L.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 12 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 8 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 0 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 0 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 12 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Édouard G.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 8 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 10 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 0 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 0 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 14 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Léo B.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 6 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 12 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 0 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 0 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 14 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: grid; grid-template-columns: 62px minmax(0px, 1fr); gap: 7px; align-items: center; padding: 4px 0px;"><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Arnaud R.</span><div style="display: flex; height: 11px; border-radius: 3px; overflow: hidden; gap: 1px;"><span style="flex: 6 1 0%; background: rgb(46, 86, 71); display: block;"></span><span style="flex: 10 1 0%; background: rgb(111, 154, 134); display: block;"></span><span style="flex: 0 1 0%; background: rgb(35, 66, 52); display: block;"></span><span style="flex: 0 1 0%; background: rgb(169, 195, 182); display: block;"></span><span style="flex: 16 1 0%; background: rgb(218, 216, 208); display: block;"></span></div></div><div style="display: flex; flex-wrap: wrap; gap: 4px 9px; margin-top: 8px;"><span style="display: inline-flex; align-items: center; gap: 4px; font: 500 8.5px &quot;Space Grotesk&quot;; color: rgb(92, 101, 95);"><span style="width: 7px; height: 7px; border-radius: 2px; background: rgb(46, 86, 71);"></span>Avant-champ</span><span style="display: inline-flex; align-items: center; gap: 4px; font: 500 8.5px &quot;Space Grotesk&quot;; color: rgb(92, 101, 95);"><span style="width: 7px; height: 7px; border-radius: 2px; background: rgb(111, 154, 134);"></span>Champ ext.</span><span style="display: inline-flex; align-items: center; gap: 4px; font: 500 8.5px &quot;Space Grotesk&quot;; color: rgb(92, 101, 95);"><span style="width: 7px; height: 7px; border-radius: 2px; background: rgb(35, 66, 52);"></span>Lanceur</span><span style="display: inline-flex; align-items: center; gap: 4px; font: 500 8.5px &quot;Space Grotesk&quot;; color: rgb(92, 101, 95);"><span style="width: 7px; height: 7px; border-radius: 2px; background: rgb(169, 195, 182);"></span>Receveur</span><span style="display: inline-flex; align-items: center; gap: 4px; font: 500 8.5px &quot;Space Grotesk&quot;; color: rgb(92, 101, 95);"><span style="width: 7px; height: 7px; border-radius: 2px; background: rgb(218, 216, 208);"></span>Banc</span></div></div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 10px;"><div style="font: 600 8.5px &quot;Space Mono&quot;; letter-spacing: 0.11em; text-transform: uppercase; color: rgb(124, 132, 126);">Éligibilité aux séries</div><div style="display: flex; align-items: center; justify-content: space-between; margin-top: 5px;"><span style="font: 600 10.5px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);">11 joueurs qualifiés</span><span style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(161, 85, 61);">1 à surveiller</span></div></div></div></div></div></div></div>
+		</div>
+	</div>
+</section>
+
+<section class="blanc">
+	<div class="contenu">
+		<div class="marqueur"><span></span><i></i></div>
+		<p class="surtitre" data-en="How it works" data-fr="Comment ça marche">How it works</p>
+		<h2 data-en="Three steps and you're set." data-fr="Trois étapes, et c'est parti.">Three steps and you're set.</h2>
+		<div class="trois">
+			<div class="etape"><div class="rond">1</div><h4 data-en="Create your team" data-fr="Créez votre équipe">Create your team</h4><p data-en="From your league's schedule: your games and your players are added for you." data-fr="À partir du calendrier de votre ligue : vos matchs sont ajoutés pour vous ainsi que vos joueurs.">From your league's schedule: your games and your players are added for you.</p></div>
+			<div class="etape"><div class="rond">2</div><h4 data-en="Attendance" data-fr="Relevé des présences">Attendance</h4><p data-en="Parents mark attendance." data-fr="Les parents marquent les présences.">Parents mark attendance.</p></div>
+			<div class="etape"><div class="rond plein">3</div><h4 data-en="Your lineup is ready" data-fr="Votre lineup est prêt">Your lineup is ready</h4><p data-en="Generate and confirm." data-fr="Générez et validez.">Generate and confirm.</p></div>
+		</div>
+	</div>
+</section>
+
+<section class="parents" id="parents">
+	<div class="contenu">
+		<div>
+			<p class="surtitre" data-en="Parent Info Page" data-fr="Page Info Parents">Parent Info Page</p>
+			<h2 data-en="One link.<br>All the info in one place." data-fr="Un seul lien.<br>Toute l'info au même endroit.">One link.<br>All the info in one place.</h2>
+			<p class="intro" data-en="No more group chat that misses half the parents. Parents open one link, with no account or app to install, and get the whole season." data-fr="Fini le groupe de messagerie qui ne rejoint pas tout le monde. Les parents ouvrent un lien, sans compte ni application à installer, et ils ont la saison au complet.">No more group chat that misses half the parents. Parents open one link, with no account or app to install, and get the whole season.</p>
+			<div class="mini">
+				<div><b data-en="Schedule" data-fr="Horaire">Schedule</b><span data-en="Games, practices, arrival time" data-fr="Matchs, pratiques, heure d'arrivée">Games, practices, arrival time</span></div>
+				<div><b data-en="Attendance" data-fr="Présences">Attendance</b><span data-en="One tap: in or out" data-fr="Un geste : présent ou absent">One tap: in or out</span></div>
+				<div><b>Lineup</b><span data-en="30 min before the game, if you want" data-fr="30 min avant le match, si vous le voulez">30 min before the game, if you want</span></div>
+				<div><b data-en="Team chat" data-fr="Chat d'équipe">Team chat</b><span data-en="Messages, photos, files" data-fr="Messages, photos, fichiers">Messages, photos, files</span></div>
+			</div>
+		</div>
+		<div class="telephone"><div aria-hidden="true"><div style="width: 300px; flex: 0 0 auto; background: rgb(16, 19, 18); border-radius: 40px; padding: 8px;"><div style="background: rgb(242, 242, 238); border-radius: 33px; overflow: hidden; height: 606px; display: flex; flex-direction: column;"><div style="height: 34px; flex: 0 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0px 22px 6px; font: 600 12px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26);"><span>9:41</span><span style="width: 20px; height: 10px; border: 1.4px solid rgb(20, 23, 26); border-radius: 3px; padding: 1px; display: inline-flex;"><i style="flex: 0 0 75%; background: rgb(20, 23, 26); border-radius: 1px; display: block;"></i></span></div><div style="flex: 1 1 0%; min-height: 0px; overflow: hidden; padding: 4px 12px 12px; display: flex; flex-direction: column; gap: 9px;"><div style="padding: 2px;"><div style="font: 400 9px &quot;Space Mono&quot;; letter-spacing: 0.06em; color: rgb(92, 101, 95); text-transform: uppercase;">Page Info Parents</div><div style="font: 700 15px &quot;Space Grotesk&quot;; color: rgb(20, 23, 26); margin-top: 2px;">Bonjour Julie</div></div><div style="background: rgb(20, 23, 26); border-radius: 14px; padding: 12px;"><div style="font: 600 8.5px &quot;Space Mono&quot;; letter-spacing: 0.11em; text-transform: uppercase; color: rgb(139, 150, 143);">Samedi · match</div><div style="font: 700 22px &quot;Space Grotesk&quot;; color: rgb(255, 255, 255); margin-top: 5px; letter-spacing: -0.01em;">Arrivée 9h00</div><div style="font: 500 10.5px &quot;Space Grotesk&quot;; color: rgb(207, 214, 208); margin-top: 2px;">Match 10h00 vs Faucons · Parc des Érables</div><div style="margin-top: 7px; padding: 5px 8px; border-radius: 7px; background: rgba(255, 255, 255, 0.08); font: 400 9.5px &quot;Hanken Grotesk&quot;; color: rgba(255, 255, 255, 0.78);">Apportez vos gourdes, il fera chaud.</div><div style="font: 600 9.5px &quot;Space Grotesk&quot;; color: rgb(159, 201, 180); margin-top: 9px;">Léo sera là ?</div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 5px;"><span style="min-height: 34px; border-radius: 9px; background: rgb(74, 143, 111); color: rgb(12, 20, 16); font: 700 11px &quot;Space Grotesk&quot;; display: flex; align-items: center; justify-content: center;">Présent</span><span style="min-height: 34px; border-radius: 9px; border: 1px solid rgb(58, 66, 62); color: rgb(207, 214, 208); font: 600 11px &quot;Space Grotesk&quot;; display: flex; align-items: center; justify-content: center;">Absent</span></div></div><div style="background: rgb(255, 255, 255); border: 1px solid rgba(20, 23, 26, 0.08); border-radius: 13px; padding: 10px;"><div style="font: 600 8.5px &quot;Space Mono&quot;; letter-spacing: 0.11em; text-transform: uppercase; color: rgb(124, 132, 126);">Nouveautés</div><div style="padding: 7px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05); margin-top: 5px; display: flex; align-items: center; gap: 4px; font: 400 10px &quot;Hanken Grotesk&quot;; color: rgb(20, 23, 26);"><b style="font: 600 10.5px &quot;Space Grotesk&quot;;">vs Faucons</b><span>— lineup publié</span><span style="margin-left: auto; color: rgb(154, 161, 156);">›</span></div><div style="padding: 7px 0px; border-top: 1px solid rgba(20, 23, 26, 0.05); margin-top: 5px; display: flex; align-items: center; gap: 4px; font: 400 10px &quot;Hanken Grotesk&quot;; color: rgb(20, 23, 26);"><b style="font: 600 10.5px &quot;Space Grotesk&quot;;">Pratique de jeudi</b><span>— nouvelle heure</span><span style="margin-left: auto; color: rgb(154, 161, 156);">›</span></div></div><div style="margin-top: auto; display: flex; justify-content: space-around; padding-top: 6px; border-top: 1px solid rgba(20, 23, 26, 0.08);"><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font: 700 8.5px 'Space Grotesk'; color: rgb(20, 23, 26);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Accueil</span><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font: 500 8.5px 'Space Grotesk'; color: rgb(106, 114, 108);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6v14h16V6M8 3v6M16 3v6M8 13h3"/></svg>Horaire</span><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font: 500 8.5px 'Space Grotesk'; color: rgb(106, 114, 108);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg>Lineup</span><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font: 500 8.5px 'Space Grotesk'; color: rgb(106, 114, 108);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>Chat</span><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font: 500 8.5px 'Space Grotesk'; color: rgb(106, 114, 108);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Plus</span></div></div></div></div></div></div>
+	</div>
+</section>
+
+<section>
+	<div class="contenu confiance">
+		<div><h4 data-en="From 7U to 15U" data-fr="De 7U à 15U">From 7U to 15U</h4><p data-en="Every youth baseball age group, with its own number of innings and positions." data-fr="Toutes les catégories du baseball mineur, avec leurs nombres de manches et de positions.">Every youth baseball age group, with its own number of innings and positions.</p></div>
+		<div><h4 data-en="Your whole coaching staff" data-fr="Toute l'équipe d'entraîneurs">Your whole coaching staff</h4><p data-en="Your assistants work with you, each on their own phone." data-fr="Vos adjoints travaillent avec vous, chacun sur son téléphone.">Your assistants work with you, each on their own phone.</p></div>
+		<div><h4 data-en="Protected data" data-fr="Données protégées">Protected data</h4><p data-en="Only for the team's families, with a password. Kids appear by first name and initial only, and the chat is deleted 30 days after the season." data-fr="Réservé aux familles de l'équipe, avec un mot de passe. Les enfants n'y paraissent que par leur prénom et une initiale, et le chat est effacé 30 jours après la saison.">Only for the team's families, with a password. Kids appear by first name and initial only, and the chat is deleted 30 days after the season.</p></div>
+	</div>
+</section>
+
+<section class="blanc">
+	<div class="contenu">
+		<p class="surtitre" data-en="They use it" data-fr="Ils l'utilisent">They use it</p>
+		<h2 data-en="What coaches say." data-fr="Ce qu'en disent les coachs.">What coaches say.</h2>
+		<div class="temoins">
+			<!-- Vrais temoignages seulement (nom et equipe permis par le coach). JF Clement et Frederic Jean-Savard, 29 oct. 2026 ; Mathieu Vallee, 2 nov. 2026 ; Jacinthe Forest, 5 nov. 2026 ; Sebastien Gauthier et Vanessa Levesque (vedette), 7 nov. 2026 : leurs mots, coupes. -->
+			<figure class="temoin vedette" style="margin:0"><div class="guillemet">«</div><blockquote data-en="The app greatly simplified managing our lineups. It let us put the kids in the right positions at the right time, while making fair rotation easy. It's an excellent way to show parents concretely that rotations are done fairly and transparently. Baseball Lineup contributed, among other things, to a run that took us all the way to the regionals!" data-fr="L'application nous a grandement simplifié la gestion des alignements. Elle nous a permis de placer les jeunes aux bonnes positions, au bon moment, tout en facilitant une rotation équitable. C'est un excellent moyen de démontrer concrètement aux parents que les rotations sont faites de façon équitable et transparente. Baseball Lineup a contribué, entre autres, à notre parcours qui nous a menés jusqu'aux régionaux!">The app greatly simplified managing our lineups. It let us put the kids in the right positions at the right time, while making fair rotation easy. It's an excellent way to show parents concretely that rotations are done fairly and transparently. Baseball Lineup contributed, among other things, to a run that took us all the way to the regionals!</blockquote><figcaption class="qui"><span class="avatar">SV</span><span><b data-en="Sébastien Gauthier and Vanessa Lévesque" data-fr="Sébastien Gauthier et Vanessa Lévesque">Sébastien Gauthier and Vanessa Lévesque</b><small data-en="Head coach and assistant coach · Gaulois de Saint-Amable 11U B" data-fr="Coach en chef et coach adjointe · Gaulois de Saint-Amable 11U B">Head coach and assistant coach · Gaulois de Saint-Amable 11U B</small></span></figcaption></figure>
+			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="I used BaseballLineup to make sure positions were shared fairly among all the players, to prepare clear, structured lineups I could share with my assistant coaches, and to know exactly which player was on the bench each inning." data-fr="J'ai utilisé BaseballLineup pour assurer l'équité dans la répartition des positions pour tous les joueurs, préparer des alignements clairs et structurés que je pouvais partager avec mes entraîneurs adjoints, et identifier précisément quel joueur était sur le banc à chaque manche.">I used BaseballLineup to make sure positions were shared fairly among all the players, to prepare clear, structured lineups I could share with my assistant coaches, and to know exactly which player was on the bench each inning.</blockquote><figcaption class="qui"><span class="avatar">JC</span><span><b>Jean François Clément</b><small data-en="Head coach · Express 11U A" data-fr="Coach en chef · Express 11U A">Head coach · Express 11U A</small></span></figcaption></figure>
+			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="For player rotation and who sits on the bench, it saved me a lot of headaches." data-fr="Pour la rotation des joueurs et les joueurs sur le banc, ça m'a aidé à moins me casser la tête.">For player rotation and who sits on the bench, it saved me a lot of headaches.</blockquote><figcaption class="qui"><span class="avatar">FJ</span><span><b>Frédéric Jean-Savard</b><small data-en="Head coach · Aigles bleus 15U B" data-fr="Coach en chef · Aigles bleus 15U B">Head coach · Aigles bleus 15U B</small></span></figcaption></figure>
+			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="The app helped me get well prepared for games and manage my lineup. It's very handy for managing pitchers and the bench." data-fr="L'application m'a aidé à bien me préparer pour les matchs et bien gérer mon alignement. Très pratique pour la gestion des lanceurs et la gestion du banc.">The app helped me get well prepared for games and manage my lineup. It's very handy for managing pitchers and the bench.</blockquote><figcaption class="qui"><span class="avatar">MV</span><span><b>Mathieu Vallée</b><small data-en="Coach · Express 13U B" data-fr="Coach · Express 13U B">Coach · Express 13U B</small></span></figcaption></figure>
+			<figure class="temoin" style="margin:0"><div class="guillemet">«</div><blockquote data-en="BaseballLineup is a great app that saved me a lot of time on my lineups. Easy to use, with plenty of options to follow my season as a coach. The new features will put everything under one roof. Very satisfied!" data-fr="BaseballLineup est une super application qui m'a fait économiser beaucoup de temps pour mes alignements. Facile d'utilisation, avec beaucoup d'options pour bien suivre ma saison en tant que coach. Les nouvelles fonctionnalités me permettront d'avoir tout sous un même toit. Très satisfaite!">BaseballLineup is a great app that saved me a lot of time on my lineups. Easy to use, with plenty of options to follow my season as a coach. The new features will put everything under one roof. Very satisfied!</blockquote><figcaption class="qui"><span class="avatar">JF</span><span><b>Jacinthe Forest</b><small data-en="Assistant coach · Angels Rouge 11U B" data-fr="Coach adjointe · Angels Rouge 11U B">Assistant coach · Angels Rouge 11U B</small></span></figcaption></figure>
+		</div>
+	</div>
+</section>
+
+<section class="faq" id="questions">
+	<div class="contenu">
+		<div>
+			<div class="marqueur"><span></span><i></i></div>
+			<p class="surtitre" data-en="FAQ" data-fr="Questions">FAQ</p>
+			<h2 data-en="Frequently asked questions" data-fr="Questions fréquentes">Frequently asked questions</h2>
+		</div>
+		<div>
+			<details><summary data-en="Does it work with my league?<span>+</span>" data-fr="Ma ligue est-elle compatible ?<span>+</span>">Does it work with my league?<span>+</span></summary><p data-en="If your league publishes its schedule online, you can import it when you create your team: games, tournaments and playoffs. Otherwise, you add your games yourself in a few minutes." data-fr="Si votre ligue publie son calendrier en ligne, vous pouvez l'importer en créant votre équipe : matchs, tournois et séries. Sinon, vous ajoutez vos matchs vous-même, en quelques minutes.">If your league publishes its schedule online, you can import it when you create your team: games, tournaments and playoffs. Otherwise, you add your games yourself in a few minutes.</p></details>
+			<details><summary data-en="Can my assistant coaches use it?<span>+</span>" data-fr="Mes adjoints peuvent-ils y accéder ?<span>+</span>">Can my assistant coaches use it?<span>+</span></summary><p data-en="Yes. Invite them by email: each one gets their own access, on their own phone. An assistant who doesn't want to use the app can still be listed on the game sheet." data-fr="Oui. Invitez-les par courriel : chacun a son propre accès, sur son téléphone. Un adjoint qui ne veut pas utiliser l'application peut quand même figurer sur la feuille de match.">Yes. Invite them by email: each one gets their own access, on their own phone. An assistant who doesn't want to use the app can still be listed on the game sheet.</p></details>
+			<details><summary data-en="Do parents need to install an app?<span>+</span>" data-fr="Les parents doivent-ils installer une application ?<span>+</span>">Do parents need to install an app?<span>+</span></summary><p data-en="No. They get a link that opens in their browser, with the team password. No account to create. They can add it to their home screen if they wish." data-fr="Non. Ils reçoivent un lien qui s'ouvre dans leur navigateur, avec le mot de passe de l'équipe. Aucun compte à créer. Ils peuvent l'ajouter à leur écran d'accueil s'ils le souhaitent.">No. They get a link that opens in their browser, with the team password. No account to create. They can add it to their home screen if they wish.</p></details>
+			<details><summary data-en="Where is my data stored?<span>+</span>" data-fr="Où sont mes données ?<span>+</span>">Where is my data stored?<span>+</span></summary><p data-en="Your team's data is visible only to your coaches. Other families only see your child's first name and initial, and the team chat is deleted 30 days after the end of the season. The data is securely hosted in the United States." data-fr="Les données de votre équipe ne sont visibles que par vos entraîneurs. Les autres familles ne voient que le prénom et l'initiale de votre enfant, et le chat d'équipe est effacé 30 jours après la fin de la saison. Les données sont hébergées de façon sécurisée aux États-Unis.">Your team's data is visible only to your coaches. Other families only see your child's first name and initial, and the team chat is deleted 30 days after the end of the season. The data is securely hosted in the United States.</p></details>
+		</div>
+	</div>
+</section>
+
+<section class="fin">
+	<div class="contenu">
+		<div class="bloc-fin">
+			<svg viewBox="0 0 520 520" aria-hidden="true"><rect x="110" y="110" width="300" height="300" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5" transform="rotate(45 260 260)"/></svg>
+			<h2 data-en="Your next season starts here." data-fr="Votre prochaine saison commence ici.">Your next season starts here.</h2>
+			<p data-en="Create your team tonight. Your first lineup will be ready for the next game." data-fr="Créez votre équipe ce soir. Votre premier lineup sera prêt pour le prochain match.">Create your team tonight. Your first lineup will be ready for the next game.</p>
+			<a class="btn" href="https://baseballlineup-v2.vercel.app/connexion?creer" data-en="Create my team →" data-fr="Créer mon équipe →">Create my team →</a>
+		</div>
+	</div>
+</section>
+</main>
+
+<footer class="pied">
+	<div class="contenu">
+		<a class="marque" href="#haut"><span class="logo"><i></i></span>BaseballLineup</a>
+		<nav aria-label="Liens">
+			<a href="/contact.html">Contact</a>
+			<a href="/privacy-policy.html" data-fr-href="/politique-confidentialite.html" data-en-href="/privacy-policy.html" data-en="Privacy policy" data-fr="Politique de confidentialité">Privacy policy</a>
+		</nav>
+		<small>© 2026 BaseballLineup</small>
+	</div>
+</footer>
+<script>
+// Langue : une page par langue ; ?lang=en ou le choix memorise envoie vers en.html. Le francais est l'original.
+(function () {
+	var bouton = document.getElementById('langue');
+	var textes = [].slice.call(document.querySelectorAll('[data-en]'));
+	textes.forEach(function (e) { if (!e.hasAttribute('data-fr')) e.setAttribute('data-fr', e.innerHTML); });
+
+	// Ecrans de l'app et feuille de match : textes traduits sur place (dictionnaire ECRANS_EN).
+	var ECRANS_EN = {"M1":"1","M2":"2","M3":"3","M4":"4","M5":"5","M6":"6","M1-M2":"Inn. 1-2","M3-M4":"Inn. 3-4","M5-M6":"Inn. 5-6","ENT":"HC","ADJ":"AC","Lineup · sam 14 juin":"Lineup · Sat Jun 14","Positions × manches":"Positions × innings","Banc":"Bench","Position en développement":"Development position","Préparer · sam 14 juin":"Prepare · Sat Jun 14","Présences":"Attendance","Réponses des parents, par la Page Info Parents":"Parent replies, through the Parent Info Page","présent":"in","absent":"out","+ 5 autres présents, dont":"+ 5 more in, including",", réserviste":", call-up player","Lanceurs":"Pitchers","Générer le lineup →":"Generate lineup →","N° partie :":"Game #:","Date :":"Date:","Équipe :":"Team:","Opposant :":"Opponent:","Division :":"Division:","Type :":"Type:","Saison régulière":"Regular season","☑ Receveur (domicile) ☐ Visiteur":"☑ Home ☐ Visitor","Alignement des frappeurs":"Batting lineup","Nom, prénom":"Last name, first name","Joueurs au banc par manche":"Players on the bench by inning","Aucun joueur 2 manches consécutives au banc.":"No player sits 2 innings in a row.","90 minutes · 3 coachs":"90 minutes · 3 coaches","Pratique · mardi 18h30":"Practice · Tue 6:30 PM","Activation":"Warm-up","Lancer-attraper":"Throw & catch","Cœur 1 · Défense":"Core 1 · Defense","Cœur 2 · Frappe":"Core 2 · Hitting","Retour au calme":"Cool-down","Conclusion":"Wrap-up","Exercice · Cœur 1":"Drill · Core 1","Relais au deuxième but":"Relay to second base","Meilleur soir de pratique":"Best practice night","Mardi soir":"Tuesday night","4 coachs sur 5":"4 of 5 coaches","Moy.":"AVG","CS":"H","PP":"RBI","Stats · 12 matchs":"Stats · 12 games","Répartition des manches":"Innings breakdown","Répartition équilibrée : 4 manches d'écart au plus.":"Balanced: 4 innings apart at most.","Avant-champ":"Infield","Champ ext.":"Outfield","Lanceur":"Pitcher","Receveur":"Catcher","Éligibilité aux séries":"Playoff eligibility","11 joueurs qualifiés":"11 players qualified","1 à surveiller":"1 to watch","Page Info Parents":"Parent Info Page","Bonjour Julie":"Hi Julie","Samedi · match":"Saturday · game","Arrivée 9h00":"Arrive 9:00 AM","Match 10h00 vs Faucons · Parc des Érables":"Game 10:00 AM vs Faucons · Parc des Érables","Léo sera là ?":"Will Léo be there?","Présent":"In","Absent":"Out","Nouveautés":"What's new","Fiche joueur":"Player","Au bâton · tracker":"At bat · tracker","Saison":"Season","5 derniers":"Last 5","Dernier":"Last game","MOY":"AVG","PAB":"AB","12 matchs suivis · présence sur les buts .386 · 3 BB · 5 K":"12 games tracked · on-base .386 · 3 BB · 5 K","Où il envoie la balle":"Where he hits the ball","Frappe surtout du côté où il tire (61 % des balles en jeu).":"Mostly pulls the ball (61% of balls in play).","Pourcentage des balles mises en jeu par zone (1 = lanceur … 9 = champ droit).":"Share of balls in play by zone (1 = pitcher … 9 = right field).","— lineup publié":"— lineup posted","Pratique de jeudi":"Thursday's practice","— nouvelle heure":"— new time","Apportez vos gourdes, il fera chaud.":"Bring water bottles, it'll be hot.","Accueil":"Home","Horaire":"Schedule","Plus":"More"};
+	var noeudsEcrans = [];
+	[].forEach.call(document.querySelectorAll('.deux-ecrans, .vitrine, .telephone'), function (c) {
+		var w = document.createTreeWalker(c, NodeFilter.SHOW_TEXT), n;
+		while ((n = w.nextNode())) {
+			var cle = n.nodeValue.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+			if (ECRANS_EN[cle]) noeudsEcrans.push([n, n.nodeValue, n.nodeValue.replace(n.nodeValue.trim(), ECRANS_EN[cle])]);
+		}
+	});
+	function traduireEcrans(l) { noeudsEcrans.forEach(function (x) { x[0].nodeValue = l === 'en' ? x[2] : x[1]; }); }
+	var TITRES = { fr: 'BaseballLineup — Lineup équitable pour le baseball mineur', en: 'BaseballLineup — Fair lineups for youth baseball' };
+	// Videos : en anglais, les fichiers anglais (meme video, affiche et sous-titres traduits).
+	function medias(l) {
+		[].forEach.call(document.querySelectorAll('video[data-en-poster]'), function (v) {
+			['poster', 'aria-label'].forEach(function (a) {
+				if (!v.hasAttribute('data-fr-' + a)) v.setAttribute('data-fr-' + a, v.getAttribute(a));
+				v.setAttribute(a, v.getAttribute((l === 'en' ? 'data-en-' : 'data-fr-') + a));
+			});
+			var change = false;
+			[].forEach.call(v.querySelectorAll('[data-en-src]'), function (s) {
+				if (!s.hasAttribute('data-fr-src')) s.setAttribute('data-fr-src', s.getAttribute('src'));
+				var src = s.getAttribute(l === 'en' ? 'data-en-src' : 'data-fr-src');
+				if (s.getAttribute('src') !== src) { s.setAttribute('src', src); change = true; }
+				if (s.tagName === 'TRACK') { s.setAttribute('srclang', l); s.setAttribute('label', l === 'en' ? 'English' : 'Français'); }
+			});
+			if (change) v.load();
+		});
+	}
+	function appliquer(l) {
+		document.documentElement.lang = l;
+		textes.forEach(function (e) { e.innerHTML = e.getAttribute(l === 'en' ? 'data-en' : 'data-fr'); });
+		[].forEach.call(document.querySelectorAll('[data-en-href]'), function (a) {
+			if (!a.hasAttribute('data-fr-href')) a.setAttribute('data-fr-href', a.getAttribute('href'));
+			a.setAttribute('href', a.getAttribute(l === 'en' ? 'data-en-href' : 'data-fr-href'));
+		});
+		[].forEach.call(document.querySelectorAll('[data-seulement-en]'), function (e) { e.hidden = l !== 'en'; });
+		medias(l);
+		traduireEcrans(l);
+		document.title = TITRES[l];
+		bouton.textContent = l === 'en' ? 'FR' : 'EN';
+		bouton.setAttribute('aria-label', l === 'en' ? 'Version française' : 'English version');
+	}
+	// Une page par langue (index.html = francais, en.html = anglais, pages construites par construire.mjs) :
+	// les moteurs de recherche et les IA voient chacune dans sa langue. Pas de detection du navigateur
+	// (Googlebot est en anglais : il verrait la page francaise en anglais).
+	var page = document.documentElement.lang === 'en' ? 'en' : 'fr';
+	var choix = null;
+	try { choix = localStorage.getItem('blu-langue'); } catch (e) {}
+	var param = new URLSearchParams(location.search).get('lang');
+	function aller(l) { location.replace((l === 'en' ? 'en.html' : './') + location.hash); }
+	if (page === 'fr' && (param === 'en' || (!param && choix === 'en'))) { aller('en'); return; }
+	if (page === 'en' && param === 'fr') { aller('fr'); return; }
+	if (page === 'en') appliquer('en');
+	bouton.addEventListener('click', function () {
+		var l = page === 'en' ? 'fr' : 'en';
+		try { localStorage.setItem('blu-langue', l); } catch (e) {}
+		location.href = (l === 'en' ? 'en.html' : './') + location.hash;
+	});
+})();
+</script>
+</body>
+</html>
