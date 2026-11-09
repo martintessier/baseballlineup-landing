@@ -172,6 +172,7 @@ textarea { min-height: 140px; resize: vertical; }
 	var form = document.getElementById('formulaire');
 	var erreur = document.getElementById('erreur');
 	var envoyer = document.getElementById('envoyer');
+	var charge = Date.now();
 	form.addEventListener('submit', async function (ev) {
 		ev.preventDefault();
 		var d = Object.fromEntries(new FormData(form));
@@ -187,7 +188,7 @@ textarea { min-height: 140px; resize: vertical; }
 			var r = await fetch('/api/feedback', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ type: d.type, name: d.name.trim(), email: d.email.trim(), team: d.team.trim(), message: d.message.trim(), langue: l })
+				body: JSON.stringify({ type: d.type, name: d.name.trim(), email: d.email.trim(), team: d.team.trim(), message: d.message.trim(), langue: l, _gotcha: d._gotcha || '', duree: Date.now() - charge })
 			});
 			if (!r.ok) throw new Error(String(r.status));
 			form.hidden = true;

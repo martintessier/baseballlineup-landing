@@ -17,7 +17,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { type, name, email, team, message, langue } = req.body || {};
+  const { type, name, email, team, message, langue, _gotcha, duree } = req.body || {};
+  // Anti-robots : la page envoie toujours un sujet de la liste, le temps passe sur la page et la case piege vide.
+  // Un robot qui ecrit directement ici (sans la page) ou trop vite recoit « ok » mais rien n'est envoye.
+  if (_gotcha || !LIBELLES[type] || !(Number(duree) >= 3000)) {
+    return res.status(200).json({ ok: true });
+  }
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Champs manquants" });
   }
