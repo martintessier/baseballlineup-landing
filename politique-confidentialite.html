@@ -67,7 +67,7 @@ li { margin: 4px 0; }
 		<article>
 			<p class="surtitre">Confidentialité</p>
 			<h1>Politique de confidentialité et conditions d'utilisation</h1>
-			<p class="maj">baseballlineup.ca — Dernière mise à jour : octobre 2026 · Version 2.0</p>
+			<p class="maj">baseballlineup.ca — Dernière mise à jour : novembre 2026 · Version 2.2</p>
 
 			<section>
 				<h2>1. Qui sommes-nous</h2>
@@ -119,6 +119,7 @@ li { margin: 4px 0; }
 					<li>Générer les lineups, tenir l'horaire, les présences et les statistiques de l'équipe</li>
 					<li>Permettre la communication entre les familles et le personnel de l'équipe (chat, fichiers, notifications)</li>
 					<li>Assurer le bon fonctionnement et la sécurité de l'application</li>
+					<li>Écrire aux coachs : avis liés au service (début de saison, changement important) et, seulement à ceux qui l'ont accepté, les nouvelles de BaseballLineup quelques fois par année, avec un désabonnement en un clic</li>
 				</ul>
 				<p>Aucune publicité, aucune revente, aucun profilage.</p>
 			</section>
@@ -130,7 +131,8 @@ li { margin: 4px 0; }
 					<li><strong>Supabase</strong> — base de données et comptes des coachs (Virginie, États-Unis)</li>
 					<li><strong>Vercel</strong> — hébergement de l'application et de ce site (États-Unis)</li>
 					<li><strong>Cloudflare R2</strong> — photos et fichiers (Est de l'Amérique du Nord), dans un espace privé</li>
-					<li><strong>Resend</strong> — envoi des courriels, comme les codes de vérification et les messages de ce site (États-Unis)</li>
+					<li><strong>Amazon Web Services (Amazon SES)</strong> — envoi des courriels aux coachs, comme les codes de vérification (Canada)</li>
+					<li><strong>Resend</strong> — avis internes envoyés à l'administrateur de BaseballLineup et messages de ce site (États-Unis)</li>
 					<li><strong>Anthropic</strong> — assistance par intelligence artificielle, seulement si l'équipe l'utilise : les renseignements nécessaires à la demande (par exemple prénoms, positions et évaluations) sont transmis pour produire la réponse (États-Unis)</li>
 					<li>Les services de notification d'Apple, Google ou Mozilla, selon le téléphone, acheminent les notifications ; leur contenu est chiffré de bout en bout</li>
 				</ul>
@@ -167,6 +169,7 @@ li { margin: 4px 0; }
 					<li>Codes de vérification : valides 15 minutes, effacés après une journée</li>
 					<li>Questions posées à L'iArbitre (assistant sur le règlement) et l'avis « Cette réponse a été utile ? » : conservés 12 mois pour améliorer les réponses, puis effacés</li>
 					<li>Compte de coach : conservé tant qu'il est actif ; à sa suppression, les données associées sont supprimées dans un délai de 30 jours</li>
+					<li>Nom et courriel des coachs (liste de contacts) : conservés pour les avis liés au service et, si la personne l'a accepté, les nouvelles, même après la fin d'une saison ou la suppression d'une équipe ; retirés sur simple demande</li>
 				</ul>
 			</section>
 

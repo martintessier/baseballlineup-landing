@@ -70,9 +70,9 @@ page = page.split('{{TABLEAU_ORDI}}').join(tableau('ordi')).split('{{TABLEAU_TEL
 const SITE = 'https://www.baseballlineup.ca/';
 const META = {
 	fr: { url: SITE, titre: 'BaseballLineup — Lineup équitable pour le baseball mineur', image: SITE + 'og-image.png', locale: 'fr_CA',
-		desc: 'Lineup équitable selon les règles de Baseball Québec, lanceurs, feuilles de match, pratiques et Page Info Parents. Pour les coachs de baseball mineur, 7U à 15U.' },
+		desc: 'Lineup équitable selon les règles de Baseball Québec, lanceurs, feuilles de match, pratiques et Page Info Parents. Pour les coachs de baseball mineur, 7U à 21U.' },
 	en: { url: SITE + 'en.html', titre: 'BaseballLineup — Fair lineups for youth baseball', image: SITE + 'og-image-en.png', locale: 'en_CA',
-		desc: 'Fair lineups that follow Baseball Québec rules, pitchers, game sheets, practices and a Parent Info Page. For youth baseball coaches, 7U to 15U.' }
+		desc: 'Fair lineups that follow Baseball Québec rules, pitchers, game sheets, practices and a Parent Info Page. For youth baseball coaches, 7U to 21U.' }
 };
 const attr = (t) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const decode = (t) => t.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');

@@ -67,7 +67,7 @@ li { margin: 4px 0; }
 		<article>
 			<p class="surtitre">Privacy</p>
 			<h1>Privacy policy and terms of use</h1>
-			<p class="maj">baseballlineup.ca — Last updated: October 2026 · Version 2.0</p>
+			<p class="maj">baseballlineup.ca — Last updated: November 2026 · Version 2.2</p>
 
 			<section>
 				<h2>1. Who we are</h2>
@@ -119,6 +119,7 @@ li { margin: 4px 0; }
 					<li>Generate lineups and keep the team's schedule, attendance and stats</li>
 					<li>Enable communication between families and the team staff (chat, files, notifications)</li>
 					<li>Ensure the app works properly and securely</li>
+					<li>Emailing coaches: service notices (season start, important changes) and, only to those who agreed, BaseballLineup news a few times a year, with one-click unsubscribe</li>
 				</ul>
 				<p>No advertising, no resale, no profiling.</p>
 			</section>
@@ -130,7 +131,8 @@ li { margin: 4px 0; }
 					<li><strong>Supabase</strong> — database and coach accounts (Virginia, United States)</li>
 					<li><strong>Vercel</strong> — hosting of the app and this website (United States)</li>
 					<li><strong>Cloudflare R2</strong> — photos and files (Eastern North America), in private storage</li>
-					<li><strong>Resend</strong> — email delivery, such as verification codes and messages from this website (United States)</li>
+					<li><strong>Amazon Web Services (Amazon SES)</strong> — sending emails to coaches, such as verification codes (Canada)</li>
+					<li><strong>Resend</strong> — internal notices sent to the BaseballLineup administrator and messages from this website (United States)</li>
 					<li><strong>Anthropic</strong> — artificial intelligence assistance, only if the team uses it: the information needed for the request (for example first names, positions and evaluations) is sent to produce the answer (United States)</li>
 					<li>Apple, Google or Mozilla notification services, depending on the phone, deliver notifications; their content is end-to-end encrypted</li>
 				</ul>
@@ -167,6 +169,7 @@ li { margin: 4px 0; }
 					<li>Verification codes: valid 15 minutes, deleted after one day</li>
 					<li>Questions asked to L'iArbitre (the rulebook assistant) and the "Was this answer helpful?" feedback: kept 12 months to improve answers, then deleted</li>
 					<li>Coach account: kept while active; when deleted, the associated data is deleted within 30 days</li>
+					<li>Coaches' names and emails (contact list): kept for service notices and, if the person agreed, news, even after a season ends or a team is deleted; removed on simple request</li>
 				</ul>
 			</section>
 
