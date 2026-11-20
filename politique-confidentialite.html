@@ -39,6 +39,11 @@ ul { margin: 0 0 12px; padding-left: 22px; }
 li { margin: 4px 0; }
 .etiquette { font-weight: 600; color: var(--encre); margin: 14px 0 4px; }
 .pied-article { margin-top: 32px; text-align: center; font-size: 13px; font-style: italic; color: var(--pale); }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+.connexion { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1px solid var(--trait); border-radius: 12px; text-decoration: none; font: 600 14.5px var(--titre); color: var(--encre); background: var(--blanc); }
+.connexion:hover { border-color: var(--terrain); }
+@media (max-width: 960px) { .connexion { min-height: auto; padding: 0; border: 0; background: none; color: var(--terrain); font-size: 13px; } }
 .pied { background: var(--blanc); border-top: 1px solid var(--trait); padding: 48px 0; }
 .pied .contenu { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .pied nav { display: flex; gap: 28px; flex-wrap: wrap; }
@@ -62,7 +67,7 @@ li { margin: 4px 0; }
 		<a class="marque" href="/"><span class="logo"><i></i></span>BaseballLineup</a>
 		<div class="droite">
 			<a class="langue" href="/privacy-policy.html" aria-label="English version">EN</a>
-			<a class="retour" href="/">← Retour au site</a>
+			<a class="connexion" href="https://baseballlineup-v2.vercel.app/connexion">Se connecter</a>
 		</div>
 	</div>
 </header>

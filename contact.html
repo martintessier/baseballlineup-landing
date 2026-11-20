@@ -51,6 +51,11 @@ textarea { min-height: 140px; resize: vertical; }
 .merci .rond { width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 50%; background: #eaf1ed; color: var(--terrain); display: grid; place-items: center; font: 700 22px var(--titre); }
 .merci h2 { margin: 0 0 8px; font: 700 24px var(--titre); }
 .merci p { margin: 0 0 22px; color: var(--doux); }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+.connexion { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1px solid var(--trait); border-radius: 12px; text-decoration: none; font: 600 14.5px var(--titre); color: var(--encre); background: var(--blanc); }
+.connexion:hover { border-color: var(--terrain); }
+@media (max-width: 960px) { .connexion { min-height: auto; padding: 0; border: 0; background: none; color: var(--terrain); font-size: 13px; } }
 .pied { background: var(--blanc); border-top: 1px solid var(--trait); padding: 48px 0; }
 .pied .contenu { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .pied nav { display: flex; gap: 28px; flex-wrap: wrap; }
@@ -76,7 +81,7 @@ textarea { min-height: 140px; resize: vertical; }
 		<a class="marque" href="/"><span class="logo"><i></i></span>BaseballLineup</a>
 		<div class="droite">
 			<button class="langue" id="langue" type="button" aria-label="English version">EN</button>
-			<a class="retour" href="/" data-en="← Back to the site">← Retour au site</a>
+			<a class="connexion" href="https://baseballlineup-v2.vercel.app/connexion" data-en="Sign in">Se connecter</a>
 		</div>
 	</div>
 </header>
