@@ -1,8 +1,8 @@
 # BaseballLineup
 
-> BaseballLineup est une application web en français pour les coachs de baseball mineur au Québec (catégories 7U à 15U). Elle prépare des lineups équitables qui respectent les règlements de Baseball Québec, et regroupe la gestion de la saison au même endroit. Créée au Québec par un coach de baseball mineur. Gratuite pour la saison 2027. Non affiliée à Baseball Québec.
+> BaseballLineup est une application web en français pour les coachs de baseball mineur au Québec (catégories 7U à 21U). Elle prépare des lineups équitables qui respectent les règlements de Baseball Québec, et regroupe la gestion de la saison au même endroit. Créée au Québec par un coach de baseball mineur. Gratuite pour la saison 2027. Non affiliée à Baseball Québec.
 
-BaseballLineup is a French-language web app for youth baseball coaches in Québec, Canada (7U to 15U). It builds fair lineups that follow Baseball Québec rules and keeps the whole season in one place. An English version is coming.
+BaseballLineup is a French-language web app for youth baseball coaches in Québec, Canada (7U to 21U). It builds fair lineups that follow Baseball Québec rules and keeps the whole season in one place. An English version is coming.
 
 ## Ce que fait l'application
 
