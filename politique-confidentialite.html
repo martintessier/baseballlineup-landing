@@ -39,9 +39,13 @@ ul { margin: 0 0 12px; padding-left: 22px; }
 li { margin: 4px 0; }
 .etiquette { font-weight: 600; color: var(--encre); margin: 14px 0 4px; }
 .pied-article { margin-top: 32px; text-align: center; font-size: 13px; font-style: italic; color: var(--pale); }
-.pied { border-top: 1px solid var(--trait); background: var(--blanc); padding: 28px 0; }
-.pied .contenu { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--doux); }
-.pied a { text-decoration: none; color: var(--doux); }
+.pied { background: var(--blanc); border-top: 1px solid var(--trait); padding: 48px 0; }
+.pied .contenu { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.pied nav { display: flex; gap: 28px; flex-wrap: wrap; }
+.pied nav a { text-decoration: none; font: 500 14px var(--texte); color: var(--doux); }
+.pied nav a:hover { color: var(--terrain); }
+.pied small { font: 400 12px var(--mono); color: var(--doux); }
+@media (max-width: 960px) { .pied { padding: 36px 0; } .pied .contenu { flex-direction: column; align-items: flex-start; } }
 @media (max-width: 860px) {
 	.contenu { padding: 0 20px; }
 	.entete .contenu { height: 60px; }
@@ -206,7 +210,14 @@ li { margin: 4px 0; }
 	</div>
 </main>
 <footer class="pied">
-	<div class="contenu"><span>© 2026 BaseballLineup</span><a href="/contact.html">Nous écrire</a></div>
+	<div class="contenu">
+		<a class="marque" href="/"><span class="logo"><i></i></span>BaseballLineup</a>
+		<nav aria-label="Liens">
+			<a href="/contact.html?lang=fr">Contact</a>
+			<a href="/politique-confidentialite.html">Politique de confidentialité</a>
+		</nav>
+		<small>© 2026 BaseballLineup</small>
+	</div>
 </footer>
 <script>
 // Retenir la langue choisie (meme cle que le site) quand on change de version.
