@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ICI = path.dirname(fileURLToPath(import.meta.url));
-const APP = process.env.APP ?? 'https://baseballlineup-v2.vercel.app';
+const APP = process.env.APP ?? 'https://app.baseballlineup.ca';
 // Memes traces que ONGLETS dans v2/src/routes/presences/[jeton]/+page.svelte (app).
 const ONGLETS = [
 	['Accueil', 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z'],

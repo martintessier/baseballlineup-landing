@@ -18,6 +18,6 @@ BaseballLineup is a French-language web app for youth baseball coaches in Québe
 ## Liens
 
 - [Site](https://www.baseballlineup.ca/)
-- [Application](https://baseballlineup-v2.vercel.app/)
+- [Application](https://app.baseballlineup.ca/)
 - [Contact](https://www.baseballlineup.ca/contact.html)
 - [Politique de confidentialité](https://www.baseballlineup.ca/politique-confidentialite.html)
